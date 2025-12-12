@@ -1,0 +1,19 @@
+# Changelog
+
+## [0.1.0] - 2025-11-20
+### Criado programa para Data show
+- Arquivo principal `programaigreja.py`
+
+---
+
+## [0.2.0] - 2025-12-12
+### Changed
+- Adicinado Módulos auxiliares `dados.py` e `slide.py`
+- Removido pasta `Harpa Crista 640 DataShow – PowerPoint`
+- Pasta mantida `BS Para DataShow – PowerPoint` 
+- Adicionado pasta `HarpaTexto`
+- Melhorias na leitura de arquivos da pasta HarpaTexto
+- Atualização da interface de slides
+
+### Fixed
+- Ajustado tamanho de letras na segunda tela para tamanho 4:3
