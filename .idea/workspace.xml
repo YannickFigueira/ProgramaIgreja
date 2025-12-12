@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="347fbf56-418b-43af-b555-4da948a507df" name="Changes" comment="Criado slides para os hinos da harpa">
+    <list default="true" id="347fbf56-418b-43af-b555-4da948a507df" name="Changes" comment="Removido pasta de slides da harpa">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slide.py" beforeDir="false" afterPath="$PROJECT_DIR$/slide.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +145,31 @@
       <option name="project" value="LOCAL" />
       <updated>1765508331014</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Criado slides para os hinos da harpa">
+      <option name="closed" value="true" />
+      <created>1765567653046</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1765567653046</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Criado slides para os hinos da harpa">
+      <option name="closed" value="true" />
+      <created>1765567687507</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1765567687507</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Removido pasta de slides da harpa">
+      <option name="closed" value="true" />
+      <created>1765567885555</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1765567885555</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -163,6 +188,7 @@
     <MESSAGE value="New branch created" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
     <MESSAGE value="Criado slides para os hinos da harpa" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criado slides para os hinos da harpa" />
+    <MESSAGE value="Removido pasta de slides da harpa" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removido pasta de slides da harpa" />
   </component>
 </project>

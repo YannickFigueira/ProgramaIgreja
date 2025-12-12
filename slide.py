@@ -12,11 +12,11 @@ def iniciar_slide(janela, texto):
     def identificar_proporcao(larguraw, alturah):
         proporcao = larguraw / alturah
         if abs(proporcao - 4 / 3) < 0.05:
-            return 19
+            return 20
         elif abs(proporcao - 16 / 9) < 0.05:
             return 15
         else:
-            return 19
+            return 20
 
     # Janela principal
     monitors = get_monitors()
@@ -37,23 +37,6 @@ def iniciar_slide(janela, texto):
     altura = first.height / 2
     #altura = 768 / 2
 
-    """lbl_slide_visual = tk.Label(
-        janela_slide,
-        text=texto,
-        bg="black",  # fundo preto
-        fg="white"  # letras brancas
-    )"""
-
-    #ttk.Label(janela_slide, text=texto, bg="black", fg="white").grid(row=0, column=0, padx=5, pady=5, sticky="w")
-    #ttk.Separator(janela_slide, orient="horizontal").grid(row=1, column=0, columnspan=2, sticky="ew", padx=5, pady=5)
-
-    # Posiciona o label com tamanho fixo de 100x100 pixels
-
-
-    #lbl_slide_visual.config(width=largura, height=altura)
-    #lbl_slide_visual.grid(row=0, column=0, padx=5, pady=5)
-    #lbl_slide_visual.place(x=50, y=50, width=largura, height=altura)
-
     # label
     #print(largura, "Inicial")
     espace_largura = int(largura / 2 / 5)
@@ -69,9 +52,6 @@ def iniciar_slide(janela, texto):
     #frame_preview.place(x=largura + 5, y=5, anchor="n")
     frame_preview.propagate(False)
 
-    #print(altura)
-    #qtd_quebras = texto[1].count("\n") + 1
-    #print(qtd_quebras)  # saída: 3
     tamanho_letra = int(altura / identificar_proporcao(first.width, first.height))
 
     lbl_slide_visual = tk.Label(frame_pricipal, text=texto[1], bg="black", fg="white", font=("Arial", tamanho_letra, "bold"))
