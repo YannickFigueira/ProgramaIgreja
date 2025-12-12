@@ -4,8 +4,651 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="347fbf56-418b-43af-b555-4da948a507df" name="Changes" comment="Criado projeto para DataShow Igreja">
+    <list default="true" id="347fbf56-418b-43af-b555-4da948a507df" name="Changes" comment="Merge remote-tracking branch 'origin/master'">
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/001 - Chuva de Graça.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/002 - Saudosa lembrança.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/003 - Plena Paz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/004 - Deus velar  por ti.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/005 - Ó desce fogo santo..txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/006 - Na maldição da cruz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/007 - Cristo Cura, Sim!.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/008 - Cristo, O fiel amigo..txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/009 - Marchai, soldados de Cristo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/010 - Eu Te Louvo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/011 - Ó Cristão, eia avante.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/012 - Vem já pecador.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/013 - Jesus Comprou-me.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/014 - Gozo em Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/015 - Conversão.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/016 - Despertar para o trabalho.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/017 - Pensando em Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/018 - Grata Nova.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/019 - O convite de Cristo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/020 - Olhai Pra o Cordeiro de Deus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/021 - Gloriosa Aurora.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/022 - Ceia do Senhor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/023 - Glória a Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/024 - Poder Pentecostal.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/025 - Jesus Tu es Bom.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/026 - A Formosa Jerusalém.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/027 - Amor que vence.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/028 - Deus vai te guiar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/029 - O precioso sangue.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/030 - Não Sou Meu.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/031 - Glória ao meu Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/032 - Meu Cristo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/033 - Com  Tua mão.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/034 - Milícia de Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/035 - O grande amor!.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/036 - Oxilado.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/037 - Cristo pra mim.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/038 - O Senhor é Rei.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/039 - Alvo mais que a neve..txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/040 - A cidade do bom Deus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/041 - A Cristo coroai.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/042 - Saudai, Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/043 - O EVANGELHO DA SALVAÇÃO.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/044 - Oh que Glória.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/045 - Redentor Onipotente.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/046 - Um pendão real.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/047 - Rocha Eterna.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/048 - O dia do triunfo de Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/049 - Aleluia, já creio.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/050 - Sempre Fiéis.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/051 - Adoração Reconhecida.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/052 - Está tudo bem.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/053 - A esperança da igreja.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/054 - Louvemos ao Redentor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/055 - Mais perto da Tua cruz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/056 - Tudo em Cristo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/057 - Vivifica-nos Senhor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/058 - Nao Temas.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/059 - Eu Creio Sim.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/060 - Exultacao do Crente.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/061 - Deus tomara Conta de Ti.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/062 - Achei Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/063 - Acordai, Acordai.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/064 - De todo o mundo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/065 - Quem Irá.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/066 - Pronto a Salvar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/067 - Quem quer ir com Cristo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/068 - Gozo de Ter Salvação.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/069 - Jesus quebrou os meus guilhões.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/070 - Cristo Jesus vai voltar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/071 - Santo és Tu Senhor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/072 - Rasgou-se o véu.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/073 - Vem, vem a mim..txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/074 - Cristo Voltará.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/075 - Em Jesus Tens a Palma da Vitória.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/076 - Vem, o prodigo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/077 - Guarda o contacto.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/078 - Meu Forte Redentor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/079 - Sua Gracao Basta a mim.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/080 - Cristo te Chama.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/081 - Podes Salvar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/082 - Um Meigo Salvador.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/083 - Não  posso explicar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/084 - O Grande Eu Sou.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/085 - Deixai entrar o Espírito Santo de Deus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/086 - Satisfeito com Cristo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/087 - Meu Testemunho.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/088 - Revela-nos Senhor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/089 - Sublime e grande amor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/090 - Paz e Alegria.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/091 - Nívea Luz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/092 - O bondoso salvador.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/093 - Há trabalho pronto.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/094 - Na Jerusalém de Deus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/095 - Ouve ó pecador.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/096 - Deixa Penetrar a luz!.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/097 - Há um caminho santo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/098 - Estarás vigiando.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/099 - Eis o dia a declinar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/100 - O bom consolador.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/101 - A unção real.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/102 - Crê na promessa.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/103 - Caminhemos na luz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/104 - Jesus procura a ovelha.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/105 - A gloriosa esperança.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/106 - Viva Cristo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/107 - Firme nas Promessas.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/108 - Pelejar por Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/109 - Venha a Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/110 - Clama Jesus Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/111 - Que mudança!.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/112 - O nome Soberano.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/113 - O celeste diretor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/114 - Aceita o perdão de Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/115 - Trabalhai e orai.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/116 - Livre Estou.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/117 - O Senhor Salva....txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/118 - Face a Face.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/119 - Inesgotáve é seu amorl.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/120 - Noite de paz,noite de amor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/121 - Maravilhoso Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/122 - Fogo Divino.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/123 - Cristo voltará.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/124 - Adoração.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/125 - Quem dera hoje vir.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/126 - Bem-aventurança do crente.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/127 - O Senhor da Ceifa está chamando.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/128 - Entrega Teu Coração.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/129 - A Fonte Salvadora.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/130 - Cristo é Meu!.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/131 - De Valor em Valor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/132 - Obreiros do Senhor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/133 - No rol do livro.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/134 - Jesus a porta do coração.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/135 - O Nome precioso..txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/136 - Jesus nosso socorro.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/137 - Liberto da Escravidão.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/138 - Quem bate é Jesus Cristo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/139 - Jesus meu eterno redentor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/140 - A segurança do crente.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/141 - Guia-me sempre meu Senhor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/142 - A cidade celeste.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/143 - O verdadeiro amigo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/144 - Vem a Assembléia de Deus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/145 - União do Crente com seu Senhor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/146 - Caminho Brilhante.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/147 - Servir a Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/148 - Bendirei a Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/149 - Canto do pescador.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/150 - Para casamentos.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/151 - Fala, Jesus Querido.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/152 - Pela cruz ao céu irei.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/153 - Soldados de Cristo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/154 - Doce Nome de Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/155 - Imploramos Teu Poder.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/156 - A Ovelha Perdida.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/157 - Cristo, em breve, vem..txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/158 - Que Faras de Jesus Cristo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/159 - Cantai, ó Peregrinos.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/160 - Deus nos quis salvar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/161 - Navengando pra terra celeste.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/162 - O Estandarte da verdade.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/163 - Cristo morreu por mim.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/164 - Paz, luz e amor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/165 - A Armadura Cristã.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/166 - Deixa entrar o Rei da Glória.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/167 - Ó Companheiros desta causa santa.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/168 - Meus irmãos nos jubilemos.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/169 - Oh! Jesus me ama.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/170 - Ao Calvário de Horror.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/171 - Um Pecador Remido.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/172 - Ó Vem te Entregar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/173 - Os santos louvam....txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/174 - Glória, Aleluia, glória.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/175 - Irmãos Amados.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/176 - Sacerdotes do Senhor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/177 - Salvo Estou.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/178 - Gloriosa Paz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/179 - Redentor Formoso.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/180 - Em Cristo....txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/181 - Vem Celeste Redentor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/182 - Jesus no Getsemani.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/183 - Ressucitou.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/184 - Meu Jesus, meu Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/185 - Invocação e louvor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/186 - De valor em valor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/187 - Mais perto, meu Deus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/188 - O gozo do céu.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/189 - Glória ao Salvador.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/190 - Cristo, meu Cristo!.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/191 -  O meu Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/192 - Pelo Sangue.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/193 - A Alma abatida.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/194 - Jesus me guiará.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/195 - Benigno Salvador.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/196 - Uma flor gloriosa.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/197 - O Lar da glória.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/198 - Jesus o bom amigo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/199 - A Ceia do Senhor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/200 - O Bondoso Amigo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/201 - A Decisão.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/202 - Lugar de Delícias.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/203 - Deixai as ilusões.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/204 - O Peregrino na terra.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/205 - Graça, Graça.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/206 - O clarim nos alerta.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/207 - Jerusalém Divina.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/208 - Vem a Cristo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/209 - A voz do Bom Pastor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/210 - Fala, fala Senhor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/211 - Vem a Deus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/212 - Os Guerreiros se Preparam.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/213 - Sobre a Terra vou andando.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/214 - Desejamos ir lá.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/215 - Ver-nos-emos.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/216 - Louvai a Deus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/217 - Ouve sua voz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/218 - Dá teu fardo a Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/219 - O amor do criador.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/220 - Ide segar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/221 - Opera em mim.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/222 - Vem a Jesus....txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/223 - NA minha alma reina paz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/224 - O tempo de segar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/225 - Sê valente.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/226 - Cristo teu santo amor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/227 - Deus amou de tal maneira.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/228 - Este mundo não compreende.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/229 - Jesus, o meigo Salvador.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/230 - Nos vogamos nessa nau.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/231 - Não foi com ouro.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/232 - Os Bem-aventurados.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/233 - A ceia do Senhor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/234 - O gozo dos santos.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/235 - Já sei....txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/236 - Já nos lavou.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/237 - O gozo de estar preparado.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/238 - Ó pecador desalentado.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/239 - Imploramos o Consolador.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/240 - Oh dia alegre.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/241 - Marchemos sem temor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/242 - Eu confio firmamente..txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/243 - Ao abrir o culto.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/244 - Louvai a Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/245 - Paz de Deus em Jesus Encontrei.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/246 - O DESCANSO EM JESUS.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/247 - DEUS NOS GUARDE NO SEU AMOR.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/248 - HOSANA E GLÓRIA.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/249 - Ó VEM, SENHOR, E HABITA.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/250 - NOIVA DE JESUS, APRONTA-TE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/251 -.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/252 - Santo, Santo Es Tu Senhor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/253 -.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/254 - Mais Perto de Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/255 - MEU REDENTOR.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/256 - ABANDONA ESTE MUNDO DE HORROR.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/257 - O PERDÃO SEM IGUAL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/258 - NA ROCHA ETERNA FIRMADO.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/259 - Creio Eu na Bíblia.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/260 - Avante!.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/261 - Alma triste abatida.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/262 - Senhor, estás comigo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/263 - Ao fim do culto.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/264 - Ó Pai Celeste.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/265 - DOCE É CRER EM CRISTO.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/266 - RESGATADOS FOMOS.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/267 - JESUS, MINHA FORÇA.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/268 - Confiante em Deus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/269 - Louvarei ao meu amado.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/270 - Louvando ao nosso criador.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/271 - NA MANSÃO DO SALVADOR.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/272 - QUANDO JESUS APARECER.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/273 - SÓ A TI RECORREREI.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/274 - Jesus é a luz do mundo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/275 - Ó acorda, desperta.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/276 - Em Canaã eu entrarei.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/277 - Salvo estás.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/278 - Levar a cruz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/279 - Ali quero ir, e tu.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/280 - Ó Jesus Te suplico.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/281 - Vem sem tardar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/282 - Que sangue precioso.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/283 - PASTOR E AS OVELHAS.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/284 - Bendito Cristo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/285 - Tu és o meu gozo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/286 - Não tarda vir Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/287 - Oh foi o sangue.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/288 - A PALAVRA DA CRUZ.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/289 - SOB O SANGUE TEU.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/290 - TEU ESPÍRITO VEM DERRAMAR.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/291 - A mensagem da cruz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/292 - Qual o preço do perdão.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/293 - Jesus no calvário.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/294 - Eu Vou Com Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/295 - Novo Canto De Louvor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/296 - No Jardim.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/297 - Abundância de Cristo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/298 - Avante, servos de Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/299 - Há um canto novo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/300 - NOSSA ESPERANÇA.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/301 - Vem cear.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/302 - NÃO MURMURES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/303 - Precisamos de Jesus!.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/304 - A face adorada.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/305 - Campeões da Luz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/306 - A PALAVRA DE DEUS UM TESOURO.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/307 - LOUVOR AO DEUS TRINO.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/308 - SÓ O SANGUE DE JESUS.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/309 - AO FINDAR DO DIA.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/310 - AVANTE EU VOU.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/311 - Jesus, meu salvador.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/312 - A vinda de Cristo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/313 - Louvor a trindade.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/314 - O PAI BONDOSO.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/315 - OH! AMOR BENDITO.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/316 - EM BUSCA DE SIÃO.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/317 - JESUS VEM TRIUNFANTE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/318 - AO LAR PATERNAL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/319 - AINDA HÁ LUGAR.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/320 - Seguir a Cristo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/321 - Só em Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/322 - As Santas Escrituras.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/323 - LEVANTAI VOSSOS OLHOS.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/324 - JESUS, O MELHOR AMIGO.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/325 - A LUZ DO CÉU RAIOU.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/326 - OH! MEU JESUS.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/327 - Teu Nome Precioso.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/328 - O Pão da Vida.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/329 - Jesus é Minha Paz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/330 - A Fé dos Santos.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/331 - Ó Caro Salvador.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/332 - Para o Céu Eu Vou.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/333 - O Ceu, meu lar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/334 - O fim vem, cuidado.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/335 - Mui Perto Está o Dia.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/336 - Oração de Elias.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/337 - Ó Bom Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/338 - Quero Jesus, Tua Luz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/339 - Jesus Ressuscitado.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/340 - Um povo Forte.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/341 - A Aspiração da alma.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/342 - As Cordas do Coração.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/343 - Abre o coração.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/344 - Um Amigo entre os lírios.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/345 - Oh! Tenho Gozo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/346 - É Meu o Céu.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/347 - Vem a Cristo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/348 - Longe de Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/349 - OS DONS DO CEU.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/350 - A HISTÓRIA DA CRUZ.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/351 - A FELICIDADE DA SALVAÇÃO.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/352 - Jesus, nossa esperança.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/353 - Vem, ó Pródigo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/354 -.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/355 - Fala do amor de Cristo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/356 - Oração Dominical.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/357 - O FIM DAS LUTAS.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/358 - SENHOR, MANDA TEU PODER.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/359 - VEM A MIM, PECADOR.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/360 - A PRECIOSA FONTE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/361 - O PEREGRINO E A GLORIA.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/362 - O ESPÍRITO DIZ.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/363 - CONSAGRAÇÃO.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/364 - OH, QUE PAZ!.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/365 - CONFIANÇA EM JESUS.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/366 -.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/367 - Espírito Consolador.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/368 - JESUS, TUDO P'RA MIM.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/369 - SOBAS ASAS DE DEUS.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/370 - Grato a Ti.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/371 - BREVE VEM O DIA.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/372 - VENCERÁ.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/373 - VEM A TEU SALVADOR.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/374 - Vida Abundante.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/375 - A Igreja Universal.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/376 - Vamos Todos Trabalhar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/377 - AS PROMESSAS QUE NÃO FALHAM.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/378 - AS PISADAS DO MESTRE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/379 - SALVO DE GRAÇA.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/380 - ABRAÃO E SEU SACRIFICIO.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/381 - O Cordeiro de Deus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/382 - Olhando para o Calvário.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/383 - O Sustento da Alma.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/384 - Sinto Vida do Senhor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/385 - Amemos  o Senhor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/386 - VENCIDOS OS COMBATES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/387 - DERRAMA TEU ESPÍRITO.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/388 - CANTA, Ó CRENTE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/389 - LAVA-ME, Ó DEUS.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/390 - Um coração bondoso.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/391 - Jesus no monte da ascensão.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/392 - PEREGRINOS SOMOS.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/393 - HÁ UM AMIGO MUI CHEGADO.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/394 - A MÃO DO ARADO!.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/395 - IDE POR TODO O MUNDO.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/396 - ALEM DO NOSSO ENTENDIMENTO.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/397 - O Salvador me achou.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/398 - Perto do meu Redentor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/399 - Terra de Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/400 - Em Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/401 - Jesus Voltará.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/402 - Ao Gólgota.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/403 - GOZO REAL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/404 - Em Glória Virá.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/405 - Queres Perdão.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/406 - À Sombra do meu Redentor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/407 - Ó Criador Bendito.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/408 - ABRE OS MEUS OLHOS.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/409 - TRABALHADORES DO EVANGELHO.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/410 - JESUS, MEU REI GLORIOSO.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/411 - NOS SOMOS TEUS.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/412 -  Jesus Cristo, bem amado.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/413 - Meu Pastor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/414 - Tem compaixão do pecador.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/415 - Jesus te quer curar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/416 - Quando o povo salvo entrar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/417 - Bastante para mim.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/418 - Sou um Soldado.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/419 - Vinde Pecadores.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/420 - O que buscas ansioso.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/421 - Careço de Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/422 - No céu não entra pecado.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/423 - De Ti preciso mais.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/424 - Seu precioso sangue.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/425 - Perdido andei.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/426 - União dos Irmãos.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/427 - Vai Orando.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/428 - A Estrela da alva.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/429 - Escuta o Evangelho.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/430 - Ouves como o Evangelho.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/431 - Cristo Chama o Pecador.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/432 - Consagrado ao Senhor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/433 - Sois Bem-vindos.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/434 - A Teus Pés.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/435 - Jesus me Levantou.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/436 - Crentes, Cantai.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/437 - O Dom Celeste.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/438 - Voltai-vos para Mim.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/439 - Aos pés de Cristo prostrados.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/440 - Faze já o seu querer.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/441 - A Chuva do Consolador.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/442 - Breve Verei o Bom Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/443 - Larga o Mundo!.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/444 - Escuta, Pobre Pecador.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/445 - Resgatado com o sangue de Cristo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/446 - Ó Vem Já.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/447 - Nascer de Novo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/448 - Crentes, Avançai.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/449 - A Beira da Estrada.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/450 - O Sol da Justiça.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/451 - Meu Jesus Vem.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/452 - Seguirei a Cristo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/453 - Deus é o Mesmo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/454 - Alegrai-vos, ó remidos.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/455 - O Povo de Deus na Terra.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/456 - A Fonte Transbordante.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/457 - O Festim de Glória.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/458 - Guia meus Passos.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/459 - As  Firmes Promessas.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/460 - Dize-o a Cristo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/461 - Jesus chorou sobre Jerusalém.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/462 - Glória ao Salvador.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/463 - O Povo de Abraão.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/464 - Plena Graça.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/465 - Ele Sofreu por mim.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/466 - Que Maravilha!.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/467 - Sobre as ondas do mar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/468 - Cristo está chamando.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/469 - Ao Estrugir a Trombeta.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/470 - Batismo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/471 - Avançai, Fiéis.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/472 - Em Meu Lugar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/473 - Outro bem não acharei.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/474 - Paz, Doce Paz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/475 - Em Belém.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/476 - O Cego de Jericó.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/477 - Sede Fortes.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/478 - Eis-me, Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/479 - Ao raiar do novo ano.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/480 - Fim de Ano.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/481 - Cristo e sua humilhação.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/482 - Comunhão.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/483 - Ora vem, Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/484 - Meus pecados levou.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/485 - Andando para o céu.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/486 - Vasos Transbordante.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/487 - Doxologia.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/488 - Áureo dia.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/489 - Chegai para adorar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/490 - Passando Está.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/491 - Há Poder no sangue de Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/492 - Jesus Virá do céu.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/493 - Ao Pai Voltai.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/494 - Jerusalém Celestial.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/495 - Cristo à Porta Está.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/496 - Jesus Me Tirou da Lama.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/497 - Meu bom Salvador.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/498 - Guia-me, ó Salvador.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/499 - A Santa Bíblia.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/500 - Quero ver a Jesus Cristo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/501 - Vencendo com o Bom Capitão.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/502 - Ó Pastor Bendito.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/503 - Vidas Consagradas ao Trabalho.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/504 - Momento Solene.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/505 - As palavras de Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/506 - Bíblia Sagrada.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/507 - Jesus Salva.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/508 - Sua Palavra Revelada.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/509 - Ao passar o Jordão.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/510 - A Riqueza Divinal.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/511 - Glorioso Deus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/512 - O Amor inesgotável.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/513 - Minha alma te quer.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/514 - Em Glória Esplendente.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/515 - Se Cristo comigo vai.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/516 - Cristo meu vero amigo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/517 - Cura Divina.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/518 - Salva-vidas.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/519 - Achei Jesus, meu salvador.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/520 - A doce e preciosa voz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/521 - Vem O Passo Dar!.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/522 - O Rei da Glória.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/523 - Cristo, a Fonte Escondida.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/524 - Cristo Pensa Em Mim.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/525 - Vencendo Vem Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/526 - Grandioso és Tu.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/527 - Dominador é Deus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/528 - Eu Te Amo, ó Deus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/529 - Em Sua Graça.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/530 - Vivifica a Tua Igreja.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/531 - Nome Precioso.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/532 - O Santo Nome.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/533 - Honras Sejam Ao Cordeiro.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/534 - Cristo é Real pra Mim.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/535 - Tú És Fiel, Senhor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/536 - Amigo Sem Igual.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/537 - Sempre Comigo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/538 - Tu, Senhor, És Nosso.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/539 - Ao PEnsar No Dor Crucial.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/540 - Ao Ver a Cruz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/541 - Calvário, Revelação de Amor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/542 - História de Cristo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/543 - Cristo, Meu Redentor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/544 - Creio, Senhor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/545 - Porque Ele Vive.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/546 - Manhã Da Ressurreição.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/547 - O Rei Está Voltando.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/548 - Breve Jesus Há De Vir.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/549 - Ora Vem, Senhor Jesus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/550 - Breve Ele Volta.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/551 - O Santo Espírito.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/552 - Quando Para o Céu Nós Formos.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/553 - Oh! Pai, o Santo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/554 - O Evangelho.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/555 - O Redentor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/556 - Lê a Bíblia.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/557 - A Palavra da Vida.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/558 - Dai-me a Bíblia.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/559 - Bíblia Sagrada.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/560 - Tenho Paz em meu Ser.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/561 - Que Bênção!.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/562 - Autor da Vida.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/563 - Sempre Feliz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/564 - Conta as Bênçãos.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/565 - Tu És Meu.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/566 - Paz Perfeita, Sim, Busquei.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/567 - Sou Feliz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/568 - Manso e Suave.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/569 - Morri na Cruz por Ti.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/570 - A Última Hora.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/571 - Rende o Coração.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/572- A Porta Sou Eu.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/573 - A Graça de Nosso Senhor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/574 - Ó Pai Bondoso.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/575 - Espero em Ti.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/576 - Assim Como Estou.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/577 - Em fervente oração.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/578 - Sossegai!.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/579 - Por que Te Afliges.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/580 - Salmo 121.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/581 - Castelo Forte.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/582 - A Barca da Vida.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/583 - Sê Tu Meu Guia.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/584 - O Piloto.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/585 - Jesus Me Satisfaz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/586 - Gozo e Vida Tenho.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/587 - Neste Lenho Me Glorio.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/588 - Sou Mui Feliz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/589 - Quádruplo Amém.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/590 - Contentamento.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/591 - Pura, Sim, Mais Pura.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/592 - O Lugar de Bênção e Paz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/593 - Estou Seguro.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/594 - Fé Persistente.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/595 - Somente a Ti!.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/596 - Gratidão.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/597 - Graças Dou.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/598 - Riquezas do Céu.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/599 - Herdeiro do Reino.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/600 - Mãos ao trabalho.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/601 - A Seara Está Madura.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/602 - Juntos Trabalhamos.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/603 - Método de Deus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/604 - Senhor, os Mensageiros Teus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/605 - Quero Te Servir.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/606 - Triunfo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/607 - Luz Após Trevas.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/608 - Se em Teu Caminho.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/609 - Vitória Deus Dará a Mim.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/610 - Fé é a Vitória.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/611 - Cristo, Comandante.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/612 - Ó Pai Eterno.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/613 - Vitória Final.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/614 - Terra Feliz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/615 - Vou Rumo Ao Meu Lar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/616 - Quanto Almejo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/617 - Quanto Anelo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/618 - É Nosso o Lar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/619 - Meu Lar, Jerusalém.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/620 - Na Jornada Para o Céu.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/621 - Juntos, no Céu.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/622 - Tão Grato me é Lembrar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/623 - Oh, Sim, Bem Sei.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/624 - Anseio um Lugar de Amor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/625 - Glória Indizível.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/626 - Tríplice Amém.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/627 - Finda-se Minha Prisão.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/628 - Além do céu azul.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/629 - Conversaremos Ali no Céu.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/630 - Não há Separação na Glória.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/631 - Neste Lugar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/632 - Mais um Templo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/633 - Meu Brasil.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/634 - Oração Pela Pátria.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/635 - Eis o Brasil em Tuas Mãos.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/636 - Por Nossa Pátria Oramos.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/637 - Hino à Bandeira Nacional.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/638 - Hino Nacional Brasileiro.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/639 - Hino da Independência.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HarpaTexto/640 - Hino da Proclamação da República do.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dados.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/slide.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaigreja.py" beforeDir="false" afterPath="$PROJECT_DIR$/programaigreja.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,11 +663,16 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="35lJOfMLnYVubcVcCjrzL2NXsBX" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -34,9 +682,11 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.programaigreja.executor": "Run",
+    "Python.slide.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "v020",
     "last_opened_file_path": "/home/yannick/PycharmProjects/ProgramaIgreja"
   }
 }]]></component>
@@ -44,6 +694,35 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="programaigreja" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="ProgramaIgreja" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/programaigreja.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.programaigreja" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -68,7 +747,23 @@
       <option name="project" value="LOCAL" />
       <updated>1763681270019</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Criado projeto para DataShow Igreja">
+      <option name="closed" value="true" />
+      <created>1764852362694</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1764852362694</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Merge remote-tracking branch 'origin/master'">
+      <option name="closed" value="true" />
+      <created>1764852920790</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1764852920790</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -84,6 +779,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Criado projeto para DataShow Igreja" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criado projeto para DataShow Igreja" />
+    <MESSAGE value="New branch created" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'" />
   </component>
 </project>

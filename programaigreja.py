@@ -1,3 +1,6 @@
+import dados
+import slide
+
 import argparse
 import os
 import sys
@@ -23,19 +26,6 @@ class FileBrowserApp:
         self.janela.title("Programa Igreja Slides")
         self.janela.geometry("400x440")
         self.janela.columnconfigure(1, weight=1)
-
-        # Diretório base fixo
-        if getattr(sys, 'frozen', False):
-            # Quando rodado pelo PyInstaller
-            biblia_pasta = sys._MEIPASS  # type: ignore[attr-defined] # Diretório temporário criado pelo PyInstaller
-            harpa_pasta = sys._MEIPASS  # type: ignore[attr-defined] # Diretório temporário criado pelo PyInstaller
-        else:
-            # Quando rodado pelo Python normal
-            biblia_pasta = os.path.dirname(__file__)
-            harpa_pasta = os.path.dirname(__file__)
-
-        self.biblia_dir = os.path.join(biblia_pasta, "BS Para DataShow – PowerPoint")
-        self.harpa_dir = os.path.join(harpa_pasta, "Harpa Crista 640 DataShow – PowerPoint")
 
         # Bíblia Sagrada Layout #
         ttk.Label(root, text="Bíblia Sagrada").grid(row=0, column=0, padx=5, pady=5, sticky="w")
@@ -71,9 +61,9 @@ class FileBrowserApp:
 
         # Captura especificamente o Enter
         self.filtro_capitulo_txt.bind("<Key>",
-                                      lambda e: self.acao_enter(e, 0) if e.keysym in ("Return", "KP_Enter") else None)
+                                      lambda e: self.acao_enter_biblia(e, 0) if e.keysym in ("Return", "KP_Enter") else None)
         self.abrir_biblia_btn.bind("<Key>",
-                                   lambda e: self.acao_enter(e, 0) if e.keysym in ("Return", "KP_Enter") else None)
+                                   lambda e: self.acao_enter_biblia(e, 0) if e.keysym in ("Return", "KP_Enter") else None)
 
         # Preencher pastas
         self.todas_pastas = []
@@ -102,28 +92,42 @@ class FileBrowserApp:
         self.arquivo_harpa_cb.grid(row=11, column=1, padx=5, pady=5, sticky="ew")
 
         # Botão de abrir
-        self.abrir_harpa_btn = ttk.Button(root, text="Abrir Arquivo", command=lambda: self.abrir_arquivo(1))
+        self.abrir_harpa_btn = ttk.Button(root, text="Abrir Arquivo", command=lambda: self.acao_enter_harpa(self))
         self.abrir_harpa_btn.grid(row=12, column=0, columnspan=2, padx=5, pady=10, sticky="ew")
 
         # Captura especificamente o Enter
         self.filtro_harpa_txt.bind("<Key>",
-                                   lambda e: self.acao_enter(e, 1) if e.keysym in ("Return", "KP_Enter") else None)
+                                   lambda e: self.acao_enter_harpa(e) if e.keysym in ("Return", "KP_Enter") else None)
         self.abrir_harpa_btn.bind("<Key>",
-                                  lambda e: self.acao_enter(e, 1) if e.keysym in ("Return", "KP_Enter") else None)
+                                  lambda e: self.acao_enter_harpa(e) if e.keysym in ("Return", "KP_Enter") else None)
 
         # Carregar arquivos
         self.carregar_arquivos_harpa()
 
+        ##slide.iniciar_slide(root)
+
     # Fim da Harpa Cristã Laytout #
 
     # Comandos do programa #
-    def acao_enter(self, event, valor):
+    def acao_enter_biblia(self, event, valor):
         # Abre o primeiro arquivo da lista filtrada, se houver
-        # self.filtro_hino_txt.insert(0, valor)
-        self.abrir_arquivo(valor)
+        if self.filtro_livro_txt.get() != "":
+            self.abrir_arquivo(valor)
+            #slide.iniciar_slide(root, dados.hinos[titulo][1])
+
+    def acao_enter_harpa(self, event):
+        # Abre o primeiro arquivo da lista filtrada, se houver
+        #print(self.filtro_harpa_txt.get())
+        if self.filtro_harpa_txt.get() != "":
+            #print(self.arquivo_harpa_cb.current() + 1)
+            print(self.arquivo_harpa_cb.get().split(" - ")[0])
+            hino = int(self.arquivo_harpa_cb.get().split(" - ")[0]) - 1
+            self.filtro_harpa_txt.delete(0, tk.END)  # Limpa o campo do texto
+            slide.iniciar_slide(root, dados.hinos[hino])
+
 
     def preencher_pastas(self):
-        self.todas_pastas = [f for f in os.listdir(self.biblia_dir) if os.path.isdir(os.path.join(self.biblia_dir, f))]
+        self.todas_pastas = [f for f in os.listdir(dados.biblia_dir) if os.path.isdir(os.path.join(dados.biblia_dir, f))]
         self.atualizar_pastas_biblia()
 
     def atualizar_pastas_biblia(self, event=None):
@@ -137,7 +141,7 @@ class FileBrowserApp:
     def atualizar_arquivos_biblia(self, event=None):
         selecionar_pasta = self.pastas_cb.get()
         texto_filtrado = self.filtro_capitulo_txt.get().lower()
-        pasta_caminho = os.path.join(self.biblia_dir, selecionar_pasta)
+        pasta_caminho = os.path.join(dados.biblia_dir, selecionar_pasta)
         if os.path.isdir(pasta_caminho):
             arquivos = [f for f in os.listdir(pasta_caminho) if os.path.isfile(os.path.join(pasta_caminho, f))]
             arquivos = sorted(arquivos, key=lambda x: str(x).lower())  # ordena ignorando maiúsculas/minúsculas
@@ -148,8 +152,8 @@ class FileBrowserApp:
                 self.arquivo_cb.current(0)
 
     def carregar_arquivos_harpa(self):
-        arquivos = os.listdir(self.harpa_dir)
-        arquivos = [f for f in arquivos if os.path.isfile(os.path.join(self.harpa_dir, f))]
+        arquivos = os.listdir(dados.harpa_dir)
+        arquivos = [f for f in arquivos if os.path.isfile(os.path.join(dados.harpa_dir, f))]
         arquivos = sorted(arquivos, key=lambda x: str(x).lower()) # ordena ignorando maiúsculas/minúsculas
         self.lista_completa = arquivos
         self.arquivo_harpa_cb["values"] = arquivos
@@ -169,7 +173,7 @@ class FileBrowserApp:
 
             pasta_selecionada = self.pastas_cb.get()
             arquivo_selecionado = self.arquivo_cb.get()
-            pasta_caminho = os.path.join(self.biblia_dir, pasta_selecionada, arquivo_selecionado)
+            pasta_caminho = os.path.join(dados.biblia_dir, pasta_selecionada, arquivo_selecionado)
 
             if os.path.isfile(pasta_caminho):
                 try:
@@ -192,7 +196,7 @@ class FileBrowserApp:
         else:
             arquivo = self.arquivo_harpa_cb.get()
             if arquivo:
-                caminho = os.path.join(self.harpa_dir, arquivo)
+                caminho = os.path.join(dados.harpa_dir, arquivo)
                 try:
                     if sys.platform.startswith("win"):  # windows
                         subprocess.run(["explorer", caminho])
