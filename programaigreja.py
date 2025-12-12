@@ -8,7 +8,7 @@ import subprocess
 import tkinter as tk
 from tkinter import ttk, messagebox
 
-VERSION = "0.1.0"
+VERSION = "0.2.0"
 
 
 class FileBrowserApp:
