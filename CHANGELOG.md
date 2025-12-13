@@ -17,3 +17,7 @@
 
 ### Fixed
 - Ajustado tamanho de letras na segunda tela para tamanho 4:3
+
+## [0.2.2] - 2025-12-13
+### Fixed
+- Ajustado arquivo de texto dos hinos da Harpa
