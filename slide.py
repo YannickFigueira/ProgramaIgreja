@@ -12,11 +12,11 @@ def iniciar_slide(janela, texto):
     def identificar_proporcao(larguraw, alturah):
         proporcao = larguraw / alturah
         if abs(proporcao - 4 / 3) < 0.05:
-            return 20
+            return 25
         elif abs(proporcao - 16 / 9) < 0.05:
-            return 15
+            return 21
         else:
-            return 20
+            return 25
 
     # Janela principal
     monitors = get_monitors()
