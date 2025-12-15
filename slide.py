@@ -1,10 +1,5 @@
 import tkinter as tk
-
-#from pkg_resources import non_empty_lines
-#from tkinter import ttk
 from screeninfo import get_monitors
-#from tkinter import messagebox
-#import  os
 
 def iniciar_slide(janela, texto):
 
@@ -24,23 +19,15 @@ def iniciar_slide(janela, texto):
 
     janela_slide = tk.Toplevel(janela)
     janela_slide.title("Slide")
-    #janela_slide.geometry("300x200")  # tamanho da janela (opcional)
     janela_slide.geometry(f"{first.width}x{first.height}+{first.x}+{first.y}")
-    #janela_slide.geometry(f"{1366}x{768}+{first.x}+{first.y}")
-
-    #janela.selecionar_slide("inicial")
 
     # Cria o label
 
     largura = first.width / 2
-    #largura = 1366 / 2
     altura = first.height / 2
-    #altura = 768 / 2
 
     # label
-    #print(largura, "Inicial")
     espace_largura = int(largura / 2 / 5)
-    #print(espace_largura)
     espacea_altura = 10
 
     frame_pricipal = tk.Frame(janela_slide, width=largura, height=altura)
@@ -49,7 +36,6 @@ def iniciar_slide(janela, texto):
 
     frame_preview = tk.Frame(janela_slide, width=largura / 2, height=altura / 2)
     frame_preview.grid(row=0, column=1, padx=espace_largura, pady=espacea_altura, sticky="n")
-    #frame_preview.place(x=largura + 5, y=5, anchor="n")
     frame_preview.propagate(False)
 
     tamanho_letra = int(altura / identificar_proporcao(first.width, first.height))
@@ -59,15 +45,11 @@ def iniciar_slide(janela, texto):
 
     lbl_slide_preview = tk.Label(frame_preview, text=texto[2], bg="black", fg="white", font=("Arial", int(tamanho_letra / 2), "bold"))
     lbl_slide_preview.pack(fill="both", expand=True)
-    #lbl_slide_preview.place(relx=0, rely=0, anchor="n")
 
     # Segunda tela
     # Segunda janela
     def abrir_janela_harpa():
         global label
-        #titulo = int(self.filtro_harpa_txt.get()) - 1
-        #print(titulo)
-        #monitors = get_monitors()
 
         # Exemplo: pegar segunda tela
         second = monitors[1]
@@ -75,8 +57,6 @@ def iniciar_slide(janela, texto):
         janela_nova = tk.Toplevel(janela_slide)
         janela_nova.title("Segunda Tela")
         janela_nova.geometry(f"{second.width}x{second.height}+{second.x}+{second.y}")
-
-        #print(identificar_proporcao(second.width, second.height))
 
         # Maximiza a janela após abrir e remove barra de título
         janela_nova.overrideredirect(True)
@@ -86,7 +66,6 @@ def iniciar_slide(janela, texto):
 
         label = tk.Label(
             janela_nova,
-            # text="Deus prometeu com certeza\nChuvas de graça mandar\nEle nos dá fortaleza\nE ricas bênçãos sem par",
             text=texto[1],
             font=("Arial", tamanho_letra_slide, "bold"),
             fg="white",  # cor do texto
@@ -94,10 +73,6 @@ def iniciar_slide(janela, texto):
             anchor="center"
         )
         label.pack(expand=True, fill="both")
-
-        #atualizar_texto()
-
-        #label.bind("<Right>", atualizar_texto)
         # Fim da janela slide
 
     abrir_janela_harpa()
@@ -121,9 +96,6 @@ def iniciar_slide(janela, texto):
 
         if index == 0:
             fechar()
-        # janela_slide.after(2000, atualizar_texto)  # chama de novo em 2 segundos
-
-    #label.bind("<Right>", atualizar_texto)
 
     # Função para fechar ao precionar ESC
     def fechar(event=None):
@@ -132,14 +104,7 @@ def iniciar_slide(janela, texto):
     # Bind somente nesta janela (evitar bind_all)
     janela_slide.bind("<Escape>", fechar)
     janela_slide.protocol("WM_DELETE_WINDOW", fechar)
-    #janela_slide.bind("<Right>", atualizar_texto(0))
     janela_slide.bind("<Right>", lambda e: atualizar_texto(0, e))
     janela_slide.bind("<Left>", lambda e: atualizar_texto(1, e))
-
-    #self.abrir_harpa_btn.bind("<Key>",
-     #                         lambda e: self.acao_enter_harpa(e) if e.keysym in ("Return", "KP_Enter") else None)
-
-    #print(identificar_proporcao(largura, altura))
-    #print("Próximo")
 
     janela_slide.mainloop()

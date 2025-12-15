@@ -81,7 +81,6 @@ class FileBrowserApp:
         ttk.Label(root, text="Filtro do Hino:").grid(row=10, column=0, padx=5, pady=5, sticky="w")
         self.filtro_harpa_txt = ttk.Entry(root)
         self.filtro_harpa_txt.grid(row=10, column=1, padx=5, pady=10, sticky="ew")
-        # self.arquivo_hino_txt.focus_set()  # Define o foco inicial
 
         # Captura qualquer tecla liberada
         self.filtro_harpa_txt.bind("<KeyRelease>", self.filtrar_lista)
@@ -92,19 +91,17 @@ class FileBrowserApp:
         self.arquivo_harpa_cb.grid(row=11, column=1, padx=5, pady=5, sticky="ew")
 
         # Botão de abrir
-        self.abrir_harpa_btn = ttk.Button(root, text="Abrir Arquivo", command=lambda: self.acao_enter_harpa(self))
+        self.abrir_harpa_btn = ttk.Button(root, text="Abrir Arquivo", command=lambda: self.acao_enter_harpa(self, 1))
         self.abrir_harpa_btn.grid(row=12, column=0, columnspan=2, padx=5, pady=10, sticky="ew")
 
         # Captura especificamente o Enter
         self.filtro_harpa_txt.bind("<Key>",
-                                   lambda e: self.acao_enter_harpa(e) if e.keysym in ("Return", "KP_Enter") else None)
+                                   lambda e: self.acao_enter_harpa(e, 1) if e.keysym in ("Return", "KP_Enter") else None)
         self.abrir_harpa_btn.bind("<Key>",
-                                  lambda e: self.acao_enter_harpa(e) if e.keysym in ("Return", "KP_Enter") else None)
+                                  lambda e: self.acao_enter_harpa(e, 1) if e.keysym in ("Return", "KP_Enter") else None)
 
         # Carregar arquivos
         self.carregar_arquivos_harpa()
-
-        ##slide.iniciar_slide(root)
 
     # Fim da Harpa Cristã Laytout #
 
@@ -115,15 +112,13 @@ class FileBrowserApp:
             self.abrir_arquivo(valor)
             #slide.iniciar_slide(root, dados.hinos[titulo][1])
 
-    def acao_enter_harpa(self, event):
+    def acao_enter_harpa(self, valor, event):
         # Abre o primeiro arquivo da lista filtrada, se houver
-        #print(self.filtro_harpa_txt.get())
         if self.filtro_harpa_txt.get() != "":
-            #print(self.arquivo_harpa_cb.current() + 1)
-            print(self.arquivo_harpa_cb.get().split(" - ")[0])
-            hino = int(self.arquivo_harpa_cb.get().split(" - ")[0]) - 1
             self.filtro_harpa_txt.delete(0, tk.END)  # Limpa o campo do texto
-            slide.iniciar_slide(root, dados.hinos[hino])
+            self.abrir_arquivo(valor)
+        else:
+            messagebox.showwarning("Aviso", "Digite o número ou nome do hino!")
 
 
     def preencher_pastas(self):
@@ -197,20 +192,11 @@ class FileBrowserApp:
             arquivo = self.arquivo_harpa_cb.get()
             if arquivo:
                 caminho = os.path.join(dados.harpa_dir, arquivo)
-                try:
-                    if sys.platform.startswith("win"):  # windows
-                        subprocess.run(["explorer", caminho])
-                    elif sys.platform.startswith("darwin"):  # macOS
-                        subprocess.run(["open", caminho])
-                    else:  # Linux
-                        subprocess.run(["xdg-open", caminho])
-                except Exception as e:
-                    messagebox.showerror("Erro", f"Não foi possível abrir o arquivo:\n{e}")
+                hino = dados.carregar_hinos(caminho)
+                slide.iniciar_slide(root, hino)
             else:
                 messagebox.showwarning("Aviso", "Selecione ou digite um nome de arquivo válido.")
-            self.filtro_harpa_txt.delete(0, tk.END)  # Limpa o campo do texto
     # Fim dos comandos #
-
 
 if __name__ == "__main__":
     root = tk.Tk()

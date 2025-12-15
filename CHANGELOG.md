@@ -21,3 +21,10 @@
 ## [0.2.2] - 2025-12-13
 ### Fixed
 - Ajustado arquivo de texto dos hinos da Harpa
+
+## [0.2.3] - 2025-12-14
+### Changed
+- Modificado o modo de carregamento dos hinos, abrindo um arquivo por vez
+
+### Fixed
+- Corrigido erro ao carregar os hinos, que mostrava os hinos errados na tela
