@@ -28,3 +28,7 @@
 
 ### Fixed
 - Corrigido erro ao carregar os hinos, que mostrava os hinos errados na tela
+
+## [0.2.4] - 2025-12-19
+### Fixed
+- Removido parágrafos duplicados no fim de alguns hinos
