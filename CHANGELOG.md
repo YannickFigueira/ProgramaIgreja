@@ -30,5 +30,8 @@
 - Corrigido erro ao carregar os hinos, que mostrava os hinos errados na tela
 
 ## [0.2.4] - 2025-12-19
+### Chages
+- Adicionado botão para verificar a versão do programa
+
 ### Fixed
 - Removido parágrafos duplicados no fim de alguns hinos

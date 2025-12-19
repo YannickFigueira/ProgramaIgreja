@@ -9,7 +9,7 @@ a = Analysis(
         ('BS Para DataShow – PowerPoint', 'BS Para DataShow – PowerPoint'),
         ('HarpaTexto', 'HarpaTexto'),
     ],
-    hiddenimports=['dados', 'slide'],  # módulos auxiliares
+    hiddenimports=['dados', 'slide', 'verificarversao', 'requests', 'urllib3', 'chardet', 'idna', 'certifi'],  # módulos auxiliares
     hookspath=[],
     runtime_hooks=[],
     excludes=[],

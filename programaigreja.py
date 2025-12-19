@@ -1,5 +1,6 @@
 import dados
 import slide
+import verificarversao
 
 import argparse
 import os
@@ -9,6 +10,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 
 VERSION = "0.2.4"
+repo= "ProgramaIgreja"
 
 
 class FileBrowserApp:
@@ -24,7 +26,7 @@ class FileBrowserApp:
 
         self.janela = janela
         self.janela.title("Programa Igreja Slides")
-        self.janela.geometry("400x440")
+        self.janela.geometry("400x480")
         self.janela.columnconfigure(1, weight=1)
 
         # Bíblia Sagrada Layout #
@@ -102,6 +104,11 @@ class FileBrowserApp:
 
         # Carregar arquivos
         self.carregar_arquivos_harpa()
+
+        # verificar versão
+        button_update = ttk.Button(root, text="Verificar atualização",
+                                   command=lambda: verificarversao.consultar_lancamento(repo, VERSION))
+        button_update.grid(row=13, column=0, columnspan=2, padx=5, pady=10, sticky="we")
 
     # Fim da Harpa Cristã Laytout #
 
