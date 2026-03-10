@@ -4,7 +4,1203 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="347fbf56-418b-43af-b555-4da948a507df" name="Changes" comment="Removido parágrafos duplicados no fim de alguns hinos" />
+    <list default="true" id="347fbf56-418b-43af-b555-4da948a507df" name="Changes" comment="Adicionado verificarversao.py para verificar versão do programa">
+      <change afterPath="$PROJECT_DIR$/Biblia/Ageu/Ageu - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ageu/Ageu - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Amós/Amós - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Amós/Amós - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Amós/Amós - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Amós/Amós - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Amós/Amós - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Amós/Amós - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Amós/Amós - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Amós/Amós - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Amós/Amós - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Apocalipse/Apocalipse - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Apocalipse/Apocalipse - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Apocalipse/Apocalipse - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Apocalipse/Apocalipse - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Apocalipse/Apocalipse - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Apocalipse/Apocalipse - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Apocalipse/Apocalipse - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Apocalipse/Apocalipse - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Apocalipse/Apocalipse - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Apocalipse/Apocalipse - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Apocalipse/Apocalipse - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Apocalipse/Apocalipse - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Apocalipse/Apocalipse - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Apocalipse/Apocalipse - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Apocalipse/Apocalipse - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Apocalipse/Apocalipse - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Apocalipse/Apocalipse - 017.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Apocalipse/Apocalipse - 018.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Apocalipse/Apocalipse - 019.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Apocalipse/Apocalipse - 020.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Apocalipse/Apocalipse - 021.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Apocalipse/Apocalipse - 022.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 017.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 018.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 019.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 020.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 021.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 022.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 023.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 024.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 025.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 026.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 027.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Atos/Atos - 028.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Colossenses/Colossenses - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Colossenses/Colossenses - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Colossenses/Colossenses - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Colossenses/Colossenses - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, I/I Corintios - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, I/I Corintios - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, I/I Corintios - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, I/I Corintios - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, I/I Corintios - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, I/I Corintios - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, I/I Corintios - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, I/I Corintios - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, I/I Corintios - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, I/I Corintios - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, I/I Corintios - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, I/I Corintios - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, I/I Corintios - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, I/I Corintios - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, I/I Corintios - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, I/I Corintios - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, II/II Corintios - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, II/II Corintios - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, II/II Corintios - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, II/II Corintios - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, II/II Corintios - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, II/II Corintios - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, II/II Corintios - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, II/II Corintios - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, II/II Corintios - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, II/II Corintios - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, II/II Corintios - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, II/II Corintios - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Corintios, II/II Corintios - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 017.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 018.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 019.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 020.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 021.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 022.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 023.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 024.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 025.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 026.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 027.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 028.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, I/I Crônicas - 029.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 017.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 018.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 019.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 020.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 021.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 022.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 023.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 024.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 025.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 026.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 027.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 028.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 029.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 030.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 031.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 032.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 033.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 034.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 035.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Crônicas, II/II Crônicas - 036.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Cânticos/Cânticos - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Cânticos/Cânticos - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Cânticos/Cânticos - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Cânticos/Cânticos - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Cânticos/Cânticos - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Cânticos/Cânticos - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Cânticos/Cânticos - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Cânticos/Cânticos - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Daniel/Daniel - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Daniel/Daniel - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Daniel/Daniel - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Daniel/Daniel - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Daniel/Daniel - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Daniel/Daniel - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Daniel/Daniel - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Daniel/Daniel - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Daniel/Daniel - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Daniel/Daniel - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Daniel/Daniel - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Daniel/Daniel - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 017.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 018.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 019.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 020.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 021.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 022.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 023.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 024.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 025.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 026.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 027.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 028.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 029.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 030.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 031.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 032.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 033.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Deuteronômio/Deuteronômio - 034.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Eclesiastes/Eclesiastes - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Eclesiastes/Eclesiastes - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Eclesiastes/Eclesiastes - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Eclesiastes/Eclesiastes - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Eclesiastes/Eclesiastes - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Eclesiastes/Eclesiastes - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Eclesiastes/Eclesiastes - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Eclesiastes/Eclesiastes - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Eclesiastes/Eclesiastes - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Eclesiastes/Eclesiastes - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Eclesiastes/Eclesiastes - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Eclesiastes/Eclesiastes - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Efésios/Efésios - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Efésios/Efésios - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Efésios/Efésios - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Efésios/Efésios - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Efésios/Efésios - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Efésios/Efésios - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Esdras/Esdras - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Esdras/Esdras - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Esdras/Esdras - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Esdras/Esdras - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Esdras/Esdras - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Esdras/Esdras - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Esdras/Esdras - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Esdras/Esdras - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Esdras/Esdras - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Esdras/Esdras - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ester/Ester - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ester/Ester - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ester/Ester - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ester/Ester - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ester/Ester - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ester/Ester - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ester/Ester - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ester/Ester - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ester/Ester - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ester/Ester - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 017.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 018.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 019.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 020.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 021.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 022.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 023.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 024.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 025.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 026.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 027.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 028.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 029.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 030.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 031.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 032.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 033.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 034.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 035.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 036.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 037.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 038.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 039.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 040.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 041.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 042.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 043.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 044.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 045.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 046.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 047.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Ezequiel/Ezequiel - 048.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Filemom/Filemom - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Filipenses/Filipenses - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Filipenses/Filipenses - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Filipenses/Filipenses - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Filipenses/Filipenses - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gálatas/Gálatas - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gálatas/Gálatas - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gálatas/Gálatas - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gálatas/Gálatas - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gálatas/Gálatas - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gálatas/Gálatas - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 017.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 018.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 019.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 020.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 021.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 022.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 023.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 024.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 025.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 026.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 027.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 028.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 029.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 030.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 031.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 032.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 033.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 034.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 035.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 036.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 037.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 038.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 039.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 040.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 041.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 042.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 043.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 044.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 045.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 046.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 047.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 048.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 049.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Gênesis/Gênesis - 050.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Habacuque/Habacuque - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Habacuque/Habacuque - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Habacuque/Habacuque - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Hebreus/Hebreus - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Hebreus/Hebreus - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Hebreus/Hebreus - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Hebreus/Hebreus - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Hebreus/Hebreus - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Hebreus/Hebreus - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Hebreus/Hebreus - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Hebreus/Hebreus - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Hebreus/Hebreus - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Hebreus/Hebreus - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Hebreus/Hebreus - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Hebreus/Hebreus - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Hebreus/Hebreus - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 017.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 018.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 019.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 020.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 021.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 022.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 023.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 024.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 025.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 026.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 027.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 028.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 029.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 030.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 031.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 032.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 033.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 034.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 035.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 036.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 037.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 038.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 039.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 040.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 041.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 042.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 043.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 044.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 045.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 046.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 047.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 048.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 049.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 050.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 051.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 052.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 053.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 054.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 055.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 056.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 057.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 058.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 059.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 060.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 061.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 062.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 063.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 064.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 065.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Isaías/Isaías - 066.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 017.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 018.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 019.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 020.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 021.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 022.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 023.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 024.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 025.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 026.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 027.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 028.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 029.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 030.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 031.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 032.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 033.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 034.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 035.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 036.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 037.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 038.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 039.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 040.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 041.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 042.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 043.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 044.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 045.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 046.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 047.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 048.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 049.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 050.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 051.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jeremias/Jeremias - 052.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Joel/Joel - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Joel/Joel - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Joel/Joel - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jonas/Jonas - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jonas/Jonas - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jonas/Jonas - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jonas/Jonas - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Josué/Josué - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Josué/Josué - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Josué/Josué - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Josué/Josué - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Josué/Josué - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Josué/Josué - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Josué/Josué - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Josué/Josué - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Josué/Josué - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Josué/Josué - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Josué/Josué - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Josué/Josué - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Josué/Josué - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Josué/Josué - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Josué/Josué - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Josué/Josué - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Josué/Josué - 017.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Josué/Josué - 018.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Josué/Josué - 019.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Josué/Josué - 020.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Josué/Josué - 021.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Josué/Josué - 022.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Josué/Josué - 023.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Josué/Josué - 024.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João, I/I João - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João, I/I João - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João, I/I João - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João, I/I João - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João, I/I João - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João, II/II João - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João, III/III João - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João/João - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João/João - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João/João - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João/João - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João/João - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João/João - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João/João - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João/João - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João/João - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João/João - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João/João - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João/João - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João/João - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João/João - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João/João - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João/João - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João/João - 017.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João/João - 018.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João/João - 019.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João/João - 020.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/João/João - 021.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Judas/Judas - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Juízes/Juízes - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Juízes/Juízes - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Juízes/Juízes - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Juízes/Juízes - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Juízes/Juízes - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Juízes/Juízes - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Juízes/Juízes - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Juízes/Juízes - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Juízes/Juízes - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Juízes/Juízes - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Juízes/Juízes - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Juízes/Juízes - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Juízes/Juízes - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Juízes/Juízes - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Juízes/Juízes - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Juízes/Juízes - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Juízes/Juízes - 017.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Juízes/Juízes - 018.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Juízes/Juízes - 019.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Juízes/Juízes - 020.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Juízes/Juízes - 021.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 017.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 018.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 019.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 020.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 021.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 022.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 023.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 024.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 025.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 026.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 027.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 028.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 029.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 030.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 031.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 032.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 033.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 034.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 035.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 036.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 037.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 038.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 039.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 040.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 041.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Jó/Jó - 042.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lamentações/Lamentações - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lamentações/Lamentações - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lamentações/Lamentações - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lamentações/Lamentações - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lamentações/Lamentações - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 017.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 018.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 019.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 020.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 021.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 022.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 023.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 024.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 025.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 026.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Levítico/Levítico - 027.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lucas/Lucas - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lucas/Lucas - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lucas/Lucas - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lucas/Lucas - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lucas/Lucas - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lucas/Lucas - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lucas/Lucas - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lucas/Lucas - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lucas/Lucas - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lucas/Lucas - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lucas/Lucas - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lucas/Lucas - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lucas/Lucas - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lucas/Lucas - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lucas/Lucas - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lucas/Lucas - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lucas/Lucas - 017.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lucas/Lucas - 018.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lucas/Lucas - 019.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lucas/Lucas - 020.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lucas/Lucas - 021.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lucas/Lucas - 022.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lucas/Lucas - 023.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Lucas/Lucas - 024.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Malaquias/Malaquias - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Malaquias/Malaquias - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Malaquias/Malaquias - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Malaquias/Malaquias - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Marcos/Marcos - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Marcos/Marcos - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Marcos/Marcos - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Marcos/Marcos - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Marcos/Marcos - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Marcos/Marcos - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Marcos/Marcos - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Marcos/Marcos - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Marcos/Marcos - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Marcos/Marcos - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Marcos/Marcos - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Marcos/Marcos - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Marcos/Marcos - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Marcos/Marcos - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Marcos/Marcos - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Marcos/Marcos - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 017.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 018.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 019.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 020.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 021.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 022.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 023.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 024.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 025.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 026.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 027.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Mateus/Mateus - 028.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Miquéias/Miquéias - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Miquéias/Miquéias - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Miquéias/Miquéias - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Miquéias/Miquéias - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Miquéias/Miquéias - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Miquéias/Miquéias - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Miquéias/Miquéias - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Naum/Naum - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Naum/Naum - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Naum/Naum - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Neemias/Neemias - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Neemias/Neemias - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Neemias/Neemias - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Neemias/Neemias - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Neemias/Neemias - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Neemias/Neemias - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Neemias/Neemias - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Neemias/Neemias - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Neemias/Neemias - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Neemias/Neemias - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Neemias/Neemias - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Neemias/Neemias - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Neemias/Neemias - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 017.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 018.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 019.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 020.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 021.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 022.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 023.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 024.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 025.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 026.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 027.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 028.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 029.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 030.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 031.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 032.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 033.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 034.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 035.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Números/Números - 036.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Obadias/Obadias - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Oséias/Oséias - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Oséias/Oséias - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Oséias/Oséias - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Oséias/Oséias - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Oséias/Oséias - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Oséias/Oséias - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Oséias/Oséias - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Oséias/Oséias - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Oséias/Oséias - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Oséias/Oséias - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Oséias/Oséias - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Oséias/Oséias - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Oséias/Oséias - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Oséias/Oséias - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Pedro, I/I Pedro - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Pedro, I/I Pedro - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Pedro, I/I Pedro - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Pedro, I/I Pedro - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Pedro, I/I Pedro - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Pedro, II/II Pedro - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Pedro, II/II Pedro - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Pedro, II/II Pedro - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 017.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 018.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 019.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 020.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 021.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 022.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 023.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 024.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 025.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 026.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 027.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 028.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 029.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 030.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Provérbios/Provérbios - 031.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, I/I Reis - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, I/I Reis - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, I/I Reis - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, I/I Reis - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, I/I Reis - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, I/I Reis - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, I/I Reis - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, I/I Reis - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, I/I Reis - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, I/I Reis - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, I/I Reis - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, I/I Reis - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, I/I Reis - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, I/I Reis - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, I/I Reis - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, I/I Reis - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, I/I Reis - 017.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, I/I Reis - 018.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, I/I Reis - 019.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, I/I Reis - 020.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, I/I Reis - 021.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, I/I Reis - 022.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, II/II Reis - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, II/II Reis - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, II/II Reis - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, II/II Reis - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, II/II Reis - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, II/II Reis - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, II/II Reis - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, II/II Reis - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, II/II Reis - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, II/II Reis - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, II/II Reis - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, II/II Reis - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, II/II Reis - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, II/II Reis - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, II/II Reis - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, II/II Reis - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, II/II Reis - 017.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, II/II Reis - 018.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, II/II Reis - 019.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, II/II Reis - 020.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, II/II Reis - 021.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, II/II Reis - 022.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, II/II Reis - 023.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, II/II Reis - 024.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Reis, II/II Reis - 025.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Romanos/Romanos - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Romanos/Romanos - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Romanos/Romanos - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Romanos/Romanos - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Romanos/Romanos - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Romanos/Romanos - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Romanos/Romanos - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Romanos/Romanos - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Romanos/Romanos - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Romanos/Romanos - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Romanos/Romanos - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Romanos/Romanos - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Romanos/Romanos - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Romanos/Romanos - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Romanos/Romanos - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Romanos/Romanos - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Rute/Rute - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Rute/Rute - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Rute/Rute - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Rute/Rute - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 017.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 018.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 019.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 020.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 021.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 022.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 023.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 024.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 025.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 026.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 027.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 028.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 029.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 030.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 031.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 032.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 033.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 034.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 035.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 036.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 037.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 038.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 039.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 040.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 041.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 042.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 043.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 044.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 045.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 046.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 047.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 048.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 049.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 050.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 051.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 052.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 053.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 054.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 055.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 056.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 057.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 058.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 059.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 060.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 061.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 062.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 063.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 064.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 065.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 066.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 067.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 068.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 069.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 070.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 071.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 072.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 073.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 074.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 075.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 076.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 077.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 078.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 079.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 080.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 081.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 082.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 083.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 084.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 085.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 086.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 087.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 088.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 089.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 090.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 091.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 092.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 093.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 094.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 095.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 096.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 097.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 098.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 099.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 100.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 101.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 102.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 103.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 104.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 105.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 106.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 107.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 108.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 109.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 110.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 111.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 112.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 113.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 114.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 115.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 116.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 117.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 118.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 119.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 120.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 121.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 122.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 123.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 124.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 125.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 126.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 127.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 128.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 129.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 130.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 131.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 132.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 133.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 134.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 135.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 136.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 137.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 138.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 139.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 140.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 141.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 142.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 143.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 144.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 145.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 146.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 147.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 148.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 149.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Salmos/Salmos - 150.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 017.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 018.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 019.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 020.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 021.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 022.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 023.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 024.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 025.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 026.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 027.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 028.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 029.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 030.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, I/I Samuel - 031.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, II/II Samuel - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, II/II Samuel - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, II/II Samuel - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, II/II Samuel - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, II/II Samuel - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, II/II Samuel - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, II/II Samuel - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, II/II Samuel - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, II/II Samuel - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, II/II Samuel - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, II/II Samuel - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, II/II Samuel - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, II/II Samuel - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, II/II Samuel - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, II/II Samuel - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, II/II Samuel - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, II/II Samuel - 017.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, II/II Samuel - 018.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, II/II Samuel - 019.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, II/II Samuel - 020.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, II/II Samuel - 021.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, II/II Samuel - 022.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, II/II Samuel - 023.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Samuel, II/II Samuel - 024.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Sofonias/Sofonias - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Sofonias/Sofonias - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Sofonias/Sofonias - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Tessalonicenses, I/I Tessalonicenses - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Tessalonicenses, I/I Tessalonicenses - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Tessalonicenses, I/I Tessalonicenses - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Tessalonicenses, I/I Tessalonicenses - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Tessalonicenses, I/I Tessalonicenses - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Tessalonicenses, II/II Tessalonicenses - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Tessalonicenses, II/II Tessalonicenses - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Tessalonicenses, II/II Tessalonicenses - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Tiago/Tiago - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Tiago/Tiago - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Tiago/Tiago - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Tiago/Tiago - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Tiago/Tiago - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Timóteo, I/I Timóteo - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Timóteo, I/I Timóteo - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Timóteo, I/I Timóteo - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Timóteo, I/I Timóteo - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Timóteo, I/I Timóteo - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Timóteo, I/I Timóteo - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Timóteo, II/II Timóteo - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Timóteo, II/II Timóteo - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Timóteo, II/II Timóteo - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Timóteo, II/II Timóteo - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Tito/Tito - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Tito/Tito - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Tito/Tito - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Zacarias/Zacarias - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Zacarias/Zacarias - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Zacarias/Zacarias - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Zacarias/Zacarias - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Zacarias/Zacarias - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Zacarias/Zacarias - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Zacarias/Zacarias - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Zacarias/Zacarias - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Zacarias/Zacarias - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Zacarias/Zacarias - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Zacarias/Zacarias - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Zacarias/Zacarias - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Zacarias/Zacarias - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Zacarias/Zacarias - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 001.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 002.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 003.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 004.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 005.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 006.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 007.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 008.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 009.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 011.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 013.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 014.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 015.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 016.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 017.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 018.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 019.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 020.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 021.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 022.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 023.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 024.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 025.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 026.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 027.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 028.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 029.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 030.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 031.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 032.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 033.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 034.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 035.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 036.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 037.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 038.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 039.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Biblia/Êxodo/Êxodo - 040.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HarpaTexto/476 - O Cego de Jericó.txt" beforeDir="false" afterPath="$PROJECT_DIR$/HarpaTexto/476 - O Cego de Jericó.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HarpaTexto/485 - Andando para o céu.txt" beforeDir="false" afterPath="$PROJECT_DIR$/HarpaTexto/485 - Andando para o céu.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HarpaTexto/491 - Há Poder no sangue de Jesus.txt" beforeDir="false" afterPath="$PROJECT_DIR$/HarpaTexto/491 - Há Poder no sangue de Jesus.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaigreja.py" beforeDir="false" afterPath="$PROJECT_DIR$/programaigreja.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +1216,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="v030" />
+        <entry key="$PROJECT_DIR$" value="v020" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -45,18 +1241,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.programaigreja.executor": "Run",
-    "Python.slide.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "v020",
-    "last_opened_file_path": "/home/yannick/PycharmProjects/ProgramaIgreja"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.programaigreja.executor&quot;: &quot;Run&quot;,
+    &quot;Python.slide.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;v030&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/yannick/PycharmProjects/ProgramaIgreja&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -280,7 +1477,23 @@
       <option name="project" value="LOCAL" />
       <updated>1766152728141</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Adicionado verificarversao.py para verificar versão do programa">
+      <option name="closed" value="true" />
+      <created>1766153463147</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1766153463147</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Adicionado verificarversao.py para verificar versão do programa">
+      <option name="closed" value="true" />
+      <created>1766153538963</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1766153538963</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -307,6 +1520,7 @@
     <MESSAGE value="Correções ao abrir os hinos carregados, abria hinos errados após carregados" />
     <MESSAGE value="Ajustado número da versão" />
     <MESSAGE value="Removido parágrafos duplicados no fim de alguns hinos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removido parágrafos duplicados no fim de alguns hinos" />
+    <MESSAGE value="Adicionado verificarversao.py para verificar versão do programa" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adicionado verificarversao.py para verificar versão do programa" />
   </component>
 </project>

@@ -8,7 +8,7 @@
 
 ## [0.2.0] - 2025-12-12
 ### Changed
-- Adicinado Módulos auxiliares `dados.py` e `slide.py`
+- Adicionado Módulos auxiliares `dados.py` e `slide.py`
 - Removido pasta `Harpa Crista 640 DataShow – PowerPoint`
 - Pasta mantida `BS Para DataShow – PowerPoint` 
 - Adicionado pasta `HarpaTexto`
@@ -35,3 +35,14 @@
 
 ### Fixed
 - Removido parágrafos duplicados no fim de alguns hinos
+
+## [0.3.0] - 2026-03-10
+### Fixed
+- Hino 476 adicionado refrão ao final
+- Lucas 7-15 corrigido dizeres
+- Jó 42-8,11 corrigido dizeres
+- Hino 485 Colocado Coro em ordem
+- Hino 491 Coloca frase que faltava
+
+### Changes
+- Preparado para mudar a apresentação da bíblia em andamento
