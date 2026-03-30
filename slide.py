@@ -17,9 +17,14 @@ def iniciar_slide(janela, texto):
     monitors = get_monitors()
     first = monitors[0]
 
+    fundo_cor = "#2E8B57"
+
     janela_slide = tk.Toplevel(janela)
     janela_slide.title("Slide")
-    janela_slide.geometry(f"{first.width}x{first.height}+{first.x}+{first.y}")
+    janela_slide.configure(bg=fundo_cor) #SeaGreen
+    #janela_slide.geometry(f"{first.width}x{first.height}+{first.x}+{first.y}")
+    #janela_slide.geometry(f"{first.width}x{first.height}")
+    janela_slide.attributes("-fullscreen", True)
 
     # Cria o label
 
@@ -28,19 +33,22 @@ def iniciar_slide(janela, texto):
 
     # label
     espace_largura = int(largura / 2 / 5)
-    espacea_altura = 10
+    espace_altura = 10
 
-    frame_pricipal = tk.Frame(janela_slide, width=largura, height=altura)
-    frame_pricipal.grid(row=0, column=0, padx=espace_largura, pady=espacea_altura)
-    frame_pricipal.propagate(False)  # impede que o frame se ajuste ao conteúdo
+    lbl_slide_atual = tk.Label(janela_slide, text=f"1 / {len(texto) - 1}", bg=fundo_cor, font=("Arial", 20, "bold"))
+    lbl_slide_atual.grid(row=0, column=0)
+
+    frame_principal = tk.Frame(janela_slide, width=largura, height=altura)
+    frame_principal.grid(row=1, column=0, padx=espace_largura, pady=espace_altura)
+    frame_principal.propagate(False)  # impede que o frame se ajuste ao conteúdo
 
     frame_preview = tk.Frame(janela_slide, width=largura / 2, height=altura / 2)
-    frame_preview.grid(row=0, column=1, padx=espace_largura, pady=espacea_altura, sticky="n")
+    frame_preview.grid(row=1, column=1, padx=espace_largura, pady=espace_altura, sticky="n")
     frame_preview.propagate(False)
 
     tamanho_letra = int(altura / identificar_proporcao(first.width, first.height))
 
-    lbl_slide_visual = tk.Label(frame_pricipal, text=texto[1], bg="black", fg="white", font=("Arial", tamanho_letra, "bold"))
+    lbl_slide_visual = tk.Label(frame_principal, text=texto[1], bg="black", fg="white", font=("Arial", tamanho_letra, "bold"))
     lbl_slide_visual.pack(fill="both", expand=True)
 
     lbl_slide_preview = tk.Label(frame_preview, text=texto[2], bg="black", fg="white", font=("Arial", int(tamanho_letra / 2), "bold"))
@@ -87,6 +95,7 @@ def iniciar_slide(janela, texto):
         else:
             index = (index - 1) % len(texto)
 
+        lbl_slide_atual.config(text=f"{index} / {len(texto) - 1}")
         label.config(text=texto[index])
         lbl_slide_visual.config(text=texto[index])
         if (index + 1) < len(texto):

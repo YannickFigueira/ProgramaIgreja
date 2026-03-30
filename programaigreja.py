@@ -9,7 +9,7 @@ import subprocess
 import tkinter as tk
 from tkinter import ttk, messagebox
 
-VERSION = "0.3.0"
+VERSION = "0.3.1"
 repo= "ProgramaIgreja"
 
 

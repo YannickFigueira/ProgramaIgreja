@@ -46,3 +46,12 @@
 
 ### Changes
 - Preparado para mudar a apresentação da bíblia em andamento
+
+## [0.3.1] - 2026-03-29
+### Fixed
+- Ajustado preview do slide para não ir para a segunda tela
+
+### Changes
+- Adicionado cor ao fundo
+- Adicionado contador para os slides
+- Modificado ajuste de resolução para ficar direto em fullscreen

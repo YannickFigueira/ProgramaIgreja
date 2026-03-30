@@ -10,7 +10,7 @@ a = Analysis(
         ('HarpaTexto', 'HarpaTexto'),
         ('Biblia', 'Biblia'),
     ],
-    hiddenimports=['dados', 'slide', 'verificarversao', 'requests', 'urllib3', 'chardet', 'idna', 'certifi'],  # módulos auxiliares
+    hiddenimports=['dados', 'slide', 'verificarversao', 'requests', 'urllib3', 'chardet', 'idna', 'certifi', 'screeninfo'],  # módulos auxiliares
     hookspath=[],
     runtime_hooks=[],
     excludes=[],
