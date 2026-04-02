@@ -57,5 +57,10 @@
 - Modificado ajuste de resolução para ficar direto em fullscreen
 
 ## [0.3.2] - 2026-04-01
+### Fixed
+- Ajustado texto do hino 256
+- Ajustado texto do hino 302
+- Padronizado título dos hinos
+
 ### Changes
 - Ajustado tamanho da janela ao iniciar
