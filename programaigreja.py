@@ -9,7 +9,7 @@ import subprocess
 import tkinter as tk
 from tkinter import ttk, messagebox
 
-VERSION = "0.3.1"
+VERSION = "0.3.2"
 repo= "ProgramaIgreja"
 
 
@@ -26,7 +26,7 @@ class FileBrowserApp:
 
         self.janela = janela
         self.janela.title("Programa Igreja Slides")
-        self.janela.geometry("400x480")
+        self.janela.geometry("440x480")
         self.janela.columnconfigure(1, weight=1)
 
         # Bíblia Sagrada Layout #
