@@ -153,8 +153,9 @@ class FileBrowserApp:
         arquivos = os.listdir(dados.harpa_dir)
         arquivos = [f for f in arquivos if os.path.isfile(os.path.join(dados.harpa_dir, f))]
         arquivos = sorted(arquivos, key=lambda x: str(x).lower()) # ordena ignorando maiúsculas/minúsculas
-        self.lista_completa = arquivos
-        self.arquivo_harpa_cb["values"] = arquivos
+        arquivos_sem_ext = [os.path.splitext(f)[0] for f in arquivos]
+        self.lista_completa = arquivos_sem_ext
+        self.arquivo_harpa_cb["values"] = arquivos_sem_ext
         if arquivos:
             self.arquivo_harpa_cb.current(0)
 
@@ -195,7 +196,8 @@ class FileBrowserApp:
             arquivo = self.arquivo_harpa_cb.get()
             if arquivo:
                 caminho = os.path.join(dados.harpa_dir, arquivo)
-                hino = dados.carregar_hinos(caminho)
+                hino = dados.carregar_hinos(caminho + ".txt")
+                self.carregar_arquivos_harpa()
                 slide.iniciar_slide(root, hino)
             else:
                 messagebox.showwarning("Aviso", "Selecione ou digite um nome de arquivo válido.")
