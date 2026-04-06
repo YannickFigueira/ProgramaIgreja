@@ -61,6 +61,7 @@
 - Ajustado texto do hino 256
 - Ajustado texto do hino 302
 - Padronizado título dos hinos
+- Corrigido filtro dos capítulos, que filtrava os Livros juntos
 
 ### Changes
 - Ajustado tamanho da janela ao iniciar

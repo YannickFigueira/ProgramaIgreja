@@ -50,7 +50,7 @@ class FileBrowserApp:
         ttk.Label(root, text="Filtro do Capítulo:").grid(row=4, column=0, padx=5, pady=5, sticky="w")
         self.filtro_capitulo_txt = ttk.Entry(root)
         self.filtro_capitulo_txt.grid(row=4, column=1, padx=5, pady=5, sticky="ew")
-        self.filtro_capitulo_txt.bind("<KeyRelease>", self.atualizar_pastas_biblia)
+        self.filtro_capitulo_txt.bind("<KeyRelease>", self.atualizar_arquivos_biblia)
 
         # Combobox de arquivos
         ttk.Label(root, text="Capítulo:").grid(row=5, column=0, padx=5, pady=5, sticky="w")
