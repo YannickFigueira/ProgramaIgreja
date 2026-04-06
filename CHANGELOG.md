@@ -65,3 +65,7 @@
 
 ### Changes
 - Ajustado tamanho da janela ao iniciar
+
+## [0.3.3] - 2026-04-06
+### Changes
+- Pré-configurado lista dos livros, colocado em ordem

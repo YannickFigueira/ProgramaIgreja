@@ -9,7 +9,7 @@ import subprocess
 import tkinter as tk
 from tkinter import ttk, messagebox
 
-VERSION = "0.3.2"
+VERSION = "0.3.3"
 repo= "ProgramaIgreja"
 
 
@@ -68,8 +68,8 @@ class FileBrowserApp:
                                    lambda e: self.acao_enter_biblia(e, 0) if e.keysym in ("Return", "KP_Enter") else None)
 
         # Preencher pastas
-        self.todas_pastas = []
-        self.preencher_pastas()
+        self.todas_pastas = ['Gênesis', 'Êxodo', 'Levítico', 'Números', 'Deuteronômio', 'Josué', 'Juízes', 'Rute', 'Samuel, I', 'Samuel, II', 'Reis, I', 'Reis, II', 'Crônicas, I', 'Crônicas, II', 'Esdras', 'Neemias', 'Ester', 'Jó', 'Salmos', 'Provérbios', 'Eclesiastes', 'Cânticos', 'Isaías', 'Jeremias', 'Lamentações', 'Ezequiel', 'Daniel', 'Oséias', 'Joel', 'Amós', 'Obadias', 'Jonas', 'Miquéias', 'Naum', 'Habacuque', 'Sofonias', 'Ageu', 'Zacarias', 'Malaquias', 'Mateus', 'Marcos', 'Lucas', 'João', 'Atos', 'Romanos', 'Corintios, I', 'Corintios, II', 'Gálatas', 'Efésios', 'Filipenses', 'Colossenses', 'Tessalonicenses, I', 'Tessalonicenses, II', 'Timóteo, I', 'Timóteo, II', 'Tito', 'Filemom', 'Hebreus', 'Tiago', 'Pedro, I', 'Pedro, II', 'João, I', 'João, II', 'João, III', 'Judas', 'Apocalipse']
+        self.atualizar_pastas_biblia()
 
         # Separador
         ttk.Label(root, text="\u2012" * 300).grid(row=7, column=0, columnspan=2, padx=5, pady=5, sticky="w")
@@ -127,14 +127,10 @@ class FileBrowserApp:
         else:
             messagebox.showwarning("Aviso", "Digite o número ou nome do hino!")
 
-
-    def preencher_pastas(self):
-        self.todas_pastas = [f for f in os.listdir(dados.biblia_dir) if os.path.isdir(os.path.join(dados.biblia_dir, f))]
-        self.atualizar_pastas_biblia()
-
     def atualizar_pastas_biblia(self, event=None):
         filtrar_texto = self.filtro_livro_txt.get().lower()
         filtrado = [f for f in self.todas_pastas if filtrar_texto in f.lower()]
+        #print(filtrado)
         self.pastas_cb["values"] = filtrado
         if filtrado:
             self.pastas_cb.current(0)

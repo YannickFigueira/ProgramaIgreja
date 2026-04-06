@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="347fbf56-418b-43af-b555-4da948a507df" name="Changes" comment="Padronizado título dos hinos">
+    <list default="true" id="347fbf56-418b-43af-b555-4da948a507df" name="Changes" comment="Corrigido filtro capítulo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/programaigreja.py" beforeDir="false" afterPath="$PROJECT_DIR$/programaigreja.py" afterDir="false" />
     </list>
@@ -340,7 +340,23 @@
       <option name="project" value="LOCAL" />
       <updated>1775127921671</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Corrigido filtro capítulo">
+      <option name="closed" value="true" />
+      <created>1775479077592</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1775479077592</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Corrigido filtro capítulo">
+      <option name="closed" value="true" />
+      <created>1775479165616</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1775479165616</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -372,6 +388,7 @@
     <MESSAGE value="Feito ajuste no fullscreen, fundo e adicionado contador dos slides" />
     <MESSAGE value="Ajustado tamanho da janela" />
     <MESSAGE value="Padronizado título dos hinos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Padronizado título dos hinos" />
+    <MESSAGE value="Corrigido filtro capítulo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrigido filtro capítulo" />
   </component>
 </project>
