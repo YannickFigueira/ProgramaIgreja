@@ -1,7 +1,12 @@
 import tkinter as tk
 from screeninfo import get_monitors
 
-def iniciar_slide(janela, texto):
+def iniciar_slide(janela, texto, identificacao, verso):
+
+    if identificacao == 0:
+        ajuste = 1
+    else:
+        ajuste = 0
 
     # identificar resolução
     def identificar_proporcao(larguraw, alturah):
@@ -22,8 +27,6 @@ def iniciar_slide(janela, texto):
     janela_slide = tk.Toplevel(janela)
     janela_slide.title("Slide")
     janela_slide.configure(bg=fundo_cor) #SeaGreen
-    #janela_slide.geometry(f"{first.width}x{first.height}+{first.x}+{first.y}")
-    #janela_slide.geometry(f"{first.width}x{first.height}")
     janela_slide.attributes("-fullscreen", True)
 
     # Cria o label
@@ -35,7 +38,7 @@ def iniciar_slide(janela, texto):
     espace_largura = int(largura / 2 / 5)
     espace_altura = 10
 
-    lbl_slide_atual = tk.Label(janela_slide, text=f"1 / {len(texto) - 1}", bg=fundo_cor, font=("Arial", 20, "bold"))
+    lbl_slide_atual = tk.Label(janela_slide, text=f"{verso + ajuste} / {len(texto) - identificacao}", bg=fundo_cor, font=("Arial", 20, "bold"))
     lbl_slide_atual.grid(row=0, column=0)
 
     frame_principal = tk.Frame(janela_slide, width=largura, height=altura)
@@ -48,10 +51,12 @@ def iniciar_slide(janela, texto):
 
     tamanho_letra = int(altura / identificar_proporcao(first.width, first.height))
 
-    lbl_slide_visual = tk.Label(frame_principal, text=texto[1], bg="black", fg="white", font=("Arial", tamanho_letra, "bold"))
+    lbl_slide_visual = tk.Label(frame_principal, text=texto[verso], bg="black", fg="white", font=("Arial", tamanho_letra, "bold"),
+                                wraplength=largura - 2)
     lbl_slide_visual.pack(fill="both", expand=True)
 
-    lbl_slide_preview = tk.Label(frame_preview, text=texto[2], bg="black", fg="white", font=("Arial", int(tamanho_letra / 2), "bold"))
+    lbl_slide_preview = tk.Label(frame_preview, text=texto[verso + 1], bg="black", fg="white", font=("Arial", int(tamanho_letra / 2),
+                                                                                                     "bold"), wraplength=largura / 2 - 2)
     lbl_slide_preview.pack(fill="both", expand=True)
 
     # Segunda tela
@@ -74,18 +79,23 @@ def iniciar_slide(janela, texto):
 
         label = tk.Label(
             janela_nova,
-            text=texto[1],
+            text=texto[verso],
             font=("Arial", tamanho_letra_slide, "bold"),
             fg="white",  # cor do texto
             bg="black",  # cor do fundo
-            anchor="center"
+            anchor="center",
+            wraplength=largura - 2
         )
         label.pack(expand=True, fill="both")
         # Fim da janela slide
 
     abrir_janela_harpa()
 
-    index = 1
+    index = verso
+    if identificacao == 0:
+        ajuste = 1
+    else:
+        ajuste = 0
 
     def atualizar_texto(valor, event=None):
         nonlocal index
@@ -94,8 +104,9 @@ def iniciar_slide(janela, texto):
             index = (index + 1) % len(texto)  # avança e volta ao início
         else:
             index = (index - 1) % len(texto)
+            #print(index)
 
-        lbl_slide_atual.config(text=f"{index} / {len(texto) - 1}")
+        lbl_slide_atual.config(text=f"{index + ajuste} / {len(texto) - identificacao}")
         label.config(text=texto[index])
         lbl_slide_visual.config(text=texto[index])
         if (index + 1) < len(texto):
@@ -103,7 +114,7 @@ def iniciar_slide(janela, texto):
         else:
             lbl_slide_preview.config(text="")
 
-        if index == 0:
+        if index == 0 and identificacao == 1:
             fechar()
 
     # Função para fechar ao precionar ESC

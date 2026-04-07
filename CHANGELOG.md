@@ -70,3 +70,5 @@
 ### Changes
 - Pré-configurado lista dos livros, colocado em ordem
 - Removido .txt de aparecer na lista
+- Colocado nova pasta da Bíblia para funcionar
+- Adicionado controle para selecionar versículo

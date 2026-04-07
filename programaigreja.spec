@@ -6,7 +6,6 @@ a = Analysis(
     pathex=[],
     binaries=[],
     datas=[
-        ('BS Para DataShow – PowerPoint', 'BS Para DataShow – PowerPoint'),
         ('HarpaTexto', 'HarpaTexto'),
         ('Biblia', 'Biblia'),
     ],
