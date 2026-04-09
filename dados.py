@@ -17,10 +17,10 @@ harpa_dir = os.path.join(base_dir, "HarpaTexto")
 
     # ---------------- Métodos auxiliares ---------------- #
 
-def carregar_texto(caminho):
+def carregar_texto(caminho, diretorio):
     """Carrega todo o texto da pasta HarpaTexto"""
-    if not os.path.exists(harpa_dir):
-        messagebox.showerror("Erro", f"Pasta não encontrada: {harpa_dir}")
+    if not os.path.exists(diretorio):
+        messagebox.showerror("Erro", f"Pasta não encontrada: {diretorio}")
 
     with open(caminho, "r", encoding="utf-8") as f:
         texto = f.read()

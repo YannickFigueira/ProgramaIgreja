@@ -72,3 +72,11 @@
 - Removido .txt de aparecer na lista
 - Colocado nova pasta da Bíblia para funcionar
 - Adicionado controle para selecionar versículo
+
+## [0.3.4] - 2026-04-08
+### Fixed
+- Corrigido ajuste da quebra de linha que deixou o texto no meio da tela com resolução maior
+- Pequenas melhorias no código
+
+### Changes
+- Adicionado relógio na primeira tela do slide

@@ -1,5 +1,6 @@
 import tkinter as tk
 from screeninfo import get_monitors
+from datetime import datetime
 
 def iniciar_slide(janela, texto, identificacao, verso):
 
@@ -12,11 +13,11 @@ def iniciar_slide(janela, texto, identificacao, verso):
     def identificar_proporcao(larguraw, alturah):
         proporcao = larguraw / alturah
         if abs(proporcao - 4 / 3) < 0.05:
-            return 25
+            return 26
         elif abs(proporcao - 16 / 9) < 0.05:
-            return 21
+            return 22
         else:
-            return 25
+            return 26
 
     # Janela principal
     monitors = get_monitors()
@@ -26,6 +27,7 @@ def iniciar_slide(janela, texto, identificacao, verso):
 
     janela_slide = tk.Toplevel(janela)
     janela_slide.title("Slide")
+    janela_slide.rowconfigure(2, weight=1)
     janela_slide.configure(bg=fundo_cor) #SeaGreen
     janela_slide.attributes("-fullscreen", True)
 
@@ -33,6 +35,9 @@ def iniciar_slide(janela, texto, identificacao, verso):
 
     largura = first.width / 2
     altura = first.height / 2
+
+    borda_texto = 4
+    largura_texto = largura
 
     # label
     espace_largura = int(largura / 2 / 5)
@@ -49,23 +54,31 @@ def iniciar_slide(janela, texto, identificacao, verso):
     frame_preview.grid(row=1, column=1, padx=espace_largura, pady=espace_altura, sticky="n")
     frame_preview.propagate(False)
 
+    frame_rodape = tk.Frame(janela_slide, width=largura, height=altura)
+    frame_rodape.grid(row=2, column=0, columnspan=2, padx=10, pady=10, sticky="s")
+
+    # Criar o Label para mostrar a hora
+    label_relogio = tk.Label(frame_rodape, text="", bg=fundo_cor, font=("Helvetica", 50))
+    label_relogio.pack(side="bottom")
+
     tamanho_letra = int(altura / identificar_proporcao(first.width, first.height))
 
     lbl_slide_visual = tk.Label(frame_principal, text=texto[verso], bg="black", fg="white", font=("Arial", tamanho_letra, "bold"),
-                                wraplength=largura - 2)
+                                wraplength=largura_texto - borda_texto)
     lbl_slide_visual.pack(fill="both", expand=True)
 
     lbl_slide_preview = tk.Label(frame_preview, text=texto[verso + 1], bg="black", fg="white", font=("Arial", int(tamanho_letra / 2),
-                                                                                                     "bold"), wraplength=largura / 2 - 2)
+                                                                                                     "bold"), wraplength=largura_texto / 2 - borda_texto)
     lbl_slide_preview.pack(fill="both", expand=True)
 
     # Segunda tela
     # Segunda janela
-    def abrir_janela_harpa():
+    def abrir_janela_slide():
         global label
 
         # Exemplo: pegar segunda tela
         second = monitors[1]
+        largura_texto_slide = second.width - borda_texto
 
         janela_nova = tk.Toplevel(janela_slide)
         janela_nova.title("Segunda Tela")
@@ -83,13 +96,14 @@ def iniciar_slide(janela, texto, identificacao, verso):
             font=("Arial", tamanho_letra_slide, "bold"),
             fg="white",  # cor do texto
             bg="black",  # cor do fundo
-            anchor="center",
-            wraplength=largura - 2
+            #anchor="center",
+            justify="center",
+            wraplength=largura_texto_slide - borda_texto
         )
         label.pack(expand=True, fill="both")
         # Fim da janela slide
 
-    abrir_janela_harpa()
+    abrir_janela_slide()
 
     index = verso
     if identificacao == 0:
@@ -120,6 +134,15 @@ def iniciar_slide(janela, texto, identificacao, verso):
     # Função para fechar ao precionar ESC
     def fechar(event=None):
         janela_slide.destroy()
+
+    def atualizar_hora():
+        agora = datetime.now()
+        hora_formatada = agora.strftime("%H:%M:%S")
+        label_relogio.config(text=hora_formatada)
+        janela_slide.after(1000, atualizar_hora)  # chama a função novamente após 1000 ms (1 segundo)
+
+    atualizar_hora()
+
 
     # Bind somente nesta janela (evitar bind_all)
     janela_slide.bind("<Escape>", fechar)

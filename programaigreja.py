@@ -11,7 +11,7 @@ import os
 import tkinter as tk
 from tkinter import ttk, messagebox
 
-VERSION = "0.3.3"
+VERSION = "0.3.4"
 repo= "ProgramaIgreja"
 
 class FileBrowserApp:
@@ -195,7 +195,7 @@ class FileBrowserApp:
 
     def atualizar_versiculos(self):
         caminho = os.path.join(dados.biblia_dir, self.pastas_cb.get(), self.arquivo_cb.get())
-        contar = dados.carregar_texto(caminho + ".txt")
+        contar = dados.carregar_texto(caminho + ".txt", dados.biblia_dir)
         versiculo = "Versículo 1"
         index = 1
         for texto in contar:
@@ -232,7 +232,7 @@ class FileBrowserApp:
             #pasta_caminho = os.path.join(dados.biblia_dir, pasta_selecionada, arquivo_selecionado + ".ppt")
 
             pasta_caminho_new = os.path.join(dados.biblia_dir, pasta_selecionada, arquivo_selecionado)
-            capitulo = dados.carregar_texto(pasta_caminho_new + ".txt")
+            capitulo = dados.carregar_texto(pasta_caminho_new + ".txt", dados.biblia_dir)
             # Limpa os campos de filtro
             self.filtro_livro_txt.delete(0, tk.END)
             self.filtro_capitulo_txt.delete(0, tk.END)
@@ -257,7 +257,7 @@ class FileBrowserApp:
             arquivo = self.arquivo_harpa_cb.get()
             if arquivo:
                 caminho = os.path.join(dados.harpa_dir, arquivo)
-                hino = dados.carregar_texto(caminho + ".txt")
+                hino = dados.carregar_texto(caminho + ".txt", dados.harpa_dir)
                 self.carregar_arquivos_harpa()
                 slide.iniciar_slide(root, hino, 1, 1)
             else:
