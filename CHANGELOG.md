@@ -80,3 +80,7 @@
 
 ### Changes
 - Adicionado relógio na primeira tela do slide
+
+## [0.3.5] - 2026-04-10
+### Fixed
+- Corrigido quebra de linha na segunda tela

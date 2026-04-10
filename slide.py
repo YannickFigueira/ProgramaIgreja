@@ -36,7 +36,7 @@ def iniciar_slide(janela, texto, identificacao, verso):
     largura = first.width / 2
     altura = first.height / 2
 
-    borda_texto = 4
+    borda_texto = int(largura * 0.1)
     largura_texto = largura
 
     # label
@@ -78,7 +78,7 @@ def iniciar_slide(janela, texto, identificacao, verso):
 
         # Exemplo: pegar segunda tela
         second = monitors[1]
-        largura_texto_slide = second.width - borda_texto
+        largura_texto_slide = int(second.width * 0.9)
 
         janela_nova = tk.Toplevel(janela_slide)
         janela_nova.title("Segunda Tela")
@@ -98,7 +98,7 @@ def iniciar_slide(janela, texto, identificacao, verso):
             bg="black",  # cor do fundo
             #anchor="center",
             justify="center",
-            wraplength=largura_texto_slide - borda_texto
+            wraplength=largura_texto_slide
         )
         label.pack(expand=True, fill="both")
         # Fim da janela slide
