@@ -20,7 +20,8 @@ class FileBrowserApp:
         def visitar_site():
             pagina = f"https://github.com/YannickFigueira"
             resposta = messagebox.askyesno("Sobre", f"Programa Igreja v{VERSION}\n"
-                                         f"Deseja visitar a página "
+                                         f"Deseja visitar a página\n"
+                                         f"Desenvolvedor YannickFigueira\n"
                                          f"chronostimeinchain@gmail.com")
             if resposta:
                 verificarversao.webbrowser.open(pagina)
