@@ -1,4 +1,6 @@
 import tkinter as tk
+import platform
+
 from screeninfo import get_monitors
 from datetime import datetime
 
@@ -91,11 +93,15 @@ def iniciar_slide(janela, texto, identificacao, verso):
         janela_nova.geometry(f"{second.width}x{second.height}+{second.x}+{second.y}")
 
         # Maximiza a janela após abrir e remove barra de título
-        janela_nova.overrideredirect(True)
+        if not platform.system() == "Windows":
+            janela_nova.overrideredirect(True)
+        else:
+            janela_slide.focus_force()
+            janela_nova.attributes("-topmost", True)  # força ficar na frente
+
         janela_nova.attributes("-fullscreen", True)
 
         tamanho_letra_slide = int(second.height / identificar_proporcao(second.width, second.height))
-
         label = tk.Label(
             janela_nova,
             text=texto[verso],
