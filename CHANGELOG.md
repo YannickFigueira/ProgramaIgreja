@@ -84,3 +84,13 @@
 ## [0.3.5] - 2026-04-10
 ### Fixed
 - Corrigido quebra de linha na segunda tela
+
+## [0.3.6] - 2026-04-12
+### Fixed
+- Ajustado tamanho da janela principal
+
+### Changes
+- Configurado para funcionar no Windows
+- Adicionado barra de menus
+- Movido verificação de atualização do botão para a barra de menu
+- Bloqueado redimensionamento da janela, removido botão maximizar

@@ -1,9 +1,4 @@
-from operator import index
-
-import dados
-import slide
-import verificarversao
-
+import dados, slide, verificarversao
 import argparse
 import os
 #import sys
@@ -18,6 +13,28 @@ class FileBrowserApp:
 
     # Principal
     def __init__(self, janela):
+        # Criar barra de menu
+        barra_menu = tk.Menu(root)
+        root.config(menu=barra_menu)
+
+        def visitar_site():
+            pagina = f"https://github.com/YannickFigueira"
+            resposta = messagebox.askyesno("Sobre", f"Programa Igreja v{VERSION}\n"
+                                         f"Deseja visitar a página "
+                                         f"chronostimeinchain@gmail.com")
+            if resposta:
+                verificarversao.webbrowser.open(pagina)
+
+        # Menu Ajuda
+        menu_ajuda = tk.Menu(barra_menu, tearoff=0)
+        menu_ajuda.add_command(label="Verificar atualização", command=lambda: verificarversao.consultar_lancamento(repo, VERSION))
+        menu_ajuda.add_command(label="Sobre",
+                               command=lambda: visitar_site())
+        barra_menu.add_cascade(label="Ajuda", menu=menu_ajuda)
+
+        # Menu Sair
+        barra_menu.add_command(label="Sair", command=janela.quit)
+
         # Config
         linha = 0
         # Declaração
@@ -29,8 +46,9 @@ class FileBrowserApp:
 
         self.janela = janela
         self.janela.title("Programa Igreja Slides")
-        self.janela.geometry("440x480")
+        self.janela.geometry("440x460")
         self.janela.columnconfigure(1, weight=1)
+        self.janela.resizable(False, False)
 
         # Bíblia Sagrada Layout #
         ttk.Label(root, text="Bíblia Sagrada").grid(row=linha, column=0, padx=5, pady=5, sticky="w")
@@ -135,10 +153,10 @@ class FileBrowserApp:
         self.carregar_arquivos_harpa()
 
         # verificar versão
-        button_update = ttk.Button(root, text="Verificar atualização",
-                                   command=lambda: verificarversao.consultar_lancamento(repo, VERSION))
-        button_update.grid(row=linha, column=0, columnspan=2, padx=5, pady=10, sticky="we")
-        linha += 1
+        #button_update = ttk.Button(root, text="Verificar atualização",
+        #                           command=lambda: verificarversao.consultar_lancamento(repo, VERSION))
+        #button_update.grid(row=linha, column=0, columnspan=2, padx=5, pady=10, sticky="we")
+        #linha += 1
 
     # Fim da Harpa Cristã Laytout #
 
@@ -266,6 +284,6 @@ class FileBrowserApp:
 
 if __name__ == "__main__":
     root = tk.Tk()
-    root.geometry("450x250")
+    #root.geometry("450x250")
     app = FileBrowserApp(root)
     root.mainloop()
