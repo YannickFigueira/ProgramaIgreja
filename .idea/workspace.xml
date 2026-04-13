@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="347fbf56-418b-43af-b555-4da948a507df" name="Changes" comment="Corrigido quebra de linha incorreta, adicionado e alterado algumas variáveis para melhor leitura e reutilização, adicionado relógio" />
+    <list default="true" id="347fbf56-418b-43af-b555-4da948a507df" name="Changes" comment="Corrigido quebra de linha">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -385,7 +387,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775700506576</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Corrigido quebra de linha">
+      <option name="closed" value="true" />
+      <created>1775859653871</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1775859653871</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -422,6 +432,7 @@
     <MESSAGE value="Removido .txt do carregamento na lista" />
     <MESSAGE value="Criado variável para melhor manipulação dos controles, colocado nova pasta da bíblia para funcionar, adicionado controle para versículo, comentado configuração da pasta bíblia antiga, para limpar na próxima atualização" />
     <MESSAGE value="Corrigido quebra de linha incorreta, adicionado e alterado algumas variáveis para melhor leitura e reutilização, adicionado relógio" />
-    <option name="LAST_COMMIT_MESSAGE" value="Corrigido quebra de linha incorreta, adicionado e alterado algumas variáveis para melhor leitura e reutilização, adicionado relógio" />
+    <MESSAGE value="Corrigido quebra de linha" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrigido quebra de linha" />
   </component>
 </project>

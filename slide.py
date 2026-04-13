@@ -21,7 +21,13 @@ def iniciar_slide(janela, texto, identificacao, verso):
 
     # Janela principal
     monitors = get_monitors()
+
+    if len(monitors) == 2:
+        second = monitors[1]
+    else:
+        second = monitors[0]
     first = monitors[0]
+
 
     fundo_cor = "#2E8B57"
 
@@ -77,7 +83,7 @@ def iniciar_slide(janela, texto, identificacao, verso):
         global label
 
         # Exemplo: pegar segunda tela
-        second = monitors[1]
+
         largura_texto_slide = int(second.width * 0.9)
 
         janela_nova = tk.Toplevel(janela_slide)
