@@ -6,7 +6,7 @@ import os
 import tkinter as tk
 from tkinter import ttk, messagebox
 
-VERSION = "0.3.5"
+VERSION = "0.3.6"
 repo= "ProgramaIgreja"
 
 class FileBrowserApp:
