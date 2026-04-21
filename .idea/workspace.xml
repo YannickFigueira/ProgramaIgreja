@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="347fbf56-418b-43af-b555-4da948a507df" name="Changes" comment="Adicionado o desenvolvedor no campo sobre">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="347fbf56-418b-43af-b555-4da948a507df" name="Changes" comment="Verificado Apocalipse - 020.txt" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -451,7 +449,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776052443213</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Verificado Apocalipse - 020.txt">
+      <option name="closed" value="true" />
+      <created>1776730544458</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1776730544458</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -466,7 +472,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Removido pasta de slides da harpa" />
     <MESSAGE value="Limpo código não utilizado" />
     <MESSAGE value="Criado arquivo CHANGELOG.md" />
     <MESSAGE value="Adicionado arquivo .spec python&#10;Redigido aquivo README.md" />
@@ -491,6 +496,7 @@
     <MESSAGE value="Criado barra de menus com sobre e sair, removido botão de verificar atualização e colocado na barra de menus" />
     <MESSAGE value="mudado número da versão" />
     <MESSAGE value="Adicionado o desenvolvedor no campo sobre" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adicionado o desenvolvedor no campo sobre" />
+    <MESSAGE value="Verificado Apocalipse - 020.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Verificado Apocalipse - 020.txt" />
   </component>
 </project>
