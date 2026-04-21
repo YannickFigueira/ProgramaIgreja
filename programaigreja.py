@@ -1,8 +1,7 @@
 import dados, slide, verificarversao
 import argparse
-import os
+import os, platform, subprocess
 #import sys
-#import subprocess
 import tkinter as tk
 from tkinter import ttk, messagebox
 
@@ -25,10 +24,21 @@ class FileBrowserApp:
                                          f"chronostimeinchain@gmail.com")
             if resposta:
                 verificarversao.webbrowser.open(pagina)
+        def abrir_logs():
+            if platform.system() == "Windows":
+                arquivo = "C:\\Programa Igreja\\doc\\CHANGELOG.md"
+                subprocess.run(["notepad", arquivo])
+            elif platform.system() == "Linux":
+                arquivo = "/usr/share/doc/programaigreja/CHANGELOG.md"
+                subprocess.run(["xdg-open", arquivo])  # ou "gedit"
+            else:
+                print("Sistema não suportado")
 
         # Menu Ajuda
         menu_ajuda = tk.Menu(barra_menu, tearoff=0)
         menu_ajuda.add_command(label="Verificar atualização", command=lambda: verificarversao.consultar_lancamento(repo, VERSION))
+        menu_ajuda.add_command(label="Notas da versão",
+                               command=lambda: abrir_logs())
         menu_ajuda.add_command(label="Sobre",
                                command=lambda: visitar_site())
         barra_menu.add_cascade(label="Ajuda", menu=menu_ajuda)

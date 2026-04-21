@@ -36,6 +36,8 @@
 ### Fixed
 - Removido parágrafos duplicados no fim de alguns hinos
 
+---
+
 ## [0.3.0] - 2026-03-10
 ### Fixed
 - Hino 476 adicionado refrão ao final
@@ -94,3 +96,10 @@
 - Adicionado barra de menus
 - Movido verificação de atualização do botão para a barra de menu
 - Bloqueado redimensionamento da janela, removido botão maximizar
+
+## [0.3.7] - 2026-04-20
+### Fixed
+- Verificado todo o livro do Apocalipse
+
+### Changes
+- Adicionado no menu notas da versão para visualizar
