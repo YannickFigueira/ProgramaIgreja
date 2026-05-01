@@ -103,3 +103,7 @@
 
 ### Changes
 - Adicionado no menu notas da versão para visualizar
+
+## [0.3.8] - 2026-05-01
+### Fixed
+- Feito pequenos ajustes no código para um melhor funcionamento
