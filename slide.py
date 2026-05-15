@@ -11,16 +11,6 @@ def iniciar_slide(janela, texto, identificacao, verso):
     else:
         ajuste = 0
 
-    # identificar resolução
-    def identificar_proporcao(larguraw, alturah):
-        proporcao = larguraw / alturah
-        if abs(proporcao - 4 / 3) < 0.05:
-            return 26
-        elif abs(proporcao - 16 / 9) < 0.05:
-            return 22
-        else:
-            return 26
-
     # Janela principal
     monitors = get_monitors()
 
@@ -29,7 +19,6 @@ def iniciar_slide(janela, texto, identificacao, verso):
     else:
         second = monitors[0]
     first = monitors[0]
-
 
     fundo_cor = "#2E8B57"
 
@@ -40,6 +29,7 @@ def iniciar_slide(janela, texto, identificacao, verso):
     janela_slide.attributes("-fullscreen", True)
 
     # Cria o label
+    medida_letra = 15
 
     largura = first.width / 2
     altura = first.height / 2
@@ -69,7 +59,8 @@ def iniciar_slide(janela, texto, identificacao, verso):
     label_relogio = tk.Label(frame_rodape, text="", bg=fundo_cor, font=("Helvetica", 50))
     label_relogio.pack(side="bottom")
 
-    tamanho_letra = int(altura / identificar_proporcao(first.width, first.height))
+    tamanho_letra = int(altura / medida_letra)
+    print(tamanho_letra)
 
     lbl_slide_visual = tk.Label(frame_principal, text=texto[verso], bg="black", fg="white", font=("Arial", tamanho_letra, "bold"),
                                 wraplength=largura_texto - borda_texto)
@@ -101,7 +92,8 @@ def iniciar_slide(janela, texto, identificacao, verso):
 
         janela_nova.attributes("-fullscreen", True)
 
-        tamanho_letra_slide = int(second.height / identificar_proporcao(second.width, second.height))
+        tamanho_letra_slide = int(second.height / medida_letra)
+        print(tamanho_letra_slide)
         label = tk.Label(
             janela_nova,
             text=texto[verso],

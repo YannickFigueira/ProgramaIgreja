@@ -107,3 +107,6 @@
 ## [0.3.8] - 2026-05-01
 ### Fixed
 - Feito pequenos ajustes no código para um melhor funcionamento
+- Ajustado tamanho das letras no slide
+- Corrigido Hino 545
+- Verificado e corrigido Atos 27

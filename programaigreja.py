@@ -207,11 +207,11 @@ class FileBrowserApp:
         caminho = os.path.join(dados.biblia_dir, self.pastas_cb.get(), self.arquivo_cb.get())
         contar = dados.carregar_texto(caminho + ".txt", dados.biblia_dir)
         versiculo = "Versículo 1"
-        index = 1
+        index = 2
 
         for texto in contar:
             if index < len(contar):
-                versiculo = versiculo + ",Versículo " + str(index + 1)
+                versiculo = versiculo + ",Versículo " + str(index)
                 index += 1
 
         versiculos = versiculo.split(",")
