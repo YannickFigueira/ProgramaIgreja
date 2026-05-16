@@ -3,15 +3,24 @@ import argparse
 import os, platform, subprocess
 import tkinter as tk
 from tkinter import ttk, messagebox
-
-import ctypes
 import sys
 
-# Criar um Mutex único para o seu programa
-mutex = ctypes.windll.kernel32.CreateMutexW(None, False, "ProgramaIgrejaMutexUnico")
-if ctypes.windll.kernel32.GetLastError() == 183: # ERROR_ALREADY_EXISTS
-    # Se o programa já estiver aberto, ele fecha esta nova instância
-    sys.exit(0)
+# Só executa a lógica do Mutex se estiver rodando no Windows
+if os.name == 'nt':
+    try:
+        import ctypes
+
+        # Cria o Mutex único para o Inno Setup detectar
+        mutex = ctypes.windll.kernel32.CreateMutexW(None, False, "MeuProgramaIgrejaMutexUnico")
+
+        # 183 é o código para ERROR_ALREADY_EXISTS (programa já aberto)
+        if ctypes.windll.kernel32.GetLastError() == 183:
+            sys.exit(0)
+    except AttributeError:
+        # Prevenção caso o ambiente mude abruptamente
+        pass
+    except Exception:
+        pass
 
 VERSION = "0.3.8"
 repo= "ProgramaIgreja"
