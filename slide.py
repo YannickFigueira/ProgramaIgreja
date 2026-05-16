@@ -60,7 +60,6 @@ def iniciar_slide(janela, texto, identificacao, verso):
     label_relogio.pack(side="bottom")
 
     tamanho_letra = int(altura / medida_letra)
-    print(tamanho_letra)
 
     lbl_slide_visual = tk.Label(frame_principal, text=texto[verso], bg="black", fg="white", font=("Arial", tamanho_letra, "bold"),
                                 wraplength=largura_texto - borda_texto)
@@ -93,7 +92,6 @@ def iniciar_slide(janela, texto, identificacao, verso):
         janela_nova.attributes("-fullscreen", True)
 
         tamanho_letra_slide = int(second.height / medida_letra)
-        print(tamanho_letra_slide)
         label = tk.Label(
             janela_nova,
             text=texto[verso],
@@ -122,7 +120,6 @@ def iniciar_slide(janela, texto, identificacao, verso):
             index = (index + 1) % len(texto)  # avança e volta ao início
         else:
             index = (index - 1) % len(texto)
-            #print(index)
 
         lbl_slide_atual.config(text=f"{index + ajuste} / {len(texto) - identificacao}")
         label.config(text=texto[index])

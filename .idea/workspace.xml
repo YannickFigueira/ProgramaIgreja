@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="347fbf56-418b-43af-b555-4da948a507df" name="Changes" comment="Adiconado Mutex para o InnoSetup" />
+    <list default="true" id="347fbf56-418b-43af-b555-4da948a507df" name="Changes" comment="Corrigido verificação somente para Windows" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,6 +113,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-PY-261.23567.174" />
         <option value="bundled-python-sdk-024ed6589d45-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.23567.174" />
       </set>
     </attachedChunks>
@@ -131,22 +132,7 @@
       <workItem from="1777743807911" duration="11000" />
       <workItem from="1778879736669" duration="4657000" />
       <workItem from="1778890390156" duration="1629000" />
-    </task>
-    <task id="LOCAL-00003" summary="Merge remote-tracking branch 'origin/master'">
-      <option name="closed" value="true" />
-      <created>1764852920790</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1764852920790</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Criado slides para os hinos da harpa">
-      <option name="closed" value="true" />
-      <created>1765508297209</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1765508297209</updated>
+      <workItem from="1778893089111" duration="592000" />
     </task>
     <task id="LOCAL-00005" summary="Criado slides para os hinos da harpa">
       <option name="closed" value="true" />
@@ -524,7 +510,23 @@
       <option name="project" value="LOCAL" />
       <updated>1778891739652</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="verificado arquivos">
+      <option name="closed" value="true" />
+      <created>1778893233037</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1778893233038</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Corrigido verificação somente para Windows">
+      <option name="closed" value="true" />
+      <created>1778893642443</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1778893642444</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -542,8 +544,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Removido parágrafos duplicados no fim de alguns hinos" />
-    <MESSAGE value="Adicionado verificarversao.py para verificar versão do programa" />
     <MESSAGE value="Feito correções em hinos, adicionado pasta da bíblia para ser usada no lugar do powerpoint" />
     <MESSAGE value="Feito ajuste no fullscreen, fundo e adicionado contador dos slides" />
     <MESSAGE value="Ajustado tamanho da janela" />
@@ -567,7 +567,9 @@
     <MESSAGE value="Feito pequenos ajustes" />
     <MESSAGE value="Ajustado tamanho da letra e corrigido hino 545 e livro Atos 27" />
     <MESSAGE value="Adiconado Mutex para o InnoSetup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adiconado Mutex para o InnoSetup" />
+    <MESSAGE value="verificado arquivos" />
+    <MESSAGE value="Corrigido verificação somente para Windows" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrigido verificação somente para Windows" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ProgramaIgreja$programaigreja.coverage" NAME="programaigreja Coverage Results" MODIFIED="1778880238184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
