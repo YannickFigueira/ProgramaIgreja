@@ -1,9 +1,17 @@
 import dados, slide, verificarversao
 import argparse
 import os, platform, subprocess
-#import sys
 import tkinter as tk
 from tkinter import ttk, messagebox
+
+import ctypes
+import sys
+
+# Criar um Mutex único para o seu programa
+mutex = ctypes.windll.kernel32.CreateMutexW(None, False, "ProgramaIgrejaMutexUnico")
+if ctypes.windll.kernel32.GetLastError() == 183: # ERROR_ALREADY_EXISTS
+    # Se o programa já estiver aberto, ele fecha esta nova instância
+    sys.exit(0)
 
 VERSION = "0.3.8"
 repo= "ProgramaIgreja"
