@@ -7,13 +7,16 @@ import sys
 
 # Só executa a lógica do Mutex se estiver rodando no Windows
 if os.name == 'nt':
+    # noinspection PyBroadException
     try:
         import ctypes
 
         # Cria o Mutex único para o Inno Setup detectar
+        # noinspection PyUnresolvedReferences
         mutex = ctypes.windll.kernel32.CreateMutexW(None, False, "MeuProgramaIgrejaMutexUnico")
 
         # 183 é o código para ERROR_ALREADY_EXISTS (programa já aberto)
+        # noinspection PyUnresolvedReferences
         if ctypes.windll.kernel32.GetLastError() == 183:
             sys.exit(0)
     except AttributeError:
