@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="347fbf56-418b-43af-b555-4da948a507df" name="Changes" comment="limpo comando print do código">
+    <list default="true" id="347fbf56-418b-43af-b555-4da948a507df" name="Changes" comment="pequenos ajustes no código">
+      <change beforePath="$PROJECT_DIR$/.idea/ProgramaIgreja.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProgramaIgreja.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaigreja.py" beforeDir="false" afterPath="$PROJECT_DIR$/programaigreja.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Biblia/Malaquias/Malaquias - 003.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Biblia/Malaquias/Malaquias - 003.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HarpaTexto/060 - Exultacao do Crente.txt" beforeDir="false" afterPath="$PROJECT_DIR$/HarpaTexto/060 - Exultacao do Crente.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HarpaTexto/323 - Levantai Vossos olhos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/HarpaTexto/323 - Levantai Vossos olhos.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HarpaTexto/334 - O fim vem, cuidado.txt" beforeDir="false" afterPath="$PROJECT_DIR$/HarpaTexto/334 - O fim vem, cuidado.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +41,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/YannickFigueira/ProgramaIgreja&quot;,
-    &quot;accountId&quot;: &quot;72566949-9946-4f26-8aa1-a505c437a434&quot;
+    &quot;accountId&quot;: &quot;0da9c9a6-4b20-4751-b96f-a1b0ec494c4a&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -60,6 +64,7 @@
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;v030&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/yannick/Nextcloud/Documents/Development/PycharmProjects/ProgramaIgreja&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -116,7 +121,6 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-PY-261.24374.152" />
         <option value="bundled-python-sdk-c59985aa861c-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.24374.152" />
       </set>
     </attachedChunks>
@@ -138,6 +142,9 @@
       <workItem from="1778893089111" duration="1930000" />
       <workItem from="1778895786036" duration="41000" />
       <workItem from="1779054821947" duration="2871000" />
+      <workItem from="1779195468031" duration="49000" />
+      <workItem from="1779306922804" duration="42000" />
+      <workItem from="1779325302280" duration="5000" />
     </task>
     <task id="LOCAL-00006" summary="Criado slides para os hinos da harpa">
       <option name="closed" value="true" />

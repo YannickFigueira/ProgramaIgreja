@@ -110,3 +110,8 @@
 - Ajustado tamanho das letras no slide
 - Corrigido Hino 545
 - Verificado e corrigido Atos 27
+
+## [0.3.9] - 2026-06-12
+### Fixed
+- Corrigido hinos 60, 323, 334
+- Corrigido Malaquias 3
