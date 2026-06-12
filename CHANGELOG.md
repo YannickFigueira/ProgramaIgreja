@@ -115,3 +115,8 @@
 ### Fixed
 - Corrigido hinos 60, 323, 334
 - Corrigido Malaquias 3
+
+## [0.4.0] - 2026-06-12
+### Changed
+- Alterado separadores verticais, adicionado separador horizontal
+- Ajustado tamanho da janela

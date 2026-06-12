@@ -25,7 +25,7 @@ if os.name == 'nt':
     except Exception:
         pass
 
-VERSION = "0.3.9"
+VERSION = "0.4.0"
 repo= "ProgramaIgreja"
 
 class FileBrowserApp:
@@ -77,19 +77,20 @@ class FileBrowserApp:
 
         self.janela = janela
         self.janela.title("Programa Igreja Slides")
-        self.janela.geometry("440x460")
+        #self.janela.geometry("440x460")
         self.janela.columnconfigure(1, weight=1)
         self.janela.resizable(False, False)
 
         # Bíblia Sagrada Layout #
         ttk.Label(root, text="Bíblia Sagrada").grid(row=linha, column=0, padx=5, pady=5, sticky="w")
         linha += 1
-        ttk.Label(root, text="\u2012" * 300).grid(row=linha, column=0, columnspan=2, padx=5, pady=5, sticky="w")
+        # ttk.Label(root, text="\u2012" * 300).grid(row=linha, column=0, columnspan=2, padx=5, pady=5, sticky="w")
+        ttk.Separator(root, orient="horizontal").grid(row=linha, columnspan=3, sticky="ew", padx=5, pady=5)
         linha += 1
 
         # Filtro de pastas
         ttk.Label(root, text="Filtro do Livro:").grid(row=linha, column=0, padx=5, pady=5, sticky="w")
-        self.filtro_livro_txt = ttk.Entry(root)
+        self.filtro_livro_txt = ttk.Entry(root, width=50)
         self.filtro_livro_txt.grid(row=linha, column=1, padx=5, pady=5, sticky="ew")
         self.filtro_livro_txt.bind("<KeyRelease>", self.atualizar_pastas_biblia)
         self.filtro_livro_txt.focus_set()  # Define o foco inicial
@@ -142,14 +143,16 @@ class FileBrowserApp:
         self.atualizar_versiculos()
 
         # Separador
-        ttk.Label(root, text="\u2012" * 300).grid(row=linha, column=0, columnspan=2, padx=5, pady=5, sticky="w")
+        #ttk.Label(root, text="\u2012" * 300).grid(row=linha, column=0, columnspan=2, padx=5, pady=5, sticky="w")
+        ttk.Separator(root, orient="horizontal").grid(row=linha, columnspan=3, sticky="ew", padx=5, pady=5)
         linha += 1
 
         # Fim da Bíblia Sagrada layout #
         # Harpa Cristã Layout #
         ttk.Label(root, text="Harpa Cristã").grid(row=linha, column=0, padx=5, pady=5, sticky="w")
         linha += 1
-        ttk.Label(root, text="\u2012" * 300).grid(row=linha, column=0, columnspan=2, padx=5, pady=5, sticky="w")
+        #ttk.Label(root, text="\u2012" * 300).grid(row=linha, column=0, columnspan=2, padx=5, pady=5, sticky="w")
+        ttk.Separator(root, orient="horizontal").grid(row=linha, columnspan=3, sticky="ew", padx=5, pady=5)
         linha += 1
 
         # Campo de filtro
@@ -171,6 +174,9 @@ class FileBrowserApp:
         self.abrir_harpa_btn = ttk.Button(root, text="Abrir Arquivo", command=lambda: self.abrir_arquivo(1))
         self.abrir_harpa_btn.grid(row=linha, column=0, columnspan=2, padx=5, pady=10, sticky="ew")
         linha += 1
+
+        # Linha vertical
+        ttk.Separator(root, orient="vertical").grid(row=0, column=2, rowspan=linha, sticky="ns", padx=5, pady=5)
 
         # Captura especificamente o Enter
         self.filtro_harpa_txt.bind("<Key>", lambda e: self.acao_enter(e, 1))
