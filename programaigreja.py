@@ -68,6 +68,9 @@ class FileBrowserApp:
 
         # Config
         linha = 0
+        link = 6
+        espacox = link
+        espacoy = link
         # Declaração
         self.lista_completa = []
 
@@ -82,49 +85,49 @@ class FileBrowserApp:
         self.janela.resizable(False, False)
 
         # Bíblia Sagrada Layout #
-        ttk.Label(root, text="Bíblia Sagrada").grid(row=linha, column=0, padx=5, pady=5, sticky="w")
+        ttk.Label(root, text="Bíblia Sagrada").grid(row=linha, column=0, padx=espacox, pady=espacoy, sticky="w")
         linha += 1
         # ttk.Label(root, text="\u2012" * 300).grid(row=linha, column=0, columnspan=2, padx=5, pady=5, sticky="w")
-        ttk.Separator(root, orient="horizontal").grid(row=linha, columnspan=3, sticky="ew", padx=5, pady=5)
+        ttk.Separator(root, orient="horizontal").grid(row=linha, columnspan=6, sticky="ew", padx=espacox, pady=espacoy)
         linha += 1
 
         # Filtro de pastas
-        ttk.Label(root, text="Filtro do Livro:").grid(row=linha, column=0, padx=5, pady=5, sticky="w")
+        ttk.Label(root, text="Filtro do Livro:").grid(row=linha, column=0, padx=espacox, pady=espacoy, sticky="w")
         self.filtro_livro_txt = ttk.Entry(root, width=50)
-        self.filtro_livro_txt.grid(row=linha, column=1, padx=5, pady=5, sticky="ew")
+        self.filtro_livro_txt.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
         self.filtro_livro_txt.bind("<KeyRelease>", self.atualizar_pastas_biblia)
         self.filtro_livro_txt.focus_set()  # Define o foco inicial
         linha += 1
 
         # Combobox de pastas
-        ttk.Label(root, text="Livro:").grid(row=linha, column=0, padx=5, pady=5, sticky="w")
+        ttk.Label(root, text="Livro:").grid(row=linha, column=0, padx=espacox, pady=espacoy, sticky="w")
         self.pastas_cb = ttk.Combobox(root, takefocus=False, state="readonly")
-        self.pastas_cb.grid(row=linha, column=1, padx=5, pady=5, sticky="ew")
+        self.pastas_cb.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
         self.pastas_cb.bind("<<ComboboxSelected>>", self.atualizar_arquivos_biblia)
         linha += 1
 
         # Campo de filtro de arquivos
-        ttk.Label(root, text="Filtro do Capítulo:").grid(row=linha, column=0, padx=5, pady=5, sticky="w")
+        ttk.Label(root, text="Filtro do Capítulo:").grid(row=linha, column=0, padx=espacox, pady=espacoy, sticky="w")
         self.filtro_capitulo_txt = ttk.Entry(root)
-        self.filtro_capitulo_txt.grid(row=linha, column=1, padx=5, pady=5, sticky="ew")
+        self.filtro_capitulo_txt.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
         self.filtro_capitulo_txt.bind("<KeyRelease>", self.atualizar_arquivos_biblia)
         linha += 1
 
         # Combobox de arquivos
-        ttk.Label(root, text="Capítulo:").grid(row=linha, column=0, padx=5, pady=5, sticky="w")
+        ttk.Label(root, text="Capítulo:").grid(row=linha, column=0, padx=espacox, pady=espacoy, sticky="w")
         self.arquivo_cb = ttk.Combobox(root, takefocus=False, state="readonly")
-        self.arquivo_cb.grid(row=linha, column=1, padx=5, pady=5, sticky="ew")
+        self.arquivo_cb.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
         linha += 1
 
         # Combobox de versículos
-        ttk.Label(root, text="Versículo:").grid(row=linha, column=0, padx=5, pady=5, sticky="w")
+        ttk.Label(root, text="Versículo:").grid(row=linha, column=0, padx=espacox, pady=espacoy, sticky="w")
         self.versiculo_cb = ttk.Combobox(root, takefocus=False, state="readonly")
-        self.versiculo_cb.grid(row=linha, column=1, padx=5, pady=5, sticky="ew")
+        self.versiculo_cb.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
         linha += 1
 
         # Botão de abrir
         self.abrir_biblia_btn = ttk.Button(root, text="Abrir Arquivo", command=lambda: self.abrir_arquivo(0))
-        self.abrir_biblia_btn.grid(row=linha, column=0, columnspan=2, padx=5, pady=10, sticky="ew")
+        self.abrir_biblia_btn.grid(row=linha, column=0, columnspan=2, padx=espacox, pady=espacoy, sticky="ew")
         linha += 1
 
         # Captura especificamente o Enter
@@ -144,39 +147,39 @@ class FileBrowserApp:
 
         # Separador
         #ttk.Label(root, text="\u2012" * 300).grid(row=linha, column=0, columnspan=2, padx=5, pady=5, sticky="w")
-        ttk.Separator(root, orient="horizontal").grid(row=linha, columnspan=3, sticky="ew", padx=5, pady=5)
+        ttk.Separator(root, orient="horizontal").grid(row=linha, columnspan=3, sticky="ew", padx=espacox, pady=espacoy)
         linha += 1
 
         # Fim da Bíblia Sagrada layout #
         # Harpa Cristã Layout #
-        ttk.Label(root, text="Harpa Cristã").grid(row=linha, column=0, padx=5, pady=5, sticky="w")
+        ttk.Label(root, text="Harpa Cristã").grid(row=linha, column=0, padx=espacox, pady=espacoy, sticky="w")
         linha += 1
         #ttk.Label(root, text="\u2012" * 300).grid(row=linha, column=0, columnspan=2, padx=5, pady=5, sticky="w")
-        ttk.Separator(root, orient="horizontal").grid(row=linha, columnspan=3, sticky="ew", padx=5, pady=5)
+        ttk.Separator(root, orient="horizontal").grid(row=linha, columnspan=3, sticky="ew", padx=espacox, pady=espacoy)
         linha += 1
 
         # Campo de filtro
-        ttk.Label(root, text="Filtro do Hino:").grid(row=linha, column=0, padx=5, pady=5, sticky="w")
+        ttk.Label(root, text="Filtro do Hino:").grid(row=linha, column=0, padx=espacox, pady=espacoy, sticky="w")
         self.filtro_harpa_txt = ttk.Entry(root)
-        self.filtro_harpa_txt.grid(row=linha, column=1, padx=5, pady=10, sticky="ew")
+        self.filtro_harpa_txt.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
         linha += 1
 
         # Captura qualquer tecla liberada
         self.filtro_harpa_txt.bind("<KeyRelease>", self.filtrar_lista)
 
         # Combobox de arquivos
-        ttk.Label(root, text="Hino:").grid(row=linha, column=0, padx=5, pady=10, sticky="w")
+        ttk.Label(root, text="Hino:").grid(row=linha, column=0, padx=espacox, pady=espacoy, sticky="w")
         self.arquivo_harpa_cb = ttk.Combobox(root, takefocus=False, state="readonly")
-        self.arquivo_harpa_cb.grid(row=linha, column=1, padx=5, pady=5, sticky="ew")
+        self.arquivo_harpa_cb.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
         linha += 1
 
         # Botão de abrir
         self.abrir_harpa_btn = ttk.Button(root, text="Abrir Arquivo", command=lambda: self.abrir_arquivo(1))
-        self.abrir_harpa_btn.grid(row=linha, column=0, columnspan=2, padx=5, pady=10, sticky="ew")
+        self.abrir_harpa_btn.grid(row=linha, column=0, columnspan=2, padx=espacox, pady=espacoy, sticky="ew")
         linha += 1
 
         # Linha vertical
-        ttk.Separator(root, orient="vertical").grid(row=0, column=2, rowspan=linha, sticky="ns", padx=5, pady=5)
+        ttk.Separator(root, orient="vertical").grid(row=0, column=2, rowspan=linha, sticky="ns", padx=espacox, pady=espacoy)
 
         # Captura especificamente o Enter
         self.filtro_harpa_txt.bind("<Key>", lambda e: self.acao_enter(e, 1))
@@ -184,6 +187,26 @@ class FileBrowserApp:
 
         # Carregar arquivos
         self.carregar_arquivos_harpa()
+
+
+        # Painel lateral direito
+        linha_lateral = 0
+        ttk.Label(root, text="Busca").grid(row=linha_lateral, column=3, padx=espacox, pady=espacoy, sticky="w")
+        linha_lateral += 2
+        # ttk.Separator(root, orient="horizontal").grid(row=linha_lateral, column=3, columnspan=3, sticky="ew", padx=0, pady=5)
+        # Busca
+        ttk.Label(root, text="Buscar:").grid(row=linha_lateral, column=3, padx=espacox, pady=espacoy, sticky="w")
+        self.buscar_texto_txt = ttk.Entry(root, width=50)
+        self.buscar_texto_txt.grid(row=linha_lateral, column=4, padx=espacox, pady=espacoy, sticky="we")
+        linha_lateral += 1
+        # Botão de buscar
+        self.buscar_texto_btn = ttk.Button(root, text="Buscar")
+        self.buscar_texto_btn.grid(row=linha_lateral, column=3, columnspan=2, padx=espacox, pady=espacoy, sticky="ew")
+        linha_lateral += 1
+        # Área de texto, resultado da busca
+        text_area = tk.Text(root, width=10, height=10)
+        text_area.grid(row=linha_lateral, rowspan=10, column=3, columnspan=2, padx=espacox, pady=espacoy, sticky="ewns")
+        ## --------------------------------------------------------------- ##
 
     # Fim da Harpa Cristã Laytout #
 

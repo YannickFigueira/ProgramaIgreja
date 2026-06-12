@@ -120,3 +120,4 @@
 ### Changed
 - Alterado separadores verticais, adicionado separador horizontal
 - Ajustado tamanho da janela
+- Criado janela lateral de busca
