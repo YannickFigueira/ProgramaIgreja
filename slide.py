@@ -29,7 +29,7 @@ def iniciar_slide(janela, texto, identificacao, verso):
     janela_slide.attributes("-fullscreen", True)
 
     # Cria o label
-    medida_letra = 15
+    medida_letra = 16
 
     largura = first.width / 2
     altura = first.height / 2
