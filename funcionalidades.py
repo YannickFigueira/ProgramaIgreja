@@ -1,5 +1,5 @@
 import math
-import os
+import os, platform
 
 
 def localizar_arquivo(pasta_raiz, termo_busca):
@@ -15,7 +15,12 @@ def localizar_arquivo(pasta_raiz, termo_busca):
                 try:
                     # Abre o arquivo com encoding utf-8 para evitar erros de caracteres
                     with open(caminho_completo, 'r', encoding='utf-8') as f:
-                        pasta_separada = caminho_completo.split("/")
+                        if platform.system() == "Windows":
+                            pasta_separada = caminho_completo.split("\\")
+                        elif platform.system() == "Linux":
+                            pasta_separada = caminho_completo.split("/")
+                        else:
+                            print("Sistema não suportado")
 
                         for numero_linha, linha in enumerate(f, 1):
                             if termo_busca.lower() in linha.lower():  # Busca sem diferenciar maiúsculas/minúsculas
