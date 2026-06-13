@@ -121,3 +121,7 @@
 - Alterado separadores verticais, adicionado separador horizontal
 - Ajustado tamanho da janela
 - Criado janela lateral de busca
+- Adicionado funcionalidade de busca
+
+### Fixed
+- Corrigido para mostrar o último versículo de cada livro e carregar corretamente

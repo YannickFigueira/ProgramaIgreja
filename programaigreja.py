@@ -1,4 +1,6 @@
-import dados, slide, verificarversao
+from setuptools import command
+
+import dados, slide, verificarversao, funcionalidades
 import argparse
 import os, platform, subprocess
 import tkinter as tk
@@ -193,20 +195,49 @@ class FileBrowserApp:
         linha_lateral = 0
         ttk.Label(root, text="Busca").grid(row=linha_lateral, column=3, padx=espacox, pady=espacoy, sticky="w")
         linha_lateral += 2
-        # ttk.Separator(root, orient="horizontal").grid(row=linha_lateral, column=3, columnspan=3, sticky="ew", padx=0, pady=5)
         # Busca
         ttk.Label(root, text="Buscar:").grid(row=linha_lateral, column=3, padx=espacox, pady=espacoy, sticky="w")
         self.buscar_texto_txt = ttk.Entry(root, width=50)
         self.buscar_texto_txt.grid(row=linha_lateral, column=4, padx=espacox, pady=espacoy, sticky="we")
         linha_lateral += 1
+        # Combobox de pasta
+        ttk.Label(root, text="Pasta de busca:").grid(row=linha_lateral, column=3, padx=espacox, pady=espacoy, sticky="w")
+        self.buscar_texto_cb = ttk.Combobox(root, takefocus=False, state="readonly")
+        self.buscar_texto_cb.grid(row=linha_lateral, column=4, padx=espacox, pady=espacoy, sticky="ew")
+        self.buscar_texto_cb["values"] = ["Bíblia", "Harpa"]
+        self.buscar_texto_cb.current(0)
+        linha_lateral += 1
         # Botão de buscar
-        self.buscar_texto_btn = ttk.Button(root, text="Buscar")
+        self.buscar_texto_btn = ttk.Button(root, text="Buscar", command=lambda: executar_busca(self.buscar_texto_txt.get()))
         self.buscar_texto_btn.grid(row=linha_lateral, column=3, columnspan=2, padx=espacox, pady=espacoy, sticky="ew")
         linha_lateral += 1
         # Área de texto, resultado da busca
-        text_area = tk.Text(root, width=10, height=10)
-        text_area.grid(row=linha_lateral, rowspan=10, column=3, columnspan=2, padx=espacox, pady=espacoy, sticky="ewns")
-        ## --------------------------------------------------------------- ##
+        # 1. Cria a barra de rolagem
+        scrollbar_lateral = ttk.Scrollbar(root)
+        scrollbar_fundo = ttk.Scrollbar(root, orient="horizontal")
+        # Coloca a barra na coluna 4, ocupando as mesmas 10 linhas, colada do lado direito ("ns")
+        scrollbar_lateral.grid(row=linha_lateral, rowspan=10, column=4, sticky="ens", pady=(espacoy, 20), padx=(0, espacox))
+        scrollbar_fundo.grid(row=13, column=3, columnspan=2, sticky="ews", padx=(espacox, 20), pady=(0, espacoy))
+
+        text_area = tk.Text(root, width=10, height=10, wrap="none")
+        text_area.grid(row=linha_lateral, rowspan=10, column=3, columnspan=2, padx=(espacox, 20), pady=(espacoy, 20), sticky="ewns")
+
+        # 3. Vincula os dois componentes
+        text_area.config(yscrollcommand=scrollbar_lateral.set)
+        text_area.config(xscrollcommand=scrollbar_fundo.set)
+        scrollbar_lateral.config(command=text_area.yview)
+        scrollbar_fundo.config(command=text_area.xview)
+
+        def executar_busca (texto):
+            if self.buscar_texto_cb.get() == "Bíblia":
+                caminho = dados.biblia_dir
+            else:
+                caminho = dados.harpa_dir
+
+            resultado = funcionalidades.localizar_arquivo(caminho, texto)
+            text_area.delete("1.0", tk.END)
+            text_area.insert("1.0", resultado)
+        ## --------------------------------------------------------------------------------------------------------- ##
 
     # Fim da Harpa Cristã Laytout #
 
@@ -259,7 +290,7 @@ class FileBrowserApp:
         index = 2
 
         for texto in contar:
-            if index < len(contar):
+            if index <= len(contar):
                 versiculo = versiculo + ",Versículo " + str(index)
                 index += 1
 

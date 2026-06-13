@@ -5,9 +5,12 @@ from screeninfo import get_monitors
 from datetime import datetime
 
 def iniciar_slide(janela, texto, identificacao, verso):
-
+    texto_verificado = ""
     if identificacao == 0:
         ajuste = 1
+        if not len(texto) == (verso + 1):
+            texto_verificado = texto[verso + 1]
+
     else:
         ajuste = 0
 
@@ -65,7 +68,7 @@ def iniciar_slide(janela, texto, identificacao, verso):
                                 wraplength=largura_texto - borda_texto)
     lbl_slide_visual.pack(fill="both", expand=True)
 
-    lbl_slide_preview = tk.Label(frame_preview, text=texto[verso + 1], bg="black", fg="white", font=("Arial", int(tamanho_letra / 2),
+    lbl_slide_preview = tk.Label(frame_preview, text=texto_verificado, bg="black", fg="white", font=("Arial", int(tamanho_letra / 2),
                                                                                                      "bold"), wraplength=largura_texto / 2 - borda_texto)
     lbl_slide_preview.pack(fill="both", expand=True)
 
