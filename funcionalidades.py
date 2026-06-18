@@ -32,3 +32,36 @@ def localizar_arquivo(pasta_raiz, termo_busca):
                     continue
     #print(resultado)
     return resultado.replace(".txt", "")
+
+def justificar_texto(texto, tamanho_letra_slide):
+        # 1. Criamos o Frame HTML
+        # frame_html = HtmlFrame(janela_nova)
+
+        # 2. Seu texto com HTML e CSS para justificar em ambos os lados e centralizar
+        largura_slide = "91%"
+        tamanho_fonte = f"{tamanho_letra_slide}px"
+
+        codigo_html = f"""
+        <!DOCTYPE html>
+        <html lang="pt-br">
+        <body style="background-color: black; margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh;">
+            <div style="
+                color: white; 
+                font-family: Arial, sans-serif; 
+                font-size: {tamanho_fonte}; 
+                font-weight: bold; 
+                text-align: justify; /* JUSTIFICA AMBOS OS LADOS */
+                margin: auto;
+                padding-top: 30px;
+                max-width: {largura_slide};
+                width: 100%;
+                line-height: 1.1;
+            ">
+                {texto.replace('\n', '<br>')}
+
+            </div>
+        </body>
+        </html>
+        """
+
+        return codigo_html

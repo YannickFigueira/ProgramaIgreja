@@ -127,6 +127,9 @@
 - Corrigido para mostrar o último versículo de cada livro e carregar corretamente
 
 ## [0.4.1] - 2026-06-18
+### Changed
+- Modificado visualização do slide, melhorado proporção e justificado o texto
+
 ### Fixed
 - Corrigido Ageu-001
 - Corrigido Ester-008

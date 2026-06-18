@@ -27,7 +27,7 @@ if os.name == 'nt':
     except Exception:
         pass
 
-VERSION = "0.4.0"
+VERSION = "0.4.1"
 repo= "ProgramaIgreja"
 
 class FileBrowserApp:

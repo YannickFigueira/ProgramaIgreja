@@ -1,8 +1,13 @@
+import math
 import tkinter as tk
 import platform
 
 from screeninfo import get_monitors
 from datetime import datetime
+
+from tkinterweb import HtmlFrame
+
+import funcionalidades
 
 def iniciar_slide(janela, texto, identificacao, verso):
     texto_verificado = ""
@@ -13,12 +18,14 @@ def iniciar_slide(janela, texto, identificacao, verso):
 
     else:
         ajuste = 0
+        if not len(texto) == (verso + 1):
+            texto_verificado = texto[verso + 1]
 
     # Janela principal
     monitors = get_monitors()
 
     if len(monitors) == 2:
-        second = monitors[1]
+        second = monitors[1] ## testes original 1
     else:
         second = monitors[0]
     first = monitors[0]
@@ -64,6 +71,26 @@ def iniciar_slide(janela, texto, identificacao, verso):
 
     tamanho_letra = int(altura / medida_letra)
 
+    def identificar_proporcao():
+
+        relacao = second.width / second.height
+
+        tela16_9 = int(second.height *.086)
+        tela4_3 = int(second.height *.074)
+
+        if abs(relacao - (16 / 9)) < 0.05:
+            return tela16_9
+        elif abs(relacao - (4 / 3)) < 0.05:
+            return tela4_3
+        elif abs(relacao - (16 / 10)) < 0.05:
+            return tela16_9
+        elif relacao > 2.0:
+            return tela16_9
+        else:
+            return tela16_9
+
+    tamanho_letra_slide = identificar_proporcao()
+
     lbl_slide_visual = tk.Label(frame_principal, text=texto[verso], bg="black", fg="white", font=("Arial", tamanho_letra, "bold"),
                                 wraplength=largura_texto - borda_texto)
     lbl_slide_visual.pack(fill="both", expand=True)
@@ -79,7 +106,7 @@ def iniciar_slide(janela, texto, identificacao, verso):
 
         # Exemplo: pegar segunda tela
 
-        largura_texto_slide = int(second.width * 0.9)
+        #largura_texto_slide = int(second.width * 0.91)
 
         janela_nova = tk.Toplevel(janela_slide)
         janela_nova.title("Segunda Tela")
@@ -94,7 +121,15 @@ def iniciar_slide(janela, texto, identificacao, verso):
 
         janela_nova.attributes("-fullscreen", True)
 
-        tamanho_letra_slide = int(second.height / medida_letra)
+
+
+        frame_html = HtmlFrame(janela_nova)
+        codigo_html = funcionalidades.justificar_texto(texto[verso], tamanho_letra_slide)
+        frame_html.load_html(codigo_html)
+        #frame_html.grid(row=0, column=0, pady=30)
+        frame_html.pack(expand=True, fill="both")
+        frame_html.propagate(False)  # impede que o frame se ajuste ao conteúdo
+        '''
         label = tk.Label(
             janela_nova,
             text=texto[verso],
@@ -107,8 +142,11 @@ def iniciar_slide(janela, texto, identificacao, verso):
         )
         label.pack(expand=True, fill="both")
         # Fim da janela slide
+        '''
 
-    abrir_janela_slide()
+        return frame_html
+
+    frame_html = abrir_janela_slide()
 
     index = verso
     if identificacao == 0:
@@ -125,12 +163,24 @@ def iniciar_slide(janela, texto, identificacao, verso):
             index = (index - 1) % len(texto)
 
         lbl_slide_atual.config(text=f"{index + ajuste} / {len(texto) - identificacao}")
-        label.config(text=texto[index])
+        # label.config(text=texto[index])
+
+        codigo_html = funcionalidades.justificar_texto(texto[index], tamanho_letra_slide)
+        frame_html.load_html(codigo_html)
+        frame_html.pack(expand=True, fill="both")
+        frame_html.propagate(False)  # impede que o frame se ajuste ao conteúdo
+
         lbl_slide_visual.config(text=texto[index])
         if (index + 1) < len(texto):
             lbl_slide_preview.config(text=texto[index + 1])
         else:
             lbl_slide_preview.config(text="")
+
+        print(f"index: {index}")
+        print(f"texto: {len(texto)}")
+        if index == len(texto) - 1:
+            print("FIM")
+            fechar()
 
         if index == 0 and identificacao == 1:
             fechar()
@@ -146,7 +196,6 @@ def iniciar_slide(janela, texto, identificacao, verso):
         janela_slide.after(1000, atualizar_hora)  # chama a função novamente após 1000 ms (1 segundo)
 
     atualizar_hora()
-
 
     # Bind somente nesta janela (evitar bind_all)
     janela_slide.bind("<Escape>", fechar)
