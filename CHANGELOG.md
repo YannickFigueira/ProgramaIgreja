@@ -129,3 +129,4 @@
 ## [0.4.1] - 2026-06-18
 ### Fixed
 - Corrigido Ageu-001
+- Corrigido Ester-008
