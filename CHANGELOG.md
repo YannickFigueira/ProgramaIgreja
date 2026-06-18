@@ -125,3 +125,7 @@
 
 ### Fixed
 - Corrigido para mostrar o último versículo de cada livro e carregar corretamente
+
+## [0.4.1] - 2026-06-18
+### Fixed
+- Corrigido Ageu-001
