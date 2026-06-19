@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="347fbf56-418b-43af-b555-4da948a507df" name="Changes" comment="Ajustado texto de Ageu-001">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Biblia/Ester/Ester - 008.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Biblia/Ester/Ester - 008.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funcionalidades.py" beforeDir="false" afterPath="$PROJECT_DIR$/funcionalidades.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaigreja.py" beforeDir="false" afterPath="$PROJECT_DIR$/programaigreja.py" afterDir="false" />
+    <list default="true" id="347fbf56-418b-43af-b555-4da948a507df" name="Changes" comment="Modificado visualização do slide">
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HarpaTexto/038 - O Senhor é Rei.txt" beforeDir="false" afterPath="$PROJECT_DIR$/HarpaTexto/038 - O Senhor é Rei.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/slide.py" beforeDir="false" afterPath="$PROJECT_DIR$/slide.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -172,22 +170,6 @@
       <workItem from="1779306922804" duration="42000" />
       <workItem from="1779325302280" duration="5000" />
       <workItem from="1781312542262" duration="118000" />
-    </task>
-    <task id="LOCAL-00017" summary="Correções ao abrir os hinos carregados, abria hinos errados após carregados">
-      <option name="closed" value="true" />
-      <created>1765764124257</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1765764124257</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Ajustado número da versão">
-      <option name="closed" value="true" />
-      <created>1765764370881</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1765764370881</updated>
     </task>
     <task id="LOCAL-00019" summary="Ajustado número da versão">
       <option name="closed" value="true" />
@@ -565,7 +547,23 @@
       <option name="project" value="LOCAL" />
       <updated>1781799173492</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Ajustado texto de Ester - 008.txt">
+      <option name="closed" value="true" />
+      <created>1781800702478</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1781800702478</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Modificado visualização do slide">
+      <option name="closed" value="true" />
+      <created>1781801426858</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1781801426858</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -583,8 +581,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Configurado para funcionar no Windows" />
-    <MESSAGE value="Criado barra de menus com sobre e sair, removido botão de verificar atualização e colocado na barra de menus" />
     <MESSAGE value="mudado número da versão" />
     <MESSAGE value="Adicionado o desenvolvedor no campo sobre" />
     <MESSAGE value="Verificado Apocalipse - 020.txt" />
@@ -608,7 +604,9 @@
     <MESSAGE value="Adicionado verificação do sistema para listagem da busca" />
     <MESSAGE value="Ajustado texto de Ageu" />
     <MESSAGE value="Ajustado texto de Ageu-001" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajustado texto de Ageu-001" />
+    <MESSAGE value="Ajustado texto de Ester - 008.txt" />
+    <MESSAGE value="Modificado visualização do slide" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modificado visualização do slide" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ProgramaIgreja$programaigreja.coverage" NAME="programaigreja Coverage Results" MODIFIED="1779065630722" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

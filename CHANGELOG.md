@@ -133,3 +133,4 @@
 ### Fixed
 - Corrigido Ageu-001
 - Corrigido Ester-008
+- Corrigido Hino-038
