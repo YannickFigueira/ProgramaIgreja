@@ -148,18 +148,21 @@ def iniciar_slide(janela, texto, identificacao, verso):
     frame_html = abrir_janela_slide()
 
     index = verso
+    encerrar = verso
     if identificacao == 0:
         ajuste = 1
     else:
         ajuste = 0
 
     def atualizar_texto(valor, event=None):
-        nonlocal index
+        nonlocal index, encerrar
 
         if valor == 0:
             index = (index + 1) % len(texto)  # avança e volta ao início
+            encerrar += 1
         else:
             index = (index - 1) % len(texto)
+            encerrar -= 1
 
         lbl_slide_atual.config(text=f"{index + ajuste} / {len(texto) - identificacao}")
         # label.config(text=texto[index])
@@ -175,13 +178,7 @@ def iniciar_slide(janela, texto, identificacao, verso):
         else:
             lbl_slide_preview.config(text="")
 
-        print(f"index: {index}")
-        print(f"texto: {len(texto)}")
-        if index == len(texto) - 1:
-            print("FIM")
-            fechar()
-
-        if index == 0 and identificacao == 1:
+        if  encerrar < 0 or encerrar > len(texto) - 1:
             fechar()
 
     # Função para fechar ao precionar ESC

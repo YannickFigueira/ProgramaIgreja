@@ -134,3 +134,4 @@
 - Corrigido Ageu-001
 - Corrigido Ester-008
 - Corrigido Hino-038
+- Configurado para encerrar o slide nos textos da Bíblia
