@@ -30,7 +30,7 @@ if os.name == 'nt':
 VERSION = "0.4.1"
 repo= "ProgramaIgreja"
 
-class FileBrowserApp:
+class ProgramaSlide:
 
     # Principal
     def __init__(self, janela):
@@ -78,7 +78,7 @@ class FileBrowserApp:
 
         parser = argparse.ArgumentParser(prog="programaigreja")
         parser.add_argument("--version", action="version", version=f"%(prog)s {VERSION}")
-        #args = parser.parse_args()
+        args = parser.parse_args()
 
         self.janela = janela
         self.janela.title("Programa Igreja Slides")
@@ -349,5 +349,5 @@ class FileBrowserApp:
 
 if __name__ == "__main__":
     root = tk.Tk()
-    app = FileBrowserApp(root)
+    app = ProgramaSlide(root)
     root.mainloop()
