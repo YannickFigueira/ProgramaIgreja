@@ -153,6 +153,7 @@ class Funcoes:
 
         self.atualizar_pastas_biblia()
         self.atualizar_versiculos()
+        self.carregar_arquivos_harpa()
 
         # --- Controles da Janela Principal ---
         self.view.controles['filtro_livro_txt'].bind("<KeyRelease>", self.atualizar_pastas_biblia)
@@ -163,6 +164,12 @@ class Funcoes:
         # Captura especificamente o Enter
         self.view.controles['filtro_capitulo_txt'].bind("<Key>", lambda e: self.acao_enter(e, 0))
         self.view.controles['abrir_biblia_btn'].bind("<Key>", lambda e: self.acao_enter(e, 0))
+        # Captura qualquer tecla liberada
+        self.view.controles['filtro_harpa_txt'].bind("<KeyRelease>", self.filtrar_lista)
+        self.view.controles['abrir_harpa_btn'].config(command=lambda: self.abrir_janela_slide(1))
+        # Captura especificamente o Enter
+        self.view.controles['filtro_harpa_txt'].bind("<Key>", lambda e: self.acao_enter(e, 1))
+        self.view.controles['abrir_harpa_btn'].bind("<Key>", lambda e: self.acao_enter(e, 1))
 
         # --- Menu da Janela Principal ---
         self.view.controles['menu_ajuda'].add_command(label="Verificar atualização",
@@ -249,9 +256,17 @@ class Funcoes:
                 case 1:
                     self.abrir_janela_slide(valor)
 
-    # Iniciar janela slide
+    def filtrar_lista(self, event=None):
+        texto_harpa = self.view.controles['filtro_harpa_txt'].get().lower()
+        filtrados = [f for f in estilo.LISTA_COMPLETA if texto_harpa in f.lower()]
+        self.view.controles['arquivo_harpa_cb']["values"] = filtrados
+
+        if filtrados:
+            self.view.controles['arquivo_harpa_cb'].current(0)
+
+    # --- Iniciar janela slide ---
     def abrir_janela_slide(self, valor):
-        global identificacao, verso, texto
+        global identificacao, verso, texto, total, inicio
         match valor:
             case 0:
                 pasta_selecionada = self.view.controles['pastas_cb'].get()
@@ -263,29 +278,29 @@ class Funcoes:
                 self.view.controles['filtro_capitulo_txt'].delete(0, tk.END)
                 # Transfere o foco para o campo de filtro de pastas
                 self.view.controles['filtro_livro_txt'].focus_set()
-                identificacao = 0
+                inicio = self.view.controles['versiculo_cb'].current() + 1
+                total = len(texto)
                 verso = self.view.controles['versiculo_cb'].current()
-                ajuste = 1
+                identificacao = 0
             case 1:
-                if self.filtro_harpa_txt.get() != "":
-                    self.filtro_harpa_txt.delete(0, tk.END)  # Limpa o campo do texto
+                if self.view.controles['filtro_harpa_txt'].get() != "":
+                    self.view.controles['filtro_harpa_txt'].delete(0, tk.END)  # Limpa o campo do texto
 
-                    arquivo = self.arquivo_harpa_cb.get()
+                    arquivo = self.view.controles['arquivo_harpa_cb'].get()
                     if arquivo:
                         caminho = os.path.join(dados.harpa_dir, arquivo)
                         texto = dados.carregar_texto(caminho + ".txt", dados.harpa_dir)
                         self.carregar_arquivos_harpa()
-                        identificacao = 1
+                        inicio = 1
+                        total = len(texto) - 1
                         verso = 1
-                        ajuste = 0
+                        identificacao = 1
                     else:
                         messagebox.showwarning("Aviso", "Selecione ou digite um nome de arquivo válido.")
                 else:
                     messagebox.showwarning("Aviso", "Digite o número ou nome do hino!")
             case _:
-                texto = ""
-                identificacao = 0
-                verso = 0
+                pass
 
 
         # 1. Cria a parte visual
@@ -314,14 +329,14 @@ class Funcoes:
         tamanho_letra = int(altura / medida_letra)
 
         texto_verificado = ""
-        if not len(texto) == (verso + 1):
+        if not len(texto) == verso + 1:
                 texto_verificado = texto[verso + 1]
 
         logica.atualizar_hora()
 
         # Funções da janela slide
         logica.view.controles['lbl_slide_atual'].config(
-            text=f"{verso + identificacao + 1} / {len(texto) - identificacao}", bg=estilo.FUNDO_COR, font=("Arial", 20, "bold"))
+            text=f"{inicio} / {total}", bg=estilo.FUNDO_COR, font=("Arial", 20, "bold"))
         # --- Configuração dos Frames ---
         logica.view.controles['frame_principal'].config(width=largura, height=altura)
         logica.view.controles['frame_principal'].grid(padx=espace_largura, pady=espace_altura)
@@ -338,9 +353,8 @@ class Funcoes:
         logica.view.controles['lbl_slide_preview'].config(
             text=texto_verificado, bg="black", fg="white", font=("Arial", int(tamanho_letra / 2), "bold"), wraplength=largura_texto / 2 - borda_texto)
 
-        # Iniciar janela slide view
+        # --- Iniciar janela slide view ---
         tamanho_letra_slide = identificar_proporcao()
-
         def abrir_janela_slide_view(janela_slide):
             # --- Variável ---
             global frame_html
@@ -358,18 +372,21 @@ class Funcoes:
         abrir_janela_slide_view(logica.view.controles['janela_slide'])
 
         index = verso
-        encerrar = verso
+        index_contador = inicio
+        encerrar = inicio
         def atualizar_texto(valor_atualizar):
-            nonlocal index, encerrar
+            nonlocal index, encerrar, index_contador
 
             if valor_atualizar == 0:
                 index = (index + 1) % len(texto)  # avança e volta ao início
                 encerrar += 1
+                index_contador += 1
             else:
                 index = (index - 1) % len(texto)
                 encerrar -= 1
+                index_contador -= 1
 
-            logica.view.controles['lbl_slide_atual'].config(text=f"{index + ajuste} / {len(texto) - identificacao}")
+            logica.view.controles['lbl_slide_atual'].config(text=f"{index_contador} / {total}")
             # label.config(text=texto[index])
 
             codigo_html = justificar_texto(texto[index], tamanho_letra_slide)
@@ -383,6 +400,21 @@ class Funcoes:
             else:
                 logica.view.controles['lbl_slide_preview'].config(text="")
 
-            if  encerrar < 0 or encerrar > len(texto) - 1:
-                logica.fechar('janela_slide')
+            match identificacao:
+                case 0:
+                    if encerrar < 1 or encerrar > len(texto):
+                        logica.fechar('janela_slide')
+                case 1:
+                    if encerrar < 1 or encerrar > (len(texto) - 1):
+                        logica.fechar('janela_slide')
 
+    def carregar_arquivos_harpa(self):
+        arquivos = os.listdir(dados.harpa_dir)
+        arquivos = [f for f in arquivos if os.path.isfile(os.path.join(dados.harpa_dir, f))]
+        arquivos = sorted(arquivos, key=lambda x: str(x).lower()) # ordena ignorando maiúsculas/minúsculas
+        arquivos_sem_ext = [os.path.splitext(f)[0] for f in arquivos]
+        estilo.LISTA_COMPLETA = arquivos_sem_ext
+        self.view.controles['arquivo_harpa_cb']["values"] = arquivos_sem_ext
+
+        if arquivos:
+            self.view.controles['arquivo_harpa_cb'].current(0)

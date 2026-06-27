@@ -1,5 +1,3 @@
-from setuptools import command
-
 import dados, slide, verificarversao, funcionalidades
 import argparse
 import os, platform, subprocess

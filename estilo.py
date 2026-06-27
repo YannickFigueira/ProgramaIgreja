@@ -32,5 +32,7 @@ TODAS_PASTAS = ['Gênesis', 'Êxodo', 'Levítico', 'Números', 'Deuteronômio', 
                      'Filemom',
                      'Hebreus', 'Tiago', 'Pedro, I', 'Pedro, II', 'João, I', 'João, II', 'João, III', 'Judas',
                      'Apocalipse']
+
+LISTA_COMPLETA = []
 # Fontes
 FUNDO_COR = "#2E8B57" # cor do fundo

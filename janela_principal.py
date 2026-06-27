@@ -80,6 +80,38 @@ class JanelaPrincipal:
         self.controles['abrir_biblia_btn'] = self.abrir_biblia_btn
         linha += 1
 
+        # Separador
+        ttk.Separator(self.janela_principal, orient="horizontal").grid(row=linha, columnspan=3, sticky="ew", padx=espacox, pady=espacoy)
+        linha += 1
+
+        # Fim da Bíblia Sagrada layout #
+        # Harpa Cristã Layout #
+        ttk.Label(self.janela_principal, text="Harpa Cristã").grid(row=linha, column=0, padx=espacox, pady=espacoy, sticky="w")
+        linha += 1
+
+        ttk.Separator(self.janela_principal, orient="horizontal").grid(row=linha, columnspan=3, sticky="ew", padx=espacox, pady=espacoy)
+        linha += 1
+
+        # Campo de filtro
+        ttk.Label(self.janela_principal, text="Filtro do Hino:").grid(row=linha, column=0, padx=espacox, pady=espacoy, sticky="w")
+        self.filtro_harpa_txt = ttk.Entry(self.janela_principal)
+        self.filtro_harpa_txt.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
+        self.controles['filtro_harpa_txt'] = self.filtro_harpa_txt
+        linha += 1
+
+        # Combobox de arquivos
+        ttk.Label(self.janela_principal, text="Hino:").grid(row=linha, column=0, padx=espacox, pady=espacoy, sticky="w")
+        self.arquivo_harpa_cb = ttk.Combobox(self.janela_principal, takefocus=False, state="readonly")
+        self.arquivo_harpa_cb.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
+        self.controles['arquivo_harpa_cb'] = self.arquivo_harpa_cb
+        linha += 1
+
+        # Botão de abrir
+        self.abrir_harpa_btn = ttk.Button(self.janela_principal, text="Abrir Arquivo")
+        self.abrir_harpa_btn.grid(row=linha, column=0, columnspan=2, padx=espacox, pady=espacoy, sticky="ew")
+        self.controles['abrir_harpa_btn'] = self.abrir_harpa_btn
+        linha += 1
+
     def _criar_barra_menu(self):
         # Criar barra de menu
         self.barra_menu = tk.Menu(self.janela_principal)
