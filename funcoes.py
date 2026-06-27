@@ -9,6 +9,7 @@ from tkinter import messagebox
 import dados
 import estilo
 import verificarversao
+from janela_slide import JanelaSlide
 
 # --- Registro de erros ---
 arquivo_erro = estilo.ARQUIVO_ERRO
@@ -94,6 +95,9 @@ class Funcoes:
         self.view.controles['filtro_capitulo_txt'].bind("<KeyRelease>", self.atualizar_arquivos_biblia)
         self.view.controles['arquivo_cb'].bind("<<ComboboxSelected>>", self.atualizar_versiculos)
         self.view.controles['abrir_biblia_btn'].config(command=lambda: self.abrir_arquivo(0))
+        # Captura especificamente o Enter
+        self.view.controles['filtro_capitulo_txt'].bind("<Key>", lambda e: self.acao_enter(e, 0))
+        self.view.controles['abrir_biblia_btn'].bind("<Key>", lambda e: self.acao_enter(e, 0))
 
         # --- Menu da Janela Principal ---
         self.view.controles['menu_ajuda'].add_command(label="Verificar atualização",
@@ -170,7 +174,7 @@ class Funcoes:
             self.view.controles['filtro_capitulo_txt'].delete(0, tk.END)
             # Transfere o foco para o campo de filtro de pastas
             self.view.controles['filtro_livro_txt'].focus_set()
-            slide.iniciar_slide(self.view.controles['janela_principal'], capitulo, 0, self.view.controles['versiculo_cb'].current())
+            self.abrir_janela_slide(capitulo, 0, self.view.controles['versiculo_cb'].current())
         else:
             if self.filtro_harpa_txt.get() != "":
                 self.filtro_harpa_txt.delete(0, tk.END)  # Limpa o campo do texto
@@ -180,8 +184,24 @@ class Funcoes:
                     caminho = os.path.join(dados.harpa_dir, arquivo)
                     hino = dados.carregar_texto(caminho + ".txt", dados.harpa_dir)
                     self.carregar_arquivos_harpa()
-                    slide.iniciar_slide(root, hino, 1, 1)
+                    #slide.iniciar_slide(root, hino, 1, 1)
+                    self.abrir_janela_slide()
                 else:
                     messagebox.showwarning("Aviso", "Selecione ou digite um nome de arquivo válido.")
             else:
                 messagebox.showwarning("Aviso", "Digite o número ou nome do hino!")
+    # Iniciar janela slide
+
+    def abrir_janela_slide(self, texto, identificacao, verso):
+        # 1. Cria a parte visual
+        visual = JanelaSlide(self.view.controles['janela_principal'])
+
+        # 2. Cria a lógica e passa a visão para ela controlar
+        logica = Funcoes(visual)
+        # --- Verificação ---
+        texto_verificado = ""
+        if not len(texto) == (verso + 1):
+                texto_verificado = texto[verso + 1]
+
+        logica.view.controles['lbl_slide_atual'].config(
+            text=f"{verso + identificacao + 1} / {len(texto) - identificacao}", bg=estilo.FUNDO_COR, font=("Arial", 20, "bold"))
