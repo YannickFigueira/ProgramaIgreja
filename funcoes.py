@@ -4,7 +4,10 @@ import platform
 import subprocess
 import sys
 import tkinter as tk
+from datetime import datetime
 from tkinter import messagebox
+
+from screeninfo import get_monitors
 
 import dados
 import estilo
@@ -190,18 +193,66 @@ class Funcoes:
                     messagebox.showwarning("Aviso", "Selecione ou digite um nome de arquivo válido.")
             else:
                 messagebox.showwarning("Aviso", "Digite o número ou nome do hino!")
-    # Iniciar janela slide
 
+    def atualizar_hora(self):
+        agora = datetime.now()
+        hora_formatada = agora.strftime("%H:%M:%S")
+        self.view.controles['label_relogio'].config(text=hora_formatada)
+        self.view.controles['janela_slide'].after(1000, self.atualizar_hora)  # chama a função novamente após 1000 ms (1 segundo)
+
+    # Iniciar janela slide
     def abrir_janela_slide(self, texto, identificacao, verso):
         # 1. Cria a parte visual
         visual = JanelaSlide(self.view.controles['janela_principal'])
 
         # 2. Cria a lógica e passa a visão para ela controlar
         logica = Funcoes(visual)
-        # --- Verificação ---
+
+        # --- Inicialização ---
+        # Identifica a quantidade de monitores
+        monitors = get_monitors()
+
+        if len(monitors) == 2:
+            second = monitors[1]
+        else:
+            second = monitors[0]
+        first = monitors[0]
+
+        # Cria o label
+        medida_letra = 16
+
+        largura = first.width / 2
+        altura = first.height / 2
+
+        borda_texto = int(largura * 0.1)
+        largura_texto = largura
+
+        # label
+        espace_largura = int(largura / 2 / 5)
+        espace_altura = 10
+
+        tamanho_letra = int(altura / medida_letra)
+
         texto_verificado = ""
         if not len(texto) == (verso + 1):
                 texto_verificado = texto[verso + 1]
+        logica.atualizar_hora()
 
+        # Funções da janela slide
         logica.view.controles['lbl_slide_atual'].config(
             text=f"{verso + identificacao + 1} / {len(texto) - identificacao}", bg=estilo.FUNDO_COR, font=("Arial", 20, "bold"))
+        # --- Configuração dos Frames ---
+        logica.view.controles['frame_principal'].config(width=largura, height=altura)
+        logica.view.controles['frame_principal'].grid(padx=espace_largura, pady=espace_altura)
+
+        logica.view.controles['frame_preview'].config(width=largura / 2, height=altura / 2)
+        logica.view.controles['frame_preview'].grid(padx=espace_largura, pady=espace_altura, sticky="n")
+
+        logica.view.controles['frame_rodape'].config(width=largura, height=altura)
+
+        # --- Controles ---
+        logica.view.controles['lbl_slide_visual'].config(
+            text=texto[verso], bg="black", fg="white", font=("Arial", tamanho_letra, "bold"), wraplength=largura_texto - borda_texto)
+
+        logica.view.controles['lbl_slide_preview'].config(
+            text=texto_verificado, bg="black", fg="white", font=("Arial", int(tamanho_letra / 2), "bold"), wraplength=largura_texto / 2 - borda_texto)

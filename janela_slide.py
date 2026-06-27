@@ -1,7 +1,5 @@
 import tkinter as tk
 
-from screeninfo import get_monitors
-
 import estilo
 
 
@@ -19,27 +17,6 @@ class JanelaSlide:
     def _criar_layout(self):
         # --- Variáveis ---
         # --- Inicialização ---
-        # Identifica a quantidade de monitores
-        monitors = get_monitors()
-
-        if len(monitors) == 2:
-            second = monitors[1]
-        else:
-            second = monitors[0]
-        first = monitors[0]
-
-        # Cria o label
-        medida_letra = 16
-
-        largura = first.width / 2
-        altura = first.height / 2
-
-        borda_texto = int(largura * 0.1)
-        largura_texto = largura
-
-        # label
-        espace_largura = int(largura / 2 / 5)
-        espace_altura = 10
 
         # --- Controles ---
         self.controles['janela_slide'] = self.janela_slide
@@ -50,6 +27,34 @@ class JanelaSlide:
         self.lbl_slide_atual = tk.Label(self.janela_slide)
         self.lbl_slide_atual.grid(row=0, column=0)
         self.controles['lbl_slide_atual'] = self.lbl_slide_atual
+
+        # Frames da janela
+        self.frame_principal = tk.Frame(self.janela_slide)
+        self.frame_principal.grid(row=1, column=0)
+        self.frame_principal.propagate(False)  # impede que o frame se ajuste ao conteúdo
+        self.controles['frame_principal'] = self.frame_principal
+
+        self.frame_preview = tk.Frame(self.janela_slide)
+        self.frame_preview.grid(row=1, column=1)
+        self.frame_preview.propagate(False)
+        self.controles['frame_preview'] = self.frame_preview
+
+        self.frame_rodape = tk.Frame(self.janela_slide)
+        self.frame_rodape.grid(row=2, column=0, columnspan=2, padx=10, pady=10, sticky="s")
+        self.controles['frame_rodape'] = self.frame_rodape
+
+        # Criar o Label para mostrar a hora
+        self.label_relogio = tk.Label(self.frame_rodape, text="", bg=estilo.FUNDO_COR, font=("Helvetica", 50))
+        self.label_relogio.pack(side="bottom")
+        self.controles['label_relogio'] = self.label_relogio
+
+        self.lbl_slide_visual = tk.Label(self.frame_principal)
+        self.lbl_slide_visual.pack(fill="both", expand=True)
+        self.controles['lbl_slide_visual'] = self.lbl_slide_visual
+
+        self.lbl_slide_preview = tk.Label(self.frame_preview)
+        self.lbl_slide_preview.pack(fill="both", expand=True)
+        self.controles['lbl_slide_preview'] = self.lbl_slide_preview
 
     def _criar_barra_menu(self):
         pass
