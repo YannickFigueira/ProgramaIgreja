@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="347fbf56-418b-43af-b555-4da948a507df" name="Changes" comment="Iniciado reescrita do código" />
+    <list default="true" id="347fbf56-418b-43af-b555-4da948a507df" name="Changes" comment="Movido, filtro do capítulo, e combos, movido inicialização dos combos e função para atualizar versículos">
+      <change afterPath="$PROJECT_DIR$/janela_slide.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/funcoes.py" beforeDir="false" afterPath="$PROJECT_DIR$/funcoes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/janela_principal.py" beforeDir="false" afterPath="$PROJECT_DIR$/janela_principal.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -192,14 +196,6 @@
       <workItem from="1779306922804" duration="42000" />
       <workItem from="1779325302280" duration="5000" />
       <workItem from="1781312542262" duration="118000" />
-    </task>
-    <task id="LOCAL-00023" summary="Adicionado verificarversao.py para verificar versão do programa">
-      <option name="closed" value="true" />
-      <created>1766153538963</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1766153538963</updated>
     </task>
     <task id="LOCAL-00024" summary="Feito correções em hinos, adicionado pasta da bíblia para ser usada no lugar do powerpoint">
       <option name="closed" value="true" />
@@ -585,7 +581,15 @@
       <option name="project" value="LOCAL" />
       <updated>1782524755740</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="Movido, filtro do capítulo, e combos, movido inicialização dos combos e função para atualizar versículos">
+      <option name="closed" value="true" />
+      <created>1782559415393</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1782559415394</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -603,7 +607,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Verificado Apocalipse - 022.txt" />
     <MESSAGE value="Adicionado notas da versão ao menu" />
     <MESSAGE value="Feito pequenos ajustes" />
     <MESSAGE value="Ajustado tamanho da letra e corrigido hino 545 e livro Atos 27" />
@@ -628,7 +631,8 @@
     <MESSAGE value="Adicionado import tkinterweb" />
     <MESSAGE value="Criado os arquivos para reescrever o código para melhor manutenção" />
     <MESSAGE value="Iniciado reescrita do código" />
-    <option name="LAST_COMMIT_MESSAGE" value="Iniciado reescrita do código" />
+    <MESSAGE value="Movido, filtro do capítulo, e combos, movido inicialização dos combos e função para atualizar versículos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Movido, filtro do capítulo, e combos, movido inicialização dos combos e função para atualizar versículos" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ProgramaIgreja$programaigreja.coverage" NAME="programaigreja Coverage Results" MODIFIED="1779065630722" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

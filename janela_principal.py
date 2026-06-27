@@ -1,6 +1,8 @@
+import os
 import tkinter as tk
 from tkinter import ttk
 
+import dados
 import estilo
 
 class JanelaPrincipal:
@@ -70,6 +72,12 @@ class JanelaPrincipal:
         self.versiculo_cb = ttk.Combobox(self.janela_principal, takefocus=False, state="readonly")
         self.versiculo_cb.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
         self.controles['versiculo_cb'] = self.versiculo_cb
+        linha += 1
+
+        # Botão de abrir
+        self.abrir_biblia_btn = ttk.Button(self.janela_principal, text="Abrir Arquivo")
+        self.abrir_biblia_btn.grid(row=linha, column=0, columnspan=2, padx=espacox, pady=espacoy, sticky="ew")
+        self.controles['abrir_biblia_btn'] = self.abrir_biblia_btn
         linha += 1
 
     def _criar_barra_menu(self):

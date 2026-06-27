@@ -3,6 +3,7 @@ import os
 import platform
 import subprocess
 import sys
+import tkinter as tk
 from tkinter import messagebox
 
 import dados
@@ -59,6 +60,8 @@ class Funcoes:
         if hasattr(view, 'nome_janela'):
             if view.nome_janela == "janela-principal":
                 self._vincular_janela_principal()
+            elif view.nome_janela == "janela-slide":
+                self._vincular_janela_slide()
 
     def _vincular_janela_principal(self):
         # --- Inicialização ---
@@ -90,6 +93,7 @@ class Funcoes:
         self.view.controles['pastas_cb'].bind("<<ComboboxSelected>>", self.atualizar_arquivos_biblia)
         self.view.controles['filtro_capitulo_txt'].bind("<KeyRelease>", self.atualizar_arquivos_biblia)
         self.view.controles['arquivo_cb'].bind("<<ComboboxSelected>>", self.atualizar_versiculos)
+        self.view.controles['abrir_biblia_btn'].config(command=lambda: self.abrir_arquivo(0))
 
         # --- Menu da Janela Principal ---
         self.view.controles['menu_ajuda'].add_command(label="Verificar atualização",
@@ -99,6 +103,9 @@ class Funcoes:
         self.view.controles['menu_ajuda'].add_command(label="Sobre",
                                     command=lambda: visitar_site())
         self.view.controles['menu_ajuda'].add_command(label="Sair", command=self.view.controles['janela_principal'].quit)
+
+    def _vincular_janela_slide(self):
+        pass
 
     # --- Comandos da Janela Principal ---
 
@@ -150,3 +157,31 @@ class Funcoes:
         versiculos = versiculo.split(",")
         self.view.controles['versiculo_cb']["values"] = versiculos
         self.view.controles['versiculo_cb'].current(0)
+
+    def abrir_arquivo(self, valor):
+
+        if valor == 0:
+            pasta_selecionada = self.view.controles['pastas_cb'].get()
+            arquivo_selecionado = self.view.controles['arquivo_cb'].get()
+            pasta_caminho_new = os.path.join(dados.biblia_dir, pasta_selecionada, arquivo_selecionado)
+            capitulo = dados.carregar_texto(pasta_caminho_new + ".txt", dados.biblia_dir)
+            # Limpa os campos de filtro
+            self.view.controles['filtro_livro_txt'].delete(0, tk.END)
+            self.view.controles['filtro_capitulo_txt'].delete(0, tk.END)
+            # Transfere o foco para o campo de filtro de pastas
+            self.view.controles['filtro_livro_txt'].focus_set()
+            slide.iniciar_slide(self.view.controles['janela_principal'], capitulo, 0, self.view.controles['versiculo_cb'].current())
+        else:
+            if self.filtro_harpa_txt.get() != "":
+                self.filtro_harpa_txt.delete(0, tk.END)  # Limpa o campo do texto
+
+                arquivo = self.arquivo_harpa_cb.get()
+                if arquivo:
+                    caminho = os.path.join(dados.harpa_dir, arquivo)
+                    hino = dados.carregar_texto(caminho + ".txt", dados.harpa_dir)
+                    self.carregar_arquivos_harpa()
+                    slide.iniciar_slide(root, hino, 1, 1)
+                else:
+                    messagebox.showwarning("Aviso", "Selecione ou digite um nome de arquivo válido.")
+            else:
+                messagebox.showwarning("Aviso", "Digite o número ou nome do hino!")
