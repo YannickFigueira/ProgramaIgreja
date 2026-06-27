@@ -1,12 +1,13 @@
 import argparse
 import tkinter as tk
 
+import estilo
 from funcoes import Funcoes
-from janela import JanelaPrincipal
+from janela_principal import JanelaPrincipal
 
 # --- Configuração do CLI (Argparse) ---
-parser = argparse.ArgumentParser(prog=REPO, description=nome_programa)
-parser.add_argument("--version", action="version", version=f"%(prog)s {VERSION}")
+parser = argparse.ArgumentParser(prog=estilo.REPO, description=estilo.NOME_PROGRAMA)
+parser.add_argument("--version", action="version", version=f"%(prog)s {estilo.VERSION}")
 args = parser.parse_args()
 
 # --- Inicialização da Interface ---
@@ -15,7 +16,7 @@ if __name__ == "__main__":
     root = tk.Tk()
 
     # 2. Cria a parte visual (passando o root e a versão)
-    visual = JanelaPrincipal(root, REPO, VERSION, nome_programa)
+    visual = JanelaPrincipal(root)
 
     # 3. Passa a visão para a sua classe de Lógica controlar
     logica = Funcoes(visual)
