@@ -82,9 +82,14 @@ class Funcoes:
             except Exception:
                 pass
 
+        self.atualizar_pastas_biblia()
+        self.atualizar_versiculos()
+
         # --- Controles da Janela Principal ---
         self.view.controles['filtro_livro_txt'].bind("<KeyRelease>", self.atualizar_pastas_biblia)
-        self.view.controles['pastas_cb'].bind("<KeyRelease>", self.atualizar_arquivos_biblia)
+        self.view.controles['pastas_cb'].bind("<<ComboboxSelected>>", self.atualizar_arquivos_biblia)
+        self.view.controles['filtro_capitulo_txt'].bind("<KeyRelease>", self.atualizar_arquivos_biblia)
+        self.view.controles['arquivo_cb'].bind("<<ComboboxSelected>>", self.atualizar_versiculos)
 
         # --- Menu da Janela Principal ---
         self.view.controles['menu_ajuda'].add_command(label="Verificar atualização",
@@ -109,7 +114,7 @@ class Funcoes:
 
     def atualizar_arquivos_biblia(self, event=None):
         selecionar_pasta = self.view.controles['pastas_cb'].get()
-        texto_filtrado = self.filtro_capitulo_txt.get().lower()
+        texto_filtrado = self.view.controles['filtro_capitulo_txt'].get().lower()
         pasta_caminho = os.path.join(dados.biblia_dir, selecionar_pasta)
 
         if os.path.isdir(pasta_caminho):
@@ -122,11 +127,26 @@ class Funcoes:
                 arquivos_sem_ext = [os.path.splitext(f)[0] for f in arquivos]
 
             if arquivos_sem_ext != "":
-                self.arquivo_cb["values"] = arquivos_sem_ext
+                self.view.controles['arquivo_cb']["values"] = arquivos_sem_ext
             else:
-                self.arquivo_cb["values"] = arquivos
+                self.view.controles['arquivo_cb']["values"] = arquivos
 
             if arquivos:
-                self.arquivo_cb.current(0)
+                self.view.controles['arquivo_cb'].current(0)
 
         self.atualizar_versiculos()
+
+    def atualizar_versiculos(self):
+        caminho = os.path.join(dados.biblia_dir, self.view.controles['pastas_cb'].get(), self.view.controles['arquivo_cb'].get())
+        contar = dados.carregar_texto(caminho + ".txt", dados.biblia_dir)
+        versiculo = "Versículo 1"
+        index = 2
+
+        for texto in contar:
+            if index <= len(contar):
+                versiculo = versiculo + ",Versículo " + str(index)
+                index += 1
+
+        versiculos = versiculo.split(",")
+        self.view.controles['versiculo_cb']["values"] = versiculos
+        self.view.controles['versiculo_cb'].current(0)

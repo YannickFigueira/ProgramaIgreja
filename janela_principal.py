@@ -48,8 +48,28 @@ class JanelaPrincipal:
         ttk.Label(self.janela_principal, text="Livro:").grid(row=linha, column=0, padx=espacox, pady=espacoy, sticky="w")
         self.pastas_cb = ttk.Combobox(self.janela_principal, takefocus=False, state="readonly")
         self.pastas_cb.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
-        self.pastas_cb.bind("<<ComboboxSelected>>", self.atualizar_arquivos_biblia)
         self.controles['pastas_cb'] = self.pastas_cb
+        linha += 1
+
+        # Campo de filtro de arquivos
+        ttk.Label(self.janela_principal, text="Filtro do Capítulo:").grid(row=linha, column=0, padx=espacox, pady=espacoy, sticky="w")
+        self.filtro_capitulo_txt = ttk.Entry(self.janela_principal)
+        self.filtro_capitulo_txt.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
+        self.controles['filtro_capitulo_txt'] = self.filtro_capitulo_txt
+        linha += 1
+
+        # Combobox de arquivos
+        ttk.Label(self.janela_principal, text="Capítulo:").grid(row=linha, column=0, padx=espacox, pady=espacoy, sticky="w")
+        self.arquivo_cb = ttk.Combobox(self.janela_principal, takefocus=False, state="readonly")
+        self.arquivo_cb.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
+        self.controles['arquivo_cb'] = self.arquivo_cb
+        linha += 1
+
+        # Combobox de versículos
+        ttk.Label(self.janela_principal, text="Versículo:").grid(row=linha, column=0, padx=espacox, pady=espacoy, sticky="w")
+        self.versiculo_cb = ttk.Combobox(self.janela_principal, takefocus=False, state="readonly")
+        self.versiculo_cb.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
+        self.controles['versiculo_cb'] = self.versiculo_cb
         linha += 1
 
     def _criar_barra_menu(self):
