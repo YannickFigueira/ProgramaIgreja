@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="347fbf56-418b-43af-b555-4da948a507df" name="Changes" comment="Criado módulo janela_slide.py">
-      <change beforePath="$PROJECT_DIR$/estilo.py" beforeDir="false" afterPath="$PROJECT_DIR$/estilo.py" afterDir="false" />
+    <list default="true" id="347fbf56-418b-43af-b555-4da948a507df" name="Changes" comment="Colocado os labels e relógio para funcionar">
+      <change afterPath="$PROJECT_DIR$/janela_slide_view.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/funcoes.py" beforeDir="false" afterPath="$PROJECT_DIR$/funcoes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/janela_slide.py" beforeDir="false" afterPath="$PROJECT_DIR$/janela_slide.py" afterDir="false" />
     </list>
@@ -196,22 +196,6 @@
       <workItem from="1779306922804" duration="42000" />
       <workItem from="1779325302280" duration="5000" />
       <workItem from="1781312542262" duration="118000" />
-    </task>
-    <task id="LOCAL-00025" summary="Feito correções em hinos, adicionado pasta da bíblia para ser usada no lugar do powerpoint">
-      <option name="closed" value="true" />
-      <created>1773163835048</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1773163835048</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Feito ajuste no fullscreen, fundo e adicionado contador dos slides">
-      <option name="closed" value="true" />
-      <created>1774875179499</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1774875179499</updated>
     </task>
     <task id="LOCAL-00027" summary="Ajustado tamanho da janela">
       <option name="closed" value="true" />
@@ -589,7 +573,23 @@
       <option name="project" value="LOCAL" />
       <updated>1782565899883</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Iniciado configuração da janela_slide.py">
+      <option name="closed" value="true" />
+      <created>1782578336105</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1782578336105</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Colocado os labels e relógio para funcionar">
+      <option name="closed" value="true" />
+      <created>1782580692977</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1782580692977</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -607,8 +607,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Feito pequenos ajustes" />
-    <MESSAGE value="Ajustado tamanho da letra e corrigido hino 545 e livro Atos 27" />
     <MESSAGE value="Adiconado Mutex para o InnoSetup" />
     <MESSAGE value="verificado arquivos" />
     <MESSAGE value="Corrigido verificação somente para Windows" />
@@ -632,7 +630,9 @@
     <MESSAGE value="Iniciado reescrita do código" />
     <MESSAGE value="Movido, filtro do capítulo, e combos, movido inicialização dos combos e função para atualizar versículos" />
     <MESSAGE value="Criado módulo janela_slide.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criado módulo janela_slide.py" />
+    <MESSAGE value="Iniciado configuração da janela_slide.py" />
+    <MESSAGE value="Colocado os labels e relógio para funcionar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Colocado os labels e relógio para funcionar" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ProgramaIgreja$programaigreja.coverage" NAME="programaigreja Coverage Results" MODIFIED="1779065630722" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

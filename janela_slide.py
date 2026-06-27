@@ -2,7 +2,6 @@ import tkinter as tk
 
 import estilo
 
-
 class JanelaSlide:
     def __init__(self, janela_principal):
         self.janela_slide = tk.Toplevel(janela_principal)
