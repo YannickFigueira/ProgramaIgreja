@@ -135,3 +135,8 @@
 - Corrigido Ester-008
 - Corrigido Hino-038
 - Configurado para encerrar o slide nos textos da Bíblia
+
+### [v0.5.2] - 2026-06-28
+## Changes
+- Reescrito código para melhor manutenção
+- Ajustado padding-top
