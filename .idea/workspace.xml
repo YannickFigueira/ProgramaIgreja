@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="347fbf56-418b-43af-b555-4da948a507df" name="Changes" comment="Concluído atualização do funcionamento para Harpa">
-      <change beforePath="$PROJECT_DIR$/estilo.py" beforeDir="false" afterPath="$PROJECT_DIR$/estilo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funcoes.py" beforeDir="false" afterPath="$PROJECT_DIR$/funcoes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/janela_principal.py" beforeDir="false" afterPath="$PROJECT_DIR$/janela_principal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/janela_slide.py" beforeDir="false" afterPath="$PROJECT_DIR$/janela_slide.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/funcionalidades.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/janela_slide_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/janela_slide_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaigreja.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slide.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

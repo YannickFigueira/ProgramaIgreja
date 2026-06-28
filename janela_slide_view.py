@@ -25,7 +25,6 @@ class JanelaSlideView:
     def _criar_layout(self):
         # --- Controles ---
         self.frame_html = HtmlFrame(self.janela_slide_view)
-        # frame_html.grid(row=0, column=0, pady=30)
         self.frame_html.pack(expand=True, fill="both")
         self.frame_html.propagate(False)  # impede que o frame se ajuste ao conteúdo
         self.controles['frame_html'] = self.frame_html
