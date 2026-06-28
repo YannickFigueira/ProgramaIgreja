@@ -293,8 +293,10 @@ class Funcoes:
                         identificacao = 1
                     else:
                         messagebox.showwarning("Aviso", "Selecione ou digite um nome de arquivo válido.")
+                        return
                 else:
                     messagebox.showwarning("Aviso", "Digite o número ou nome do hino!")
+                    return
 
         # 1. Cria a parte visual
         visual = JanelaSlide(self.view.controles['janela_principal'])
