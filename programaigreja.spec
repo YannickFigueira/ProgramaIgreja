@@ -2,14 +2,15 @@
 block_cipher = None
 
 a = Analysis(
-    ['programaigreja.py'],   # arquivo principal
+    ['main.py'],   # arquivo principal
     pathex=[],
     binaries=[],
     datas=[
         ('HarpaTexto', 'HarpaTexto'),
         ('Biblia', 'Biblia'),
     ],
-    hiddenimports=['dados', 'funcionalidades', 'slide', 'verificarversao', 'requests', 'urllib3', 'chardet', 'idna', 'certifi', 'screeninfo', 'tkinterweb'],  # módulos auxiliares
+    hiddenimports=['dados', 'estilos', 'funcoes', 'janela_principal', 'janela_slide', 'janela_slid_view',
+     'verificarversao', 'requests', 'urllib3', 'chardet', 'idna', 'certifi', 'screeninfo', 'tkinterweb'],  # módulos auxiliares
     hookspath=[],
     runtime_hooks=[],
     excludes=[],
