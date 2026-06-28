@@ -1,4 +1,5 @@
 import logging
+import math
 import os
 import platform
 import subprocess
@@ -46,7 +47,7 @@ first = monitors[0]
 # --- Comandos do Menu da Janela Principal ---
 def visitar_site():
     pagina = f"https://github.com/YannickFigueira"
-    resposta = messagebox.askyesno("Sobre", f"Programa Igreja {estilo.VERSION}\n"
+    resposta = messagebox.askyesno("Sobre", f"{estilo.NOME_PROGRAMA} {estilo.VERSION}\n"
                                             f"Deseja visitar a página\n"
                                             f"Desenvolvedor YannickFigueira\n"
                                             f"chronostimeinchain@gmail.com")
@@ -99,12 +100,9 @@ def justificar_texto(texto_slide_view, tamanho_letra_slide):
         return codigo_html
 
 def identificar_proporcao():
-
     relacao = second.width / second.height
-
     tela16_9 = int(second.height *.086)
     tela4_3 = int(second.height *.074)
-
     if abs(relacao - (16 / 9)) < 0.05:
         return tela16_9
     elif abs(relacao - (4 / 3)) < 0.05:
@@ -119,7 +117,6 @@ def identificar_proporcao():
 class Funcoes:
     def __init__(self, view):
         self.view = view
-
         # O controlador se adapta automaticamente baseando-se em qual janela o chamou
         if hasattr(view, 'nome_janela'):
             if view.nome_janela == "janela-principal":
@@ -136,11 +133,9 @@ class Funcoes:
             # noinspection PyBroadException
             try:
                 import ctypes
-
                 # Cria o Mutex único para o Inno Setup detectar
                 # noinspection PyUnresolvedReferences
                 mutex = ctypes.windll.kernel32.CreateMutexW(None, False, "MeuProgramaIgrejaMutexUnico")
-
                 # 183 é o código para ERROR_ALREADY_EXISTS (programa já aberto)
                 # noinspection PyUnresolvedReferences
                 if ctypes.windll.kernel32.GetLastError() == 183:
@@ -170,6 +165,8 @@ class Funcoes:
         # Captura especificamente o Enter
         self.view.controles['filtro_harpa_txt'].bind("<Key>", lambda e: self.acao_enter(e, 1))
         self.view.controles['abrir_harpa_btn'].bind("<Key>", lambda e: self.acao_enter(e, 1))
+        self.view.controles['buscar_texto_btn'].config(command=lambda: self.localizar_arquivo())
+        self.view.controles['buscar_texto_txt'].bind("<Key>", lambda e: self.acao_enter(e, 2))
 
         # --- Menu da Janela Principal ---
         self.view.controles['menu_ajuda'].add_command(label="Verificar atualização",
@@ -189,7 +186,6 @@ class Funcoes:
         pass
 
     # --- Comandos da Janela Principal ---
-
     def atualizar_pastas_biblia(self, event=None):
         filtrar_texto = self.view.controles['filtro_livro_txt'].get().lower()
         filtrado = [f for f in estilo.TODAS_PASTAS if filtrar_texto in f.lower()]
@@ -198,7 +194,6 @@ class Funcoes:
         if filtrado:
             self.view.controles['pastas_cb'].current(0)
             self.atualizar_arquivos_biblia()
-
 
     def atualizar_arquivos_biblia(self, event=None):
         selecionar_pasta = self.view.controles['pastas_cb'].get()
@@ -235,8 +230,7 @@ class Funcoes:
                 versiculo = versiculo + ",Versículo " + str(index)
                 index += 1
 
-        versiculos = versiculo.split(",")
-        self.view.controles['versiculo_cb']["values"] = versiculos
+        self.view.controles['versiculo_cb']["values"] = versiculo.split(",")
         self.view.controles['versiculo_cb'].current(0)
 
     def atualizar_hora(self):
@@ -255,6 +249,8 @@ class Funcoes:
                     self.abrir_janela_slide(valor)
                 case 1:
                     self.abrir_janela_slide(valor)
+                case 2:
+                    self.localizar_arquivo()
 
     def filtrar_lista(self, event=None):
         texto_harpa = self.view.controles['filtro_harpa_txt'].get().lower()
@@ -285,8 +281,8 @@ class Funcoes:
             case 1:
                 if self.view.controles['filtro_harpa_txt'].get() != "":
                     self.view.controles['filtro_harpa_txt'].delete(0, tk.END)  # Limpa o campo do texto
-
                     arquivo = self.view.controles['arquivo_harpa_cb'].get()
+
                     if arquivo:
                         caminho = os.path.join(dados.harpa_dir, arquivo)
                         texto = dados.carregar_texto(caminho + ".txt", dados.harpa_dir)
@@ -299,9 +295,6 @@ class Funcoes:
                         messagebox.showwarning("Aviso", "Selecione ou digite um nome de arquivo válido.")
                 else:
                     messagebox.showwarning("Aviso", "Digite o número ou nome do hino!")
-            case _:
-                pass
-
 
         # 1. Cria a parte visual
         visual = JanelaSlide(self.view.controles['janela_principal'])
@@ -312,6 +305,7 @@ class Funcoes:
         # --- Inicialização ---
         logica.view.controles['janela_slide'].bind("<Right>", lambda _: atualizar_texto(0))
         logica.view.controles['janela_slide'].bind("<Left>", lambda _: atualizar_texto(1))
+        logica.atualizar_hora()
 
         # Cria o label
         medida_letra = 16
@@ -325,14 +319,11 @@ class Funcoes:
         # label
         espace_largura = int(largura / 2 / 5)
         espace_altura = 10
-
         tamanho_letra = int(altura / medida_letra)
 
         texto_verificado = ""
         if not len(texto) == verso + 1:
                 texto_verificado = texto[verso + 1]
-
-        logica.atualizar_hora()
 
         # Funções da janela slide
         logica.view.controles['lbl_slide_atual'].config(
@@ -340,16 +331,13 @@ class Funcoes:
         # --- Configuração dos Frames ---
         logica.view.controles['frame_principal'].config(width=largura, height=altura)
         logica.view.controles['frame_principal'].grid(padx=espace_largura, pady=espace_altura)
-
         logica.view.controles['frame_preview'].config(width=largura / 2, height=altura / 2)
         logica.view.controles['frame_preview'].grid(padx=espace_largura, pady=espace_altura, sticky="n")
-
         logica.view.controles['frame_rodape'].config(width=largura, height=altura)
 
         # --- Controles ---
         logica.view.controles['lbl_slide_visual'].config(
             text=texto[verso], bg="black", fg="white", font=("Arial", tamanho_letra, "bold"), wraplength=largura_texto - borda_texto)
-
         logica.view.controles['lbl_slide_preview'].config(
             text=texto_verificado, bg="black", fg="white", font=("Arial", int(tamanho_letra / 2), "bold"), wraplength=largura_texto / 2 - borda_texto)
 
@@ -393,8 +381,8 @@ class Funcoes:
             frame_html.load_html(codigo_html)
             frame_html.pack(expand=True, fill="both")
             frame_html.propagate(False)  # impede que o frame se ajuste ao conteúdo
-
             logica.view.controles['lbl_slide_visual'].config(text=texto[index])
+
             if (index + 1) < len(texto):
                 logica.view.controles['lbl_slide_preview'].config(text=texto[index + 1])
             else:
@@ -418,3 +406,37 @@ class Funcoes:
 
         if arquivos:
             self.view.controles['arquivo_harpa_cb'].current(0)
+
+    def localizar_arquivo(self):
+        if self.view.controles['buscar_texto_cb'].get() == "Bíblia":
+            pasta_raiz = dados.biblia_dir
+        else:
+            pasta_raiz = dados.harpa_dir
+
+        # os.walk percorre pastas e subpastas
+        resultado = ""
+        for raiz, pastas, arquivos in os.walk(pasta_raiz):
+            for arquivo in arquivos:
+                # Verifica se o arquivo é .txt
+                if arquivo.endswith('.txt'):
+                    caminho_completo = os.path.join(raiz, arquivo)
+                    try:
+                        # Abre o arquivo com encoding utf-8 para evitar erros de caracteres
+                        with open(caminho_completo, 'r', encoding='utf-8') as f:
+                            if platform.system() == "Windows":
+                                pasta_separada = caminho_completo.split("\\")
+                            elif platform.system() == "Linux":
+                                pasta_separada = caminho_completo.split("/")
+                            else:
+                                print("Sistema não suportado")
+
+                            for numero_linha, linha in enumerate(f, 1):
+                                if self.view.controles['buscar_texto_txt'].get().lower() in linha.lower():  # Busca sem diferenciar maiúsculas/minúsculas
+                                    resultado += f" {pasta_separada[len(pasta_separada) - 1]} -> Verso {math.ceil(numero_linha / 3)} -> {linha.strip()}\n"
+                    except (UnicodeDecodeError, PermissionError):
+                        # Ignora arquivos que não podem ser lidos (ex: codificação diferente ou sem permissão)
+                        continue
+
+        self.view.controles['text_area'].delete("1.0", tk.END)
+        self.view.controles['text_area'].insert("1.0", resultado.replace(".txt", ""))
+        

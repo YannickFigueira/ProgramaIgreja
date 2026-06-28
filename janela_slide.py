@@ -5,18 +5,13 @@ import estilo
 class JanelaSlide:
     def __init__(self, janela_principal):
         self.janela_slide = tk.Toplevel(janela_principal)
-        self.janela_slide.title("Slide")
 
         self.nome_janela = "janela-slide"  # Identificador para o seu controlador
         self.controles = {}
 
         self._criar_layout()
-        self._criar_barra_menu()
 
     def _criar_layout(self):
-        # --- Variáveis ---
-        # --- Inicialização ---
-
         # --- Controles ---
         self.controles['janela_slide'] = self.janela_slide
         self.janela_slide.rowconfigure(2, weight=1)
@@ -54,6 +49,4 @@ class JanelaSlide:
         self.lbl_slide_preview = tk.Label(self.frame_preview)
         self.lbl_slide_preview.pack(fill="both", expand=True)
         self.controles['lbl_slide_preview'] = self.lbl_slide_preview
-
-    def _criar_barra_menu(self):
-        pass
+        

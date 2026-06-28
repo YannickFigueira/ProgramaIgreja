@@ -112,6 +112,53 @@ class JanelaPrincipal:
         self.controles['abrir_harpa_btn'] = self.abrir_harpa_btn
         linha += 1
 
+        # Linha vertical
+        ttk.Separator(self.janela_principal, orient="vertical").grid(row=0, column=2, rowspan=linha, sticky="ns", padx=espacox, pady=espacoy)
+
+        # --- Painel lateral direito --- Área de busca ---
+        linha_lateral = 0
+        ttk.Label(self.janela_principal, text="Busca").grid(row=linha_lateral, column=3, padx=espacox, pady=espacoy, sticky="w")
+        linha_lateral += 2
+
+        # Combobox de pasta
+        ttk.Label(self.janela_principal, text="Pasta de busca:").grid(row=linha_lateral, column=3, padx=espacox, pady=espacoy, sticky="w")
+        self.buscar_texto_cb = ttk.Combobox(self.janela_principal, takefocus=False, state="readonly")
+        self.buscar_texto_cb.grid(row=linha_lateral, column=4, padx=espacox, pady=espacoy, sticky="ew")
+        self.buscar_texto_cb["values"] = ["Bíblia", "Harpa"]
+        self.buscar_texto_cb.current(0)
+        self.controles['buscar_texto_cb'] = self.buscar_texto_cb
+        linha_lateral += 1
+
+        ttk.Label(self.janela_principal, text="Buscar:").grid(row=linha_lateral, column=3, padx=espacox, pady=espacoy, sticky="w")
+        self.buscar_texto_txt = ttk.Entry(self.janela_principal, width=50)
+        self.buscar_texto_txt.grid(row=linha_lateral, column=4, padx=espacox, pady=espacoy, sticky="we")
+        self.controles['buscar_texto_txt'] = self.buscar_texto_txt
+        linha_lateral += 1
+
+        # Botão de buscar
+        self.buscar_texto_btn = ttk.Button(self.janela_principal, text="Buscar")
+        self.buscar_texto_btn.grid(row=linha_lateral, column=3, columnspan=2, padx=espacox, pady=espacoy, sticky="ew")
+        self.controles['buscar_texto_btn'] = self.buscar_texto_btn
+        linha_lateral += 1
+
+        # Área de texto, resultado da busca
+        # 1. Cria a barra de rolagem
+        self.scrollbar_lateral = ttk.Scrollbar(self.janela_principal)
+        self.scrollbar_fundo = ttk.Scrollbar(self.janela_principal, orient="horizontal")
+
+        self.scrollbar_lateral.grid(row=linha_lateral, rowspan=10, column=4, sticky="ens", pady=(espacoy, 20), padx=(0, espacox))
+        self.scrollbar_fundo.grid(row=13, column=3, columnspan=2, sticky="ews", padx=(espacox, 20), pady=(0, espacoy))
+
+        self.text_area = tk.Text(self.janela_principal, width=10, height=10, wrap="none")
+        self.text_area.grid(row=linha_lateral, rowspan=10, column=3, columnspan=2, padx=(espacox, 20), pady=(espacoy, 20), sticky="ewns")
+
+        # 3. Vincula os dois componentes
+        self.text_area.config(yscrollcommand=self.scrollbar_lateral.set)
+        self.text_area.config(xscrollcommand=self.scrollbar_fundo.set)
+        self.scrollbar_lateral.config(command=self.text_area.yview)
+        self.scrollbar_fundo.config(command=self.text_area.xview)
+        self.controles['text_area'] = self.text_area
+
     def _criar_barra_menu(self):
         # Criar barra de menu
         self.barra_menu = tk.Menu(self.janela_principal)
