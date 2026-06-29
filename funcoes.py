@@ -381,8 +381,6 @@ class Funcoes:
 
             codigo_html = justificar_texto(texto[index], tamanho_letra_slide)
             frame_html.load_html(codigo_html)
-            frame_html.pack(expand=True, fill="both")
-            frame_html.propagate(False)  # impede que o frame se ajuste ao conteúdo
             logica.view.controles['lbl_slide_visual'].config(text=texto[index])
 
             if (index + 1) < len(texto):
