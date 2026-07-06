@@ -9,7 +9,7 @@ a = Analysis(
         ('HarpaTexto', 'HarpaTexto'),
         ('Biblia', 'Biblia'),
     ],
-    hiddenimports=['dados', 'estilos', 'funcoes', 'janela_principal', 'janela_slide', 'janela_slid_view',
+    hiddenimports=['dados', 'estilo', 'funcoes', 'janela_principal', 'janela_slide', 'janela_slide_view',
      'verificarversao', 'requests', 'urllib3', 'chardet', 'idna', 'certifi', 'screeninfo', 'tkinterweb'],  # módulos auxiliares
     hookspath=[],
     runtime_hooks=[],
