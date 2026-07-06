@@ -34,15 +34,6 @@ elif platform.system() == 'Windows':
         filename=f"c:/temp/{arquivo_erro}",  # nome do arquivo
         level=logging.ERROR,  # nível de log
         format="%(asctime)s - %(levelname)s - %(message)s")
-# --- Inicialização geral ---
-# Identifica a quantidade de monitores
-monitors = get_monitors()
-
-if len(monitors) == 2:
-    second = monitors[1]
-else:
-    second = monitors[0]
-first = monitors[0]
 
 # --- Comandos do Menu da Janela Principal ---
 def visitar_site():
@@ -99,7 +90,7 @@ def justificar_texto(texto_slide_view, tamanho_letra_slide):
 
         return codigo_html
 
-def identificar_proporcao():
+def identificar_proporcao(second):
     relacao = second.width / second.height
     tela16_9 = int(second.height *.086)
     tela4_3 = int(second.height *.074)
@@ -305,6 +296,14 @@ class Funcoes:
         logica = Funcoes(visual)
 
         # --- Inicialização ---
+        # Identifica a quantidade de monitores
+        monitors = get_monitors()
+        if len(monitors) == 2:
+            second = monitors[1]
+        else:
+            second = monitors[0]
+        first = monitors[0]
+
         logica.view.controles['janela_slide'].bind("<Right>", lambda _: atualizar_texto(0))
         logica.view.controles['janela_slide'].bind("<Left>", lambda _: atualizar_texto(1))
         logica.atualizar_hora()
@@ -344,7 +343,7 @@ class Funcoes:
             text=texto_verificado, bg="black", fg="white", font=("Arial", int(tamanho_letra / 2), "bold"), wraplength=largura_texto / 2 - borda_texto)
 
         # --- Iniciar janela slide view ---
-        tamanho_letra_slide = identificar_proporcao()
+        tamanho_letra_slide = identificar_proporcao(second)
         def abrir_janela_slide_view(janela_slide):
             # --- Variável ---
             global frame_html

@@ -1,7 +1,7 @@
 # estilo.py
 
 # Versão e repositório
-VERSION = "v0.5.2"
+VERSION = "v0.5.3"
 REPO= "ProgramaIgreja"
 NOME_PROGRAMA = "Programa Igreja Slides"
 
