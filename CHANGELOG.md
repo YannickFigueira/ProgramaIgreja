@@ -140,3 +140,7 @@
 ## Changes
 - Reescrito código para melhor manutenção
 - Ajustado padding-top
+
+### [v0.5.3] - 2026-07-05
+## Changes
+- Alterado para verificar a quantidade de monitores ao iniciar o slide
