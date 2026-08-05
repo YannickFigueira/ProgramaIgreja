@@ -160,6 +160,7 @@ class Funcoes:
         self.view.controles['buscar_texto_txt'].bind("<Key>", lambda e: self.acao_enter(e, 2))
 
         # --- Menu da Janela Principal ---
+        self.view.controles['menu_arquivo'].add_command(label="Músicas")
         self.view.controles['menu_ajuda'].add_command(label="Verificar atualização",
                                     command=lambda: verificarversao.consultar_lancamento(estilo.REPO, estilo.VERSION))
         self.view.controles['menu_ajuda'].add_command(label="Notas da versão",
