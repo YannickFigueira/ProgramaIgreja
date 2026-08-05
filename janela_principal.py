@@ -2,7 +2,6 @@ import os
 import tkinter as tk
 from tkinter import ttk
 
-import dados
 import estilo
 
 class JanelaPrincipal:

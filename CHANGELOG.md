@@ -144,3 +144,10 @@
 ### [v0.5.3] - 2026-07-05
 ## Changes
 - Alterado para verificar a quantidade de monitores ao iniciar o slide
+
+### [v0.6.4] - 2026-08-05
+## Changes
+- Adicionado janela para Músicas
+
+## Fixed
+- Melhorado verificação dos monitores para visualizar no segundo monitor correto

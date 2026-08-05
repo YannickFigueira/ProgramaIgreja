@@ -13,6 +13,7 @@ import dados, estilo, verificarversao
 
 from janela_slide import JanelaSlide
 from janela_slide_view import JanelaSlideView
+from janela_musica import JanelaMusica
 
 # --- Registro de erros ---
 arquivo_erro = estilo.ARQUIVO_ERRO
@@ -46,7 +47,6 @@ def visitar_site():
         verificarversao.webbrowser.open(pagina)
 
 def abrir_logs():
-    home_dir = os.path.expanduser('~')
     if platform.system() == "Windows":
         arquivo = f"C:\\temp\\{estilo.ARQUIVO_ERRO}"
         subprocess.run(["notepad", arquivo])
@@ -116,6 +116,8 @@ class Funcoes:
                 self._vincular_janela_slide()
             elif view.nome_janela == "janela-slide-view":
                 self._vincular_janela_slide_view()
+            elif view.nome_janela == "janela-musica":
+                self._vincular_janela_musica()
 
     def _vincular_janela_principal(self):
         # --- Inicialização ---
@@ -160,7 +162,8 @@ class Funcoes:
         self.view.controles['buscar_texto_txt'].bind("<Key>", lambda e: self.acao_enter(e, 2))
 
         # --- Menu da Janela Principal ---
-        self.view.controles['menu_arquivo'].add_command(label="Músicas")
+        self.view.controles['menu_arquivo'].add_command(label="Músicas",
+                                                        command=lambda: self.abrir_janela_musica())
         self.view.controles['menu_ajuda'].add_command(label="Verificar atualização",
                                     command=lambda: verificarversao.consultar_lancamento(estilo.REPO, estilo.VERSION))
         self.view.controles['menu_ajuda'].add_command(label="Notas da versão",
@@ -175,6 +178,9 @@ class Funcoes:
         self.view.controles['janela_slide'].protocol("WM_DELETE_WINDOW", lambda: self.fechar('janela_slide'))
 
     def _vincular_janela_slide_view(self):
+        pass
+
+    def _vincular_janela_musica(self):
         pass
 
     # --- Comandos da Janela Principal ---
@@ -203,8 +209,6 @@ class Funcoes:
 
             if arquivos_sem_ext != "":
                 self.view.controles['arquivo_cb']["values"] = arquivos_sem_ext
-            else:
-                self.view.controles['arquivo_cb']["values"] = arquivos
 
             if arquivos:
                 self.view.controles['arquivo_cb'].current(0)
@@ -214,13 +218,9 @@ class Funcoes:
     def atualizar_versiculos(self, event=None):
         caminho = os.path.join(dados.biblia_dir, self.view.controles['pastas_cb'].get(), self.view.controles['arquivo_cb'].get())
         contar = dados.carregar_texto(caminho + ".txt", dados.biblia_dir)
-        versiculo = "Versículo 1"
-        index = 2
 
-        for contagem in contar:
-            if index <= len(contar):
-                versiculo = versiculo + ",Versículo " + str(index)
-                index += 1
+        # Gera "Versículo 1,Versículo 2,Versículo 3..." direto pela quantidade de itens
+        versiculo = ",".join([f"Versículo {i}" for i in range(1, len(contar) + 1)])
 
         self.view.controles['versiculo_cb']["values"] = versiculo.split(",")
         self.view.controles['versiculo_cb'].current(0)
@@ -299,11 +299,36 @@ class Funcoes:
         # --- Inicialização ---
         # Identifica a quantidade de monitores
         monitors = get_monitors()
+        '''
+        print(len(monitors))
         if len(monitors) == 2:
             second = monitors[1]
         else:
             second = monitors[0]
         first = monitors[0]
+        '''
+        first = None
+
+        for m in monitors:
+            # 1. Tenta obter o atributo is_primary com segurança
+            is_primary = getattr(m, 'is_primary', False)
+
+            # 2. Se não existir, verifica se a posição é a origem (0, 0)
+            if is_primary or (m.x == 0 and m.y == 0):
+                first = m
+                break
+
+        # Fallback caso nada seja identificado
+        if not first and monitors:
+            first = monitors[0]
+
+        # Identifica o monitor secundário
+        second = None
+        if len(monitors) > 1:
+            outros = [m for m in monitors if m != first]
+            second = outros[0] if outros else monitors[1]
+        else:
+            second = first
 
         logica.view.controles['janela_slide'].bind("<Right>", lambda _: atualizar_texto(0))
         logica.view.controles['janela_slide'].bind("<Left>", lambda _: atualizar_texto(1))
@@ -439,4 +464,10 @@ class Funcoes:
 
         self.view.controles['text_area'].delete("1.0", tk.END)
         self.view.controles['text_area'].insert("1.0", resultado.replace(".txt", ""))
-        
+
+    def abrir_janela_musica(self):
+        # 1. Cria a parte visual
+        visual_musica = JanelaMusica(self.view.controles['janela_principal'])
+
+        # 2. Cria a lógica e passa a visão para ela controlar
+        logica_slide = Funcoes(visual_musica)
