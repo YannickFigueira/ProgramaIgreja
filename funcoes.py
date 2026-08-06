@@ -117,7 +117,9 @@ def identificar_proporcao(second):
         return tela16_9
 
 def selecionar_arquivo():
-    arquivo = filedialog.askopenfilename(title="Selecione um arquivo de texto")
+    messagebox.showinfo("Aviso", "Selecione o arquivo de texto .txt")
+    arquivo = filedialog.askopenfilename(title="Selecione um arquivo de texto", filetypes=[("Arquivos de texto", "*.txt"),
+                                                                                           ("Todos os arquivos", "*.*")])
     print(arquivo)
     shutil.copy(arquivo, musicas_dir)
     return
