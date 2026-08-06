@@ -9,7 +9,6 @@ import tkinter as tk
 from datetime import datetime
 from tkinter import messagebox, filedialog
 
-from matplotlib import path
 from screeninfo import get_monitors
 
 import dados, estilo, verificarversao
