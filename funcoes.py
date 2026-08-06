@@ -2,11 +2,14 @@ import logging
 import math
 import os
 import platform
+import shutil
 import subprocess
 import sys
 import tkinter as tk
 from datetime import datetime
-from tkinter import messagebox
+from tkinter import messagebox, filedialog
+
+from matplotlib import path
 from screeninfo import get_monitors
 
 import dados, estilo, verificarversao
@@ -17,13 +20,18 @@ from janela_musica import JanelaMusica
 
 # --- Registro de erros ---
 arquivo_erro = estilo.ARQUIVO_ERRO
+# Pastas de configuração
 home_dir = os.path.expanduser('~')
+log_dir = f"{home_dir}/log"
+programa_dir = f"{home_dir}/.programaigreja"
+musicas_dir = f"{home_dir}/.programaigreja/musicas"
 if platform.system() == 'Linux':
-    if not os.path.exists(f"{home_dir}/log"):
-        os.mkdir(f"{home_dir}/log")
-    if not os.path.exists(f"{home_dir}/.programaigreja"):
-        os.mkdir(f"{home_dir}/.programaigreja")
-        os.mkdir(f"{home_dir}/.programaigreja/musicas")
+    if not os.path.exists(log_dir):
+        os.mkdir(log_dir)
+    if not os.path.exists(programa_dir):
+        os.mkdir(programa_dir)
+    if not os.path.exists(musicas_dir):
+        os.mkdir(musicas_dir)
 
     logging.basicConfig(
         filename=f"{home_dir}/log/{arquivo_erro}",        # nome do arquivo
@@ -108,6 +116,12 @@ def identificar_proporcao(second):
     else:
         return tela16_9
 
+def selecionar_arquivo():
+    arquivo = filedialog.askopenfilename(title="Selecione um arquivo de texto")
+    print(arquivo)
+    shutil.copy(arquivo, musicas_dir)
+    return
+
 class Funcoes:
     def __init__(self, view):
         self.view = view
@@ -184,7 +198,9 @@ class Funcoes:
         pass
 
     def _vincular_janela_musica(self):
-        pass
+        #--- Menu da janela musicas ---
+        self.view.controles['menu_arquivo'].add_command(label="Adicionar Arquivo",
+                                                        command=lambda: selecionar_arquivo())
 
     # --- Comandos da Janela Principal ---
     def atualizar_pastas_biblia(self, event=None):
