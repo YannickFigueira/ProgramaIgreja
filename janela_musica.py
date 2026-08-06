@@ -11,10 +11,10 @@ class JanelaMusica:
         self.nome_janela = "janela-musica"
         self.controles = {}
 
-        self.criar_layout()
-        self.criar_barra_menu()
+        self._criar_layout()
+        self._criar_barra_menu()
 
-    def criar_layout(self):
+    def _criar_layout(self):
         linha = 0
         link = 6
         espacox = link
@@ -29,7 +29,19 @@ class JanelaMusica:
         self.controles['filtro_musica_txt'] = self.filtro_musica_txt
         linha += 1
 
+        # Combobox de pastas
+        ttk.Label(self.janela_musica, text="Música:").grid(row=linha, column=0, padx=espacox, pady=espacoy,
+                                                             sticky="w")
+        self.pastas_cb = ttk.Combobox(self.janela_musica, takefocus=False, state="readonly")
+        self.pastas_cb.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
+        self.controles['pastas_cb'] = self.pastas_cb
+        linha += 1
 
+        # Botão de abrir
+        self.abrir_biblia_btn = ttk.Button(self.janela_musica, text="Iniciar slide")
+        self.abrir_biblia_btn.grid(row=linha, column=0, columnspan=2, padx=espacox, pady=espacoy, sticky="ew")
+        self.controles['abrir_biblia_btn'] = self.abrir_biblia_btn
+        linha += 1
 
-    def criar_barra_menu(self):
+    def _criar_barra_menu(self):
         pass

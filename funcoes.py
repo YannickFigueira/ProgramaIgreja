@@ -21,6 +21,9 @@ home_dir = os.path.expanduser('~')
 if platform.system() == 'Linux':
     if not os.path.exists(f"{home_dir}/log"):
         os.mkdir(f"{home_dir}/log")
+    if not os.path.exists(f"{home_dir}/.programaigreja"):
+        os.mkdir(f"{home_dir}/.programaigreja")
+        os.mkdir(f"{home_dir}/.programaigreja/musicas")
 
     logging.basicConfig(
         filename=f"{home_dir}/log/{arquivo_erro}",        # nome do arquivo

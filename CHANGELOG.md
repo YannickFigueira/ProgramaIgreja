@@ -147,7 +147,8 @@
 
 ### [v0.6.4] - 2026-08-05
 ## Changes
-- Adicionado janela para Músicas
+- Criado pasta para organizar as músicas
+- Adicionado janela para músicas
 
 ## Fixed
 - Melhorado verificação dos monitores para visualizar no segundo monitor correto

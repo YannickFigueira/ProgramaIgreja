@@ -74,7 +74,7 @@ class JanelaPrincipal:
         linha += 1
 
         # Botão de abrir
-        self.abrir_biblia_btn = ttk.Button(self.janela_principal, text="Abrir Arquivo")
+        self.abrir_biblia_btn = ttk.Button(self.janela_principal, text="Iniciar slide")
         self.abrir_biblia_btn.grid(row=linha, column=0, columnspan=2, padx=espacox, pady=espacoy, sticky="ew")
         self.controles['abrir_biblia_btn'] = self.abrir_biblia_btn
         linha += 1
@@ -106,7 +106,7 @@ class JanelaPrincipal:
         linha += 1
 
         # Botão de abrir
-        self.abrir_harpa_btn = ttk.Button(self.janela_principal, text="Abrir Arquivo")
+        self.abrir_harpa_btn = ttk.Button(self.janela_principal, text="Iniciar slide")
         self.abrir_harpa_btn.grid(row=linha, column=0, columnspan=2, padx=espacox, pady=espacoy, sticky="ew")
         self.controles['abrir_harpa_btn'] = self.abrir_harpa_btn
         linha += 1
