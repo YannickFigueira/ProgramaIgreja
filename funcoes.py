@@ -6,6 +6,7 @@ import shutil
 import subprocess
 import sys
 import tkinter as tk
+import unicodedata
 from datetime import datetime
 from tkinter import messagebox, filedialog
 
@@ -123,6 +124,15 @@ def selecionar_arquivo():
     shutil.copy(arquivo, musicas_dir)
     return
 
+
+def remover_acentos(texto):
+    """Remove acentos e caracteres especiais do texto."""
+    return ''.join(
+        c for c in unicodedata.normalize('NFD', texto)
+        if unicodedata.category(c) != 'Mn'
+    )
+
+
 class Funcoes:
     def __init__(self, view):
         self.view = view
@@ -171,7 +181,7 @@ class Funcoes:
         self.view.controles['filtro_capitulo_txt'].bind("<Key>", lambda e: self.acao_enter(e, 0))
         self.view.controles['abrir_biblia_btn'].bind("<Key>", lambda e: self.acao_enter(e, 0))
         # Captura qualquer tecla liberada
-        self.view.controles['filtro_harpa_txt'].bind("<KeyRelease>", self.filtrar_lista)
+        self.view.controles['filtro_harpa_txt'].bind("<KeyRelease>", self.filtrar_lista_harpa)
         self.view.controles['abrir_harpa_btn'].config(command=lambda: self.abrir_janela_slide(1))
         # Captura especificamente o Enter
         self.view.controles['filtro_harpa_txt'].bind("<Key>", lambda e: self.acao_enter(e, 1))
@@ -199,9 +209,13 @@ class Funcoes:
         pass
 
     def _vincular_janela_musica(self):
-        #--- Menu da janela musicas ---
+        # --- Inicialização ---
+        self.carregar_arquivos_musicas()
+        # --- Menu da janela musicas ---
         self.view.controles['menu_arquivo'].add_command(label="Adicionar Arquivo",
                                                         command=lambda: selecionar_arquivo())
+        # Captura qualquer tecla
+        self.view.controles['filtro_musica_txt'].bind("<KeyRelease>", self.filtrar_lista_musicas)
 
     # --- Comandos da Janela Principal ---
     def atualizar_pastas_biblia(self, event=None):
@@ -264,13 +278,20 @@ class Funcoes:
                 case 2:
                     self.localizar_arquivo()
 
-    def filtrar_lista(self, event=None):
+    def filtrar_lista_harpa(self, event=None):
         texto_harpa = self.view.controles['filtro_harpa_txt'].get().lower()
         filtrados = [f for f in estilo.LISTA_COMPLETA if texto_harpa in f.lower()]
         self.view.controles['arquivo_harpa_cb']["values"] = filtrados
 
         if filtrados:
             self.view.controles['arquivo_harpa_cb'].current(0)
+
+    def filtrar_lista_musicas(self, event=None):
+        texto_musicas = self.view.controles['filtro_musica_txt'].get().lower()
+        filtrados = [f for f in estilo.LISTA_MUSICAS if texto_musicas in f.lower()]
+        self.view.controles['pasta_cb']["values"] = filtrados
+        if filtrados:
+            self.view.controles['pasta_cb'].current(0)
 
     # --- Iniciar janela slide ---
     def abrir_janela_slide(self, valor):
@@ -452,35 +473,45 @@ class Funcoes:
         if arquivos:
             self.view.controles['arquivo_harpa_cb'].current(0)
 
-    def localizar_arquivo(self):
-        if self.view.controles['buscar_texto_cb'].get() == "Bíblia":
-            pasta_raiz = dados.biblia_dir
-        else:
-            pasta_raiz = dados.harpa_dir
+    def carregar_arquivos_musicas(self):
+        arquivos = os.listdir(musicas_dir)
+        arquivos = [f for f in arquivos if os.path.isfile(os.path.join(musicas_dir, f))]
+        arquivos = sorted(arquivos, key=lambda x: str(x).lower())  # ordena ignorando maiúsculas/minúsculas
+        arquivos_sem_ext = [os.path.splitext(f)[0] for f in arquivos]
+        estilo.LISTA_MUSICAS = arquivos_sem_ext
+        self.view.controles['pasta_cb']["values"] = arquivos_sem_ext
+        self.view.controles['pasta_cb'].current(0)
 
-        # os.walk percorre pastas e subpastas
+    def localizar_arquivo(self):
+        busca = self.view.controles['buscar_texto_cb'].get()
+        if busca == "Bíblia":
+            pasta_raiz = dados.biblia_dir
+        elif busca == "Harpa":
+            pasta_raiz = dados.harpa_dir
+        else:
+            pasta_raiz = musicas_dir
+
+        # Normaliza e converte para minúsculas o termo pesquisado
+        termo_busca = remover_acentos(self.view.controles['buscar_texto_txt'].get().lower())
+
         resultado = ""
         for raiz, pastas, arquivos in os.walk(pasta_raiz):
             for arquivo in arquivos:
-                # Verifica se o arquivo é .txt
                 if arquivo.endswith('.txt'):
                     caminho_completo = os.path.join(raiz, arquivo)
                     try:
-                        # Abre o arquivo com encoding utf-8 para evitar erros de caracteres
-                        with open(caminho_completo, 'r', encoding='utf-8') as f:
-                            if platform.system() == "Windows":
-                                pasta_separada = caminho_completo.split("\\")
-                            elif platform.system() == "Linux":
-                                pasta_separada = caminho_completo.split("/")
-                            else:
-                                print("Sistema não suportado")
+                        # Divisão de caminho multiplataforma
+                        nome_arquivo = os.path.basename(caminho_completo)
 
+                        with open(caminho_completo, 'r', encoding='utf-8') as f:
                             for numero_linha, linha in enumerate(f, 1):
-                                if self.view.controles['buscar_texto_txt'].get().lower() in linha.lower():  # Busca sem diferenciar maiúsculas/minúsculas
-                                    resultado += f" {pasta_separada[len(pasta_separada) - 1]} -> Verso {math.ceil(numero_linha / 3)} -> {linha.strip()}\n"
-                    except (UnicodeDecodeError, PermissionError):
-                        # Ignora arquivos que não podem ser lidos (ex: codificação diferente ou sem permissão)
-                        continue
+                                # Normaliza a linha do arquivo para ignorar acentos e maiúsculas
+                                linha_normalizada = remover_acentos(linha.lower())
+
+                                if termo_busca in linha_normalizada:
+                                    resultado += f" {nome_arquivo} -> Verso {math.ceil(numero_linha / 3)} -> {linha.strip()}\n"
+                    except Exception as e:
+                        print(f"Erro ao ler o arquivo {caminho_completo}: {e}")
 
         self.view.controles['text_area'].delete("1.0", tk.END)
         self.view.controles['text_area'].insert("1.0", resultado.replace(".txt", ""))

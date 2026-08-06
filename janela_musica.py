@@ -32,9 +32,9 @@ class JanelaMusica:
         # Combobox de pastas
         ttk.Label(self.janela_musica, text="Música:").grid(row=linha, column=0, padx=espacox, pady=espacoy,
                                                              sticky="w")
-        self.pastas_cb = ttk.Combobox(self.janela_musica, takefocus=False, state="readonly")
-        self.pastas_cb.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
-        self.controles['pastas_cb'] = self.pastas_cb
+        self.pasta_cb = ttk.Combobox(self.janela_musica, takefocus=False, state="readonly")
+        self.pasta_cb.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
+        self.controles['pasta_cb'] = self.pasta_cb
         linha += 1
 
         # Botão de abrir

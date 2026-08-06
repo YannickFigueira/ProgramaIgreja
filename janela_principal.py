@@ -123,7 +123,7 @@ class JanelaPrincipal:
         ttk.Label(self.janela_principal, text="Pasta de busca:").grid(row=linha_lateral, column=3, padx=espacox, pady=espacoy, sticky="w")
         self.buscar_texto_cb = ttk.Combobox(self.janela_principal, takefocus=False, state="readonly")
         self.buscar_texto_cb.grid(row=linha_lateral, column=4, padx=espacox, pady=espacoy, sticky="ew")
-        self.buscar_texto_cb["values"] = ["Bíblia", "Harpa"]
+        self.buscar_texto_cb["values"] = ["Bíblia", "Harpa", "Músicas"]
         self.buscar_texto_cb.current(0)
         self.controles['buscar_texto_cb'] = self.buscar_texto_cb
         linha_lateral += 1

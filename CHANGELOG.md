@@ -149,6 +149,7 @@
 ## Changes
 - Criado pasta para organizar as músicas
 - Adicionado janela para músicas
+- Adicionado Músicas a busca
 
 ## Fixed
 - Melhorado verificação dos monitores para visualizar no segundo monitor correto

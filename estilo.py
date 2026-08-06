@@ -21,5 +21,6 @@ TODAS_PASTAS = ['Gênesis', 'Êxodo', 'Levítico', 'Números', 'Deuteronômio', 
                      'Judas', 'Apocalipse']
 
 LISTA_COMPLETA = []
+LISTA_MUSICAS = []
 # Fontes
 FUNDO_COR = "#2E8B57" # cor do fundo
