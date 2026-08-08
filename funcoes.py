@@ -25,15 +25,16 @@ home_dir = os.path.expanduser('~')
 log_dir = f"{home_dir}/log"
 programa_dir = f"{home_dir}/.programaigreja"
 musicas_dir = f"{home_dir}/.programaigreja/musicas"
+
+if not os.path.exists(programa_dir):
+    os.mkdir(programa_dir)
+if not os.path.exists(musicas_dir):
+    os.mkdir(musicas_dir)
 # Pastas de configuração Windows
 
 if platform.system() == 'Linux':
     if not os.path.exists(log_dir):
         os.mkdir(log_dir)
-    if not os.path.exists(programa_dir):
-        os.mkdir(programa_dir)
-    if not os.path.exists(musicas_dir):
-        os.mkdir(musicas_dir)
 
     logging.basicConfig(
         filename=f"{home_dir}/log/{arquivo_erro}",        # nome do arquivo
