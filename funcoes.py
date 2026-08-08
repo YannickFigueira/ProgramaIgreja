@@ -20,11 +20,13 @@ from janela_musica import JanelaMusica
 
 # --- Registro de erros ---
 arquivo_erro = estilo.ARQUIVO_ERRO
-# Pastas de configuração
+# Pastas de configuração Linux
 home_dir = os.path.expanduser('~')
 log_dir = f"{home_dir}/log"
 programa_dir = f"{home_dir}/.programaigreja"
 musicas_dir = f"{home_dir}/.programaigreja/musicas"
+# Pastas de configuração Windows
+
 if platform.system() == 'Linux':
     if not os.path.exists(log_dir):
         os.mkdir(log_dir)
@@ -85,14 +87,15 @@ def justificar_texto(texto_slide_view, tamanho_letra_slide):
                 font-family: Arial, sans-serif; 
                 font-size: {tamanho_fonte}; 
                 font-weight: bold; 
-                text-align: justify; /* JUSTIFICA AMBOS OS LADOS */
+                /*text-align: justify; /* JUSTIFICA AMBOS OS LADOS */
+                text-align: center;
                 margin: auto;
                 padding-top: 40px;
                 max-width: {largura_slide};
                 width: 100%;
                 line-height: 1.1;
             ">
-                {texto_slide_view.replace('\n', '<br>')}
+                {texto_slide_view.replace('\n', '<br>').upper()}
 
             </div>
         </body>
@@ -115,15 +118,6 @@ def identificar_proporcao(second):
         return tela16_9
     else:
         return tela16_9
-
-def selecionar_arquivo():
-    messagebox.showinfo("Aviso", "Selecione o arquivo de texto .txt")
-    arquivo = filedialog.askopenfilename(title="Selecione um arquivo de texto", filetypes=[("Arquivos de texto", "*.txt"),
-                                                                                           ("Todos os arquivos", "*.*")])
-    print(arquivo)
-    shutil.copy(arquivo, musicas_dir)
-    return
-
 
 def remover_acentos(texto):
     """Remove acentos e caracteres especiais do texto."""
@@ -176,18 +170,18 @@ class Funcoes:
         self.view.controles['pastas_cb'].bind("<<ComboboxSelected>>", self.atualizar_arquivos_biblia)
         self.view.controles['filtro_capitulo_txt'].bind("<KeyRelease>", self.atualizar_arquivos_biblia)
         self.view.controles['arquivo_cb'].bind("<<ComboboxSelected>>", self.atualizar_versiculos)
-        self.view.controles['abrir_biblia_btn'].config(command=lambda: self.abrir_janela_slide(0))
+        self.view.controles['abrir_biblia_btn'].config(command=lambda: self.abrir_janela_slide(0, self.view.controles['janela_principal']))
         # Captura especificamente o Enter
-        self.view.controles['filtro_capitulo_txt'].bind("<Key>", lambda e: self.acao_enter(e, 0))
-        self.view.controles['abrir_biblia_btn'].bind("<Key>", lambda e: self.acao_enter(e, 0))
+        self.view.controles['filtro_capitulo_txt'].bind("<Key>", lambda e: self.acao_enter(e, 0, self.view.controles['janela_principal']))
+        self.view.controles['abrir_biblia_btn'].bind("<Key>", lambda e: self.acao_enter(e, 0, self.view.controles['janela_principal']))
         # Captura qualquer tecla liberada
         self.view.controles['filtro_harpa_txt'].bind("<KeyRelease>", self.filtrar_lista_harpa)
-        self.view.controles['abrir_harpa_btn'].config(command=lambda: self.abrir_janela_slide(1))
+        self.view.controles['abrir_harpa_btn'].config(command=lambda: self.abrir_janela_slide(1, self.view.controles['janela_principal']))
         # Captura especificamente o Enter
-        self.view.controles['filtro_harpa_txt'].bind("<Key>", lambda e: self.acao_enter(e, 1))
-        self.view.controles['abrir_harpa_btn'].bind("<Key>", lambda e: self.acao_enter(e, 1))
+        self.view.controles['filtro_harpa_txt'].bind("<Key>", lambda e: self.acao_enter(e, 1, self.view.controles['janela_principal']))
+        self.view.controles['abrir_harpa_btn'].bind("<Key>", lambda e: self.acao_enter(e, 1, self.view.controles['janela_principal']))
         self.view.controles['buscar_texto_btn'].config(command=lambda: self.localizar_arquivo())
-        self.view.controles['buscar_texto_txt'].bind("<Key>", lambda e: self.acao_enter(e, 2))
+        self.view.controles['buscar_texto_txt'].bind("<Key>", lambda e: self.acao_enter(e, 2, self.view.controles['janela_principal']))
 
         # --- Menu da Janela Principal ---
         self.view.controles['menu_arquivo'].add_command(label="Músicas",
@@ -210,12 +204,15 @@ class Funcoes:
 
     def _vincular_janela_musica(self):
         # --- Inicialização ---
-        self.carregar_arquivos_musicas()
+        if os.listdir(musicas_dir):
+            self.carregar_arquivos_musicas()
         # --- Menu da janela musicas ---
         self.view.controles['menu_arquivo'].add_command(label="Adicionar Arquivo",
-                                                        command=lambda: selecionar_arquivo())
+                                                        command=lambda: self.selecionar_arquivo(self.view.controles['janela_musica']))
         # Captura qualquer tecla
         self.view.controles['filtro_musica_txt'].bind("<KeyRelease>", self.filtrar_lista_musicas)
+        self.view.controles['abrir_musica_btn'].config(command=lambda: self.abrir_janela_slide(2, self.view.controles['janela_musica']))
+
 
     # --- Comandos da Janela Principal ---
     def atualizar_pastas_biblia(self, event=None):
@@ -268,13 +265,13 @@ class Funcoes:
     def fechar(self, nome):
         self.view.controles[nome].destroy()
 
-    def acao_enter(self, event, valor):
+    def acao_enter(self, event, valor, janela):
         if event.keysym in ("Return", "KP_Enter"):
             match valor:
                 case 0:
-                    self.abrir_janela_slide(valor)
+                    self.abrir_janela_slide(valor, janela)
                 case 1:
-                    self.abrir_janela_slide(valor)
+                    self.abrir_janela_slide(valor, janela)
                 case 2:
                     self.localizar_arquivo()
 
@@ -289,12 +286,12 @@ class Funcoes:
     def filtrar_lista_musicas(self, event=None):
         texto_musicas = self.view.controles['filtro_musica_txt'].get().lower()
         filtrados = [f for f in estilo.LISTA_MUSICAS if texto_musicas in f.lower()]
-        self.view.controles['pasta_cb']["values"] = filtrados
+        self.view.controles['musica_cb']["values"] = filtrados
         if filtrados:
-            self.view.controles['pasta_cb'].current(0)
+            self.view.controles['musica_cb'].current(0)
 
     # --- Iniciar janela slide ---
-    def abrir_janela_slide(self, valor):
+    def abrir_janela_slide(self, valor, janela):
         global identificacao, verso, texto, total, inicio
         match valor:
             case 0:
@@ -330,9 +327,23 @@ class Funcoes:
                 else:
                     messagebox.showwarning("Aviso", "Digite o número ou nome do hino!")
                     return
+            case 2:
+                self.view.controles['filtro_musica_txt'].delete(0, tk.END)
+                arquivo = self.view.controles['musica_cb'].get()
+
+                if arquivo:
+                    caminho = os.path.join(musicas_dir, arquivo)
+                    texto = dados.carregar_texto(caminho + ".txt", musicas_dir)
+                    self.carregar_arquivos_musicas()
+                    inicio = 1
+                    total = len(texto) - 1
+                    verso = 1
+                    identificacao = 1
+                else:
+                    messagebox.showwarning("Aviso", "Selecione ou digite um nome de arquivo válido.")
 
         # 1. Cria a parte visual
-        visual = JanelaSlide(self.view.controles['janela_principal'])
+        visual = JanelaSlide(janela)
 
         # 2. Cria a lógica e passa a visão para ela controlar
         logica = Funcoes(visual)
@@ -473,14 +484,23 @@ class Funcoes:
         if arquivos:
             self.view.controles['arquivo_harpa_cb'].current(0)
 
+    def selecionar_arquivo(self, janela):
+        messagebox.showinfo("Aviso", "Selecione o arquivo de texto .txt", parent=janela)
+        arquivo = filedialog.askopenfilename(parent=janela, title="Selecione um arquivo de texto",
+                                             filetypes=[("Arquivos de texto", "*.txt"),
+                                                        ("Todos os arquivos", "*.*")])
+        if arquivo:
+            shutil.copy(arquivo, musicas_dir)
+            self.carregar_arquivos_musicas()
+
     def carregar_arquivos_musicas(self):
         arquivos = os.listdir(musicas_dir)
         arquivos = [f for f in arquivos if os.path.isfile(os.path.join(musicas_dir, f))]
         arquivos = sorted(arquivos, key=lambda x: str(x).lower())  # ordena ignorando maiúsculas/minúsculas
         arquivos_sem_ext = [os.path.splitext(f)[0] for f in arquivos]
         estilo.LISTA_MUSICAS = arquivos_sem_ext
-        self.view.controles['pasta_cb']["values"] = arquivos_sem_ext
-        self.view.controles['pasta_cb'].current(0)
+        self.view.controles['musica_cb']["values"] = arquivos_sem_ext
+        self.view.controles['musica_cb'].current(0)
 
     def localizar_arquivo(self):
         busca = self.view.controles['buscar_texto_cb'].get()

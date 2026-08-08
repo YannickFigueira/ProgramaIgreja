@@ -19,6 +19,8 @@ class JanelaMusica:
         link = 6
         espacox = link
         espacoy = link
+        # --- Controles ---
+        self.controles['janela_musica'] = self.janela_musica
 
         # Filtro das músicas
         ttk.Label(self.janela_musica, text="Filtro do Livro:").grid(row=linha, column=0, padx=espacox, pady=espacoy,
@@ -32,15 +34,15 @@ class JanelaMusica:
         # Combobox de pastas
         ttk.Label(self.janela_musica, text="Música:").grid(row=linha, column=0, padx=espacox, pady=espacoy,
                                                              sticky="w")
-        self.pasta_cb = ttk.Combobox(self.janela_musica, takefocus=False, state="readonly")
-        self.pasta_cb.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
-        self.controles['pasta_cb'] = self.pasta_cb
+        self.musica_cb = ttk.Combobox(self.janela_musica, takefocus=False, state="readonly")
+        self.musica_cb.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
+        self.controles['musica_cb'] = self.musica_cb
         linha += 1
 
         # Botão de abrir
-        self.abrir_biblia_btn = ttk.Button(self.janela_musica, text="Iniciar slide")
-        self.abrir_biblia_btn.grid(row=linha, column=0, columnspan=2, padx=espacox, pady=espacoy, sticky="ew")
-        self.controles['abrir_biblia_btn'] = self.abrir_biblia_btn
+        self.abrir_musica_btn = ttk.Button(self.janela_musica, text="Iniciar slide")
+        self.abrir_musica_btn.grid(row=linha, column=0, columnspan=2, padx=espacox, pady=espacoy, sticky="ew")
+        self.controles['abrir_musica_btn'] = self.abrir_musica_btn
         linha += 1
 
     def _criar_barra_menu(self):
