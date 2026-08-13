@@ -91,7 +91,7 @@ def justificar_texto(texto_slide_view, tamanho_letra_slide):
                 /*text-align: justify; /* JUSTIFICA AMBOS OS LADOS */
                 text-align: center;
                 margin: auto;
-                padding-top: 40px;
+                padding-top: 50px;
                 max-width: {largura_slide};
                 width: 100%;
                 line-height: 1.1;
