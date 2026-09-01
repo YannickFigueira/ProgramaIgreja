@@ -153,3 +153,7 @@
 
 ## Fixed
 - Melhorado verificação dos monitores para visualizar no segundo monitor correto
+
+### [v0.7.5] - 2026-09-01
+## Changes
+- Modificado visual para um mais moderno

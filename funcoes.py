@@ -212,7 +212,7 @@ class Funcoes:
                                                         command=lambda: self.selecionar_arquivo(self.view.controles['janela_musica']))
         # Captura qualquer tecla
         self.view.controles['filtro_musica_txt'].bind("<KeyRelease>", self.filtrar_lista_musicas)
-        self.view.controles['abrir_musica_btn'].config(command=lambda: self.abrir_janela_slide(2, self.view.controles['janela_musica']))
+        self.view.controles['abrir_musica_btn'].configure(command=lambda: self.abrir_janela_slide(2, self.view.controles['janela_musica']))
 
 
     # --- Comandos da Janela Principal ---
@@ -288,9 +288,9 @@ class Funcoes:
     def filtrar_lista_musicas(self, event=None):
         texto_musicas = self.view.controles['filtro_musica_txt'].get().lower()
         filtrados = [f for f in estilo.LISTA_MUSICAS if texto_musicas in f.lower()]
-        self.view.controles['musica_cb']["values"] = filtrados
+        self.view.controles['musica_cb'].configure(values=filtrados)
         if filtrados:
-            self.view.controles['musica_cb'].current(0)
+            self.view.controles['musica_cb'].set(filtrados[0])
 
     # --- Iniciar janela slide ---
     def abrir_janela_slide(self, valor, janela):
@@ -501,8 +501,8 @@ class Funcoes:
         arquivos = sorted(arquivos, key=lambda x: str(x).lower())  # ordena ignorando maiúsculas/minúsculas
         arquivos_sem_ext = [os.path.splitext(f)[0] for f in arquivos]
         estilo.LISTA_MUSICAS = arquivos_sem_ext
-        self.view.controles['musica_cb']["values"] = arquivos_sem_ext
-        self.view.controles['musica_cb'].current(0)
+        self.view.controles['musica_cb'].configure(values=arquivos_sem_ext)
+        self.view.controles['musica_cb'].set(arquivos_sem_ext[0])
 
     def localizar_arquivo(self):
         busca = self.view.controles['buscar_texto_cb'].get()
