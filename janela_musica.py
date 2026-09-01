@@ -1,10 +1,11 @@
 import tkinter as tk
 from tkinter import ttk
+import customtkinter as ctk
 
 
 class JanelaMusica:
     def __init__(self, janela_principal):
-        self.janela_musica = tk.Toplevel(janela_principal)
+        self.janela_musica = ctk.CTkToplevel(janela_principal)
         self.janela_musica.title("Músicas Gospel")
         self.janela_musica.resizable(False, False)
 

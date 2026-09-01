@@ -171,17 +171,17 @@ class Funcoes:
         self.view.controles['pastas_cb'].bind("<<ComboboxSelected>>", self.atualizar_arquivos_biblia)
         self.view.controles['filtro_capitulo_txt'].bind("<KeyRelease>", self.atualizar_arquivos_biblia)
         self.view.controles['arquivo_cb'].bind("<<ComboboxSelected>>", self.atualizar_versiculos)
-        self.view.controles['abrir_biblia_btn'].config(command=lambda: self.abrir_janela_slide(0, self.view.controles['janela_principal']))
+        self.view.controles['abrir_biblia_btn'].configure(command=lambda: self.abrir_janela_slide(0, self.view.controles['janela_principal']))
         # Captura especificamente o Enter
         self.view.controles['filtro_capitulo_txt'].bind("<Key>", lambda e: self.acao_enter(e, 0, self.view.controles['janela_principal']))
         self.view.controles['abrir_biblia_btn'].bind("<Key>", lambda e: self.acao_enter(e, 0, self.view.controles['janela_principal']))
         # Captura qualquer tecla liberada
         self.view.controles['filtro_harpa_txt'].bind("<KeyRelease>", self.filtrar_lista_harpa)
-        self.view.controles['abrir_harpa_btn'].config(command=lambda: self.abrir_janela_slide(1, self.view.controles['janela_principal']))
+        self.view.controles['abrir_harpa_btn'].configure(command=lambda: self.abrir_janela_slide(1, self.view.controles['janela_principal']))
         # Captura especificamente o Enter
         self.view.controles['filtro_harpa_txt'].bind("<Key>", lambda e: self.acao_enter(e, 1, self.view.controles['janela_principal']))
         self.view.controles['abrir_harpa_btn'].bind("<Key>", lambda e: self.acao_enter(e, 1, self.view.controles['janela_principal']))
-        self.view.controles['buscar_texto_btn'].config(command=lambda: self.localizar_arquivo())
+        self.view.controles['buscar_texto_btn'].configure(command=lambda: self.localizar_arquivo())
         self.view.controles['buscar_texto_txt'].bind("<Key>", lambda e: self.acao_enter(e, 2, self.view.controles['janela_principal']))
 
         # --- Menu da Janela Principal ---
@@ -219,10 +219,10 @@ class Funcoes:
     def atualizar_pastas_biblia(self, event=None):
         filtrar_texto = self.view.controles['filtro_livro_txt'].get().lower()
         filtrado = [f for f in estilo.TODAS_PASTAS if filtrar_texto in f.lower()]
-        self.view.controles['pastas_cb']["values"] = filtrado
+        self.view.controles['pastas_cb'].configure(values=filtrado)
 
         if filtrado:
-            self.view.controles['pastas_cb'].current(0)
+            self.view.controles['pastas_cb'].set(filtrado[0])
             self.atualizar_arquivos_biblia()
 
     def atualizar_arquivos_biblia(self, event=None):
@@ -240,10 +240,10 @@ class Funcoes:
                 arquivos_sem_ext = [os.path.splitext(f)[0] for f in arquivos]
 
             if arquivos_sem_ext != "":
-                self.view.controles['arquivo_cb']["values"] = arquivos_sem_ext
+                self.view.controles['arquivo_cb'].configure(values=arquivos_sem_ext)
 
             if arquivos:
-                self.view.controles['arquivo_cb'].current(0)
+                self.view.controles['arquivo_cb'].set(arquivos_sem_ext[0])
 
         self.atualizar_versiculos()
 
@@ -254,8 +254,9 @@ class Funcoes:
         # Gera "Versículo 1,Versículo 2,Versículo 3..." direto pela quantidade de itens
         versiculo = ",".join([f"Versículo {i}" for i in range(1, len(contar) + 1)])
 
-        self.view.controles['versiculo_cb']["values"] = versiculo.split(",")
-        self.view.controles['versiculo_cb'].current(0)
+        self.view.controles['versiculo_cb'].configure(values=versiculo.split(","))
+        versiculo_valores = self.view.controles['versiculo_cb'].cget('values')
+        self.view.controles['versiculo_cb'].set(versiculo_valores[0])
 
     def atualizar_hora(self):
         agora = datetime.now()
@@ -279,10 +280,10 @@ class Funcoes:
     def filtrar_lista_harpa(self, event=None):
         texto_harpa = self.view.controles['filtro_harpa_txt'].get().lower()
         filtrados = [f for f in estilo.LISTA_COMPLETA if texto_harpa in f.lower()]
-        self.view.controles['arquivo_harpa_cb']["values"] = filtrados
+        self.view.controles['arquivo_harpa_cb'].configure(values=filtrados)
 
         if filtrados:
-            self.view.controles['arquivo_harpa_cb'].current(0)
+            self.view.controles['arquivo_harpa_cb'].set(filtrados[0])
 
     def filtrar_lista_musicas(self, event=None):
         texto_musicas = self.view.controles['filtro_musica_txt'].get().lower()
@@ -305,9 +306,9 @@ class Funcoes:
                 self.view.controles['filtro_capitulo_txt'].delete(0, tk.END)
                 # Transfere o foco para o campo de filtro de pastas
                 self.view.controles['filtro_livro_txt'].focus_set()
-                inicio = self.view.controles['versiculo_cb'].current() + 1
+                inicio = self.view.controles['versiculo_cb'].cget("values").index(self.view.controles['versiculo_cb'].get()) + 1
                 total = len(texto)
-                verso = self.view.controles['versiculo_cb'].current()
+                verso = self.view.controles['versiculo_cb'].cget("values").index(self.view.controles['versiculo_cb'].get())
                 identificacao = 0
             case 1:
                 if self.view.controles['filtro_harpa_txt'].get() != "":
@@ -480,10 +481,10 @@ class Funcoes:
         arquivos = sorted(arquivos, key=lambda x: str(x).lower()) # ordena ignorando maiúsculas/minúsculas
         arquivos_sem_ext = [os.path.splitext(f)[0] for f in arquivos]
         estilo.LISTA_COMPLETA = arquivos_sem_ext
-        self.view.controles['arquivo_harpa_cb']["values"] = arquivos_sem_ext
+        self.view.controles['arquivo_harpa_cb'].configure(values=arquivos_sem_ext)
 
         if arquivos:
-            self.view.controles['arquivo_harpa_cb'].current(0)
+            self.view.controles['arquivo_harpa_cb'].set(arquivos_sem_ext[0])
 
     def selecionar_arquivo(self, janela):
         messagebox.showinfo("Aviso", "Selecione o arquivo de texto .txt", parent=janela)
