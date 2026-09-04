@@ -243,6 +243,22 @@ class Funcoes:
         self.view.controles['filtro_musica_txt'].bind("<KeyRelease>", self.filtrar_lista_musicas)
         self.view.controles['abrir_musica_btn'].configure(command=lambda: self.abrir_janela_slide(2, self.view.controles['janela_musica']))
 
+        return logica.view
+
+    # --- Iniciar janela slide view ---
+    def abrir_janela_slide_view(self, second, tamanho_letra_slide):
+        # --- Variável ---
+        global frame_html
+
+        # 1. Cria a parte visual
+        visual_slide = JanelaSlideView(self.view.controles['janela_slide'], second)
+
+        # 2. Cria a lógica e passa a visão para ela controlar
+        logica_slide = Funcoes(visual_slide)
+
+        codigo_html = justificar_texto(texto[verso], tamanho_letra_slide)
+        logica_slide.view.controles['frame_html'].load_html(codigo_html)
+        frame_html = logica_slide.view.controles['frame_html']
 
     # --- Comandos da Janela Principal ---
     def atualizar_pastas_biblia(self, event=None):
