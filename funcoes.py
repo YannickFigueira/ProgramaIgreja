@@ -120,6 +120,35 @@ def identificar_proporcao(second):
     else:
         return tela16_9
 
+def identificar_monitor():
+    # Identifica a quantidade de monitores
+    monitors = get_monitors()
+
+    first = None
+
+    for m in monitors:
+        # 1. Tenta obter o atributo is_primary com segurança
+        is_primary = getattr(m, 'is_primary', False)
+
+        # 2. Se não existir, verifica se a posição é a origem (0, 0)
+        if is_primary or (m.x == 0 and m.y == 0):
+            first = m
+            break
+
+    # Fallback caso nada seja identificado
+    if not first and monitors:
+        first = monitors[0]
+
+    # Identifica o monitor secundário
+    second = None
+    if len(monitors) > 1:
+        outros = [m for m in monitors if m != first]
+        second = outros[0] if outros else monitors[1]
+    else:
+        second = first
+
+    return first, second
+
 def remover_acentos(texto):
     """Remove acentos e caracteres especiais do texto."""
     return ''.join(
