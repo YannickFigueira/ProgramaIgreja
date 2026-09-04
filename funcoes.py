@@ -17,6 +17,7 @@ import dados, estilo, verificarversao
 from janela_slide import JanelaSlide
 from janela_slide_view import JanelaSlideView
 from janela_musica import JanelaMusica
+from janela_slide_view_lirics import JanelaSlideViewLirics
 
 # --- Registro de erros ---
 arquivo_erro = estilo.ARQUIVO_ERRO
@@ -91,7 +92,7 @@ def justificar_texto(texto_slide_view, tamanho_letra_slide):
                 /*text-align: justify; /* JUSTIFICA AMBOS OS LADOS */
                 text-align: center;
                 margin: auto;
-                padding-top: 50px;
+                padding-top: 60px;
                 max-width: {largura_slide};
                 width: 100%;
                 line-height: 1.1;
@@ -170,6 +171,8 @@ class Funcoes:
                 self._vincular_janela_slide_view()
             elif view.nome_janela == "janela-musica":
                 self._vincular_janela_musica()
+            elif view.nome_janela == "janela-slide-lirics":
+                self._vincular_janela_slide_view_lirics()
 
     def _vincular_janela_principal(self):
         # --- Inicialização ---
@@ -200,18 +203,21 @@ class Funcoes:
         self.view.controles['pastas_cb'].bind("<<ComboboxSelected>>", self.atualizar_arquivos_biblia)
         self.view.controles['filtro_capitulo_txt'].bind("<KeyRelease>", self.atualizar_arquivos_biblia)
         self.view.controles['arquivo_cb'].bind("<<ComboboxSelected>>", self.atualizar_versiculos)
-        self.view.controles['abrir_biblia_btn'].configure(command=lambda: self.abrir_janela_slide(0, self.view.controles['janela_principal']))
+        self.view.controles['abrir_biblia_btn'].configure(command=lambda: self.abrir_janela_slide("biblia", self.view.controles['janela_principal']))
         # Captura especificamente o Enter
-        self.view.controles['filtro_capitulo_txt'].bind("<Key>", lambda e: self.acao_enter(e, 0, self.view.controles['janela_principal']))
-        self.view.controles['abrir_biblia_btn'].bind("<Key>", lambda e: self.acao_enter(e, 0, self.view.controles['janela_principal']))
+        self.view.controles['filtro_capitulo_txt'].bind("<Key>", lambda e: self.acao_enter(e, "biblia", self.view.controles['janela_principal']))
+        self.view.controles['abrir_biblia_btn'].bind("<Key>", lambda e: self.acao_enter(e, "biblia", self.view.controles['janela_principal']))
         # Captura qualquer tecla liberada
         self.view.controles['filtro_harpa_txt'].bind("<KeyRelease>", self.filtrar_lista_harpa)
-        self.view.controles['abrir_harpa_btn'].configure(command=lambda: self.abrir_janela_slide(1, self.view.controles['janela_principal']))
+        self.view.controles['abrir_harpa_btn'].configure(command=lambda: self.abrir_janela_slide("harpa", self.view.controles['janela_principal']))
+        #self.view.controles['abrir_harpa_btn'].configure(
+        #    command=lambda: self.abrir_slide_lirics())
         # Captura especificamente o Enter
-        self.view.controles['filtro_harpa_txt'].bind("<Key>", lambda e: self.acao_enter(e, 1, self.view.controles['janela_principal']))
-        self.view.controles['abrir_harpa_btn'].bind("<Key>", lambda e: self.acao_enter(e, 1, self.view.controles['janela_principal']))
+        self.view.controles['filtro_harpa_txt'].bind("<Key>", lambda e: self.acao_enter(e, "harpa", self.view.controles['janela_principal']))
+        self.view.controles['abrir_harpa_btn'].bind("<Key>", lambda e: self.acao_enter(e, "harpa", self.view.controles['janela_principal']))
+        #self.view.controles['abrir_harpa_btn'].bind("<Key>", lambda e: self.abrir_slide_lirics())
         self.view.controles['buscar_texto_btn'].configure(command=lambda: self.localizar_arquivo())
-        self.view.controles['buscar_texto_txt'].bind("<Key>", lambda e: self.acao_enter(e, 2, self.view.controles['janela_principal']))
+        self.view.controles['buscar_texto_txt'].bind("<Key>", lambda e: self.acao_enter(e, "localizar", self.view.controles['janela_principal']))
 
         # --- Menu da Janela Principal ---
         self.view.controles['menu_arquivo'].add_command(label="Músicas",
@@ -232,16 +238,66 @@ class Funcoes:
     def _vincular_janela_slide_view(self):
         pass
 
+    def _vincular_janela_slide_view_lirics(self):
+        pass
+
     def _vincular_janela_musica(self):
         # --- Inicialização ---
         if os.listdir(musicas_dir):
             self.carregar_arquivos_musicas()
         # --- Menu da janela musicas ---
-        self.view.controles['menu_arquivo'].add_command(label="Adicionar Arquivo",
+        self.view.controles['menu_arquivo'].add_command(label="Adicionar Música",
                                                         command=lambda: self.selecionar_arquivo(self.view.controles['janela_musica']))
         # Captura qualquer tecla
         self.view.controles['filtro_musica_txt'].bind("<KeyRelease>", self.filtrar_lista_musicas)
-        self.view.controles['abrir_musica_btn'].configure(command=lambda: self.abrir_janela_slide(2, self.view.controles['janela_musica']))
+        self.view.controles['abrir_musica_btn'].configure(command=lambda: self.abrir_janela_slide("musica", self.view.controles['janela_musica']))
+
+    # --- Inicialização das janelas ---
+    def abrir_slide_lirics(self, titulo, texto_slide):
+        # --- Inicialização ---
+        first, second = identificar_monitor()
+
+        # Cria o label
+        medida_letra = 16
+
+        largura = second.width / 2
+        altura = second.height / 2
+
+        borda_texto = int(largura * 0.1)
+        largura_texto = largura
+
+        # label
+        espace_largura = int(largura / 2 / 5)
+        espace_altura = 10
+        #tamanho_letra = int(altura / medida_letra)
+        tamanho_letra = identificar_proporcao(second)
+        print(tamanho_letra)
+
+        # 1. Cria a parte visual
+        visual = JanelaSlideViewLirics(self.view.controles['janela_slide'], second)
+
+        # 2. Cria a lógica e passa a visão para ela controlar
+        logica = Funcoes(visual)
+
+        logica.view.controles['lbl_titulo'].config(
+            #text="Hino - 250 1/5",
+            text=f"{titulo}",
+            bg="black",
+            fg="white",
+            font=("Arial", 20, "bold")
+        )
+        logica.view.controles['lbl_titulo'].pack(pady=(50,0))
+
+        logica.view.controles['janela_slide_view_lirics'].config(bg="black")
+        logica.view.controles['lbl_texto'].config(text=texto_slide.upper())
+
+        logica.view.controles['lbl_texto'].config(
+            anchor="n",
+            bg="black",
+            fg="white",
+            font=("Arial", int(second.height * 0.064), "bold"),
+            wraplength=second.width - borda_texto)
+        logica.view.controles['lbl_texto'].pack(pady=(0,0))
 
         return logica.view
 
@@ -312,15 +368,12 @@ class Funcoes:
     def fechar(self, nome):
         self.view.controles[nome].destroy()
 
-    def acao_enter(self, event, valor, janela):
+    def acao_enter(self, event, slide, janela):
         if event.keysym in ("Return", "KP_Enter"):
-            match valor:
-                case 0:
-                    self.abrir_janela_slide(valor, janela)
-                case 1:
-                    self.abrir_janela_slide(valor, janela)
-                case 2:
-                    self.localizar_arquivo()
+            if slide == "localizar":
+                self.localizar_arquivo()
+            else:
+                self.abrir_janela_slide(slide, janela)
 
     def filtrar_lista_harpa(self, event=None):
         texto_harpa = self.view.controles['filtro_harpa_txt'].get().lower()
@@ -338,10 +391,11 @@ class Funcoes:
             self.view.controles['musica_cb'].set(filtrados[0])
 
     # --- Iniciar janela slide ---
-    def abrir_janela_slide(self, valor, janela):
-        global identificacao, verso, texto, total, inicio
-        match valor:
-            case 0:
+    def abrir_janela_slide(self, slide, janela):
+        global inicio, total, texto, verso
+
+        match slide:
+            case "biblia":
                 pasta_selecionada = self.view.controles['pastas_cb'].get()
                 arquivo_selecionado = self.view.controles['arquivo_cb'].get()
                 pasta_caminho_new = os.path.join(dados.biblia_dir, pasta_selecionada, arquivo_selecionado)
@@ -352,10 +406,10 @@ class Funcoes:
                 # Transfere o foco para o campo de filtro de pastas
                 self.view.controles['filtro_livro_txt'].focus_set()
                 inicio = self.view.controles['versiculo_cb'].cget("values").index(self.view.controles['versiculo_cb'].get()) + 1
+                print(inicio)
                 total = len(texto)
                 verso = self.view.controles['versiculo_cb'].cget("values").index(self.view.controles['versiculo_cb'].get())
-                identificacao = 0
-            case 1:
+            case "harpa":
                 if self.view.controles['filtro_harpa_txt'].get() != "":
                     self.view.controles['filtro_harpa_txt'].delete(0, tk.END)  # Limpa o campo do texto
                     arquivo = self.view.controles['arquivo_harpa_cb'].get()
@@ -367,14 +421,13 @@ class Funcoes:
                         inicio = 1
                         total = len(texto) - 1
                         verso = 1
-                        identificacao = 1
                     else:
                         messagebox.showwarning("Aviso", "Selecione ou digite um nome de arquivo válido.")
                         return
                 else:
                     messagebox.showwarning("Aviso", "Digite o número ou nome do hino!")
                     return
-            case 2:
+            case "musica":
                 self.view.controles['filtro_musica_txt'].delete(0, tk.END)
                 arquivo = self.view.controles['musica_cb'].get()
 
@@ -385,7 +438,6 @@ class Funcoes:
                     inicio = 1
                     total = len(texto) - 1
                     verso = 1
-                    identificacao = 1
                 else:
                     messagebox.showwarning("Aviso", "Selecione ou digite um nome de arquivo válido.")
 
@@ -467,23 +519,13 @@ class Funcoes:
         logica.view.controles['lbl_slide_preview'].config(
             text=texto_verificado, bg="black", fg="white", font=("Arial", int(tamanho_letra / 2), "bold"), wraplength=largura_texto / 2 - borda_texto)
 
-        # --- Iniciar janela slide view ---
         tamanho_letra_slide = identificar_proporcao(second)
-        def abrir_janela_slide_view(janela_slide):
-            # --- Variável ---
-            global frame_html
 
-            # 1. Cria a parte visual
-            visual_slide = JanelaSlideView(janela_slide, second)
-
-            # 2. Cria a lógica e passa a visão para ela controlar
-            logica_slide = Funcoes(visual_slide)
-
-            codigo_html = justificar_texto(texto[verso], tamanho_letra_slide)
-            logica_slide.view.controles['frame_html'].load_html(codigo_html)
-            frame_html = logica_slide.view.controles['frame_html']
-
-        abrir_janela_slide_view(logica.view.controles['janela_slide'])
+        match slide:
+            case "biblia":
+                logica.abrir_janela_slide_view(second, tamanho_letra_slide)
+            case _:
+                view = logica.abrir_slide_lirics(f"{texto[0].replace("\n", " - ")} - 1 / {total} ", texto[1])
 
         index = verso
         index_contador = inicio
@@ -503,8 +545,6 @@ class Funcoes:
             logica.view.controles['lbl_slide_atual'].config(text=f"{index_contador} / {total}")
             # label.config(text=texto[index])
 
-            codigo_html = justificar_texto(texto[index], tamanho_letra_slide)
-            frame_html.load_html(codigo_html)
             logica.view.controles['lbl_slide_visual'].config(text=texto[index])
 
             if (index + 1) < len(texto):
@@ -512,11 +552,17 @@ class Funcoes:
             else:
                 logica.view.controles['lbl_slide_preview'].config(text="")
 
-            match identificacao:
-                case 0:
+            match slide:
+                case "biblia":
+                    codigo_html = justificar_texto(texto[index], tamanho_letra_slide)
+                    frame_html.load_html(codigo_html)
+
                     if encerrar < 1 or encerrar > len(texto):
                         logica.fechar('janela_slide')
-                case 1:
+                case _:
+                    view.controles['lbl_titulo'].config(text=f"{texto[0].replace("\n"," - ")} - {index} / {total} ")
+                    view.controles['lbl_texto'].config(text=texto[index].upper())
+
                     if encerrar < 1 or encerrar > (len(texto) - 1):
                         logica.fechar('janela_slide')
 

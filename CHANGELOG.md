@@ -157,3 +157,9 @@
 ### [v0.7.5] - 2026-09-01
 ## Changes
 - Modificado visual para um mais moderno
+- Criado novo slide para os Hinos e músicas com o título e quantidade de estrófes
+- Aumentado o padding do topo
+- Ajustado o tamanho da letra para a nova configuração
+
+### Fixed
+- Corrigido Hino 198
