@@ -160,6 +160,8 @@
 - Criado novo slide para os Hinos e músicas com o título e quantidade de estrófes
 - Aumentado o padding do topo
 - Ajustado o tamanho da letra para a nova configuração
+- Adicionado janela_logs.py
+- Adicionado menu para abrir a pasta das músicas para editar e excluir
 
 ### Fixed
 - Corrigido Hino 198
