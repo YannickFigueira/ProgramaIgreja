@@ -1,4 +1,4 @@
-import os
+import sys
 import tkinter as tk
 from tkinter import ttk
 import customtkinter as ctk
@@ -8,7 +8,8 @@ import estilo
 class JanelaPrincipal:
     def __init__(self, janela_principal):
         self.janela_principal = janela_principal
-        self.janela_principal.withdraw()
+        if sys.platform == "linux" or sys.platform == "linux2":
+            self.janela_principal.withdraw()
         self.janela_principal.title(f"{estilo.NOME_PROGRAMA} {estilo.VERSION}")
         self.janela_principal.columnconfigure(1, weight=1)
         self.janela_principal.resizable(False, False)
@@ -19,8 +20,11 @@ class JanelaPrincipal:
         self._criar_layout()
         self._criar_barra_menu()
 
+        # --- CORREÇÃO PARA FORÇAR A EXIBIÇÃO NO WINDOWS ---
         self.janela_principal.update_idletasks()
-        self.janela_principal.deiconify()
+        self.janela_principal.deiconify()  # Restaura a janela na tela
+        self.janela_principal.lift()  # Traz para a frente de outras janelas
+        self.janela_principal.focus_force()  # Força o foco no Windows
 
     def _criar_layout(self):
         # --- Variáveis ---

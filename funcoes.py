@@ -66,10 +66,10 @@ def justificar_texto(texto_slide_view, tamanho_letra_slide):
 
         return codigo_html
 
-def identificar_proporcao(second):
-    relacao = second.width / second.height
-    tela16_9 = int(second.height *.086)
-    tela4_3 = int(second.height *.074)
+def identificar_proporcao(width, height):
+    relacao = width / height
+    tela16_9 = int(height *.086)
+    tela4_3 = int(height *.074)
     if abs(relacao - (16 / 9)) < 0.05:
         return tela16_9
     elif abs(relacao - (4 / 3)) < 0.05:
@@ -341,7 +341,7 @@ class Funcoes:
             text=texto_verificado, bg="black", fg="white", font=("Arial", int(tamanho_letra / 2), "bold"),
             wraplength=largura_texto / 2 - borda_texto)
 
-        tamanho_letra_slide = identificar_proporcao(second)
+        tamanho_letra_slide = identificar_proporcao(second.width, second.height)
 
         match slide:
             case "biblia":
@@ -414,9 +414,6 @@ class Funcoes:
 
         borda_texto = int(largura * 0.1)
 
-        # label
-        tamanho_letra = identificar_proporcao(second)
-
         # 1. Cria a parte visual
         visual = JanelaSlideViewLirics(self.view.controles['janela_slide'], second)
 
@@ -479,7 +476,7 @@ class Funcoes:
     def atualizar_arquivos_biblia(self, event=None):
         selecionar_pasta = self.view.controles['pastas_cb'].get()
         texto_filtrado = self.view.controles['filtro_capitulo_txt'].get().lower()
-        pasta_caminho = os.path.join(dados.biblia_dir, selecionar_pasta)
+        pasta_caminho = str(os.path.join(dados.biblia_dir, selecionar_pasta))
 
         if os.path.isdir(pasta_caminho):
             arquivos = [f for f in os.listdir(pasta_caminho) if os.path.isfile(os.path.join(pasta_caminho, f))]
@@ -615,9 +612,6 @@ class Funcoes:
             self.view.controles[f'{janela}'].destroy()
         except Exception:
             pass
-
-        # 5. Força a finalização imediata do processo Python e threads secundárias
-        os._exit(0)
 
     def abrir_pasta_musica(self):
         pass

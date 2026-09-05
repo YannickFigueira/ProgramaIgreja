@@ -165,3 +165,4 @@
 
 ### Fixed
 - Corrigido Hino 198
+- Pequenos ajustes para funcionar no Windows
