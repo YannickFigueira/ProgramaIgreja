@@ -1,6 +1,6 @@
 import customtkinter as ctk
 
-import estilo
+import config
 
 class JanelaLogs:
     def __init__(self, janela):
@@ -32,8 +32,8 @@ class JanelaLogs:
             row=0,
             rowspan=altura_linha,
             columnspan=2,
-            padx=estilo.ESPACO,
-            pady=estilo.ESPACO,
+            padx=config.ESPACO,
+            pady=config.ESPACO,
             sticky="ew"
         )
         self.moldura_log_lista.grid_propagate(False)
@@ -44,20 +44,20 @@ class JanelaLogs:
             self.moldura_log_lista,
             text="",
             justify="left",
-            font=estilo.FONTE_VAZIA
+            font=config.FONTE_VAZIA
         )
         self.lbl_logs.pack(anchor="w", padx=10, pady=(4, 0))
         self.controles['lbl_logs'] = self.lbl_logs
 
         altura_linha += 1
-        self.lbl_logs_backup = ctk.CTkLabel(self.janela_logs, text="Selecionar logs: ", font=estilo.FONTE_VAZIA)
-        self.lbl_logs_backup.grid(row=altura_linha, column=0, padx=estilo.ESPACO, pady=estilo.ESPACO, sticky="ew")
+        self.lbl_logs_backup = ctk.CTkLabel(self.janela_logs, text="Selecionar logs: ", font=config.FONTE_VAZIA)
+        self.lbl_logs_backup.grid(row=altura_linha, column=0, padx=config.ESPACO, pady=config.ESPACO, sticky="ew")
 
-        self.cmb_selecao = ctk.CTkComboBox(self.janela_logs, font=estilo.FONTE_VAZIA, state="readonly",)
-        self.cmb_selecao.grid(column=1, row=altura_linha, padx=estilo.ESPACO, pady=estilo.ESPACO, sticky="ew")
+        self.cmb_selecao = ctk.CTkComboBox(self.janela_logs, font=config.FONTE_VAZIA, state="readonly", )
+        self.cmb_selecao.grid(column=1, row=altura_linha, padx=config.ESPACO, pady=config.ESPACO, sticky="ew")
         self.controles['cmb_selecao'] = self.cmb_selecao
         altura_linha += 1
 
         self.btn_abrir_logs = ctk.CTkButton(self.janela_logs, text="Abrir log")
-        self.btn_abrir_logs.grid(row=altura_linha, columnspan=2, padx=estilo.ESPACO, pady=estilo.ESPACO, sticky="ew")
+        self.btn_abrir_logs.grid(row=altura_linha, columnspan=2, padx=config.ESPACO, pady=config.ESPACO, sticky="ew")
         self.controles['btn_abrir_logs'] = self.btn_abrir_logs
