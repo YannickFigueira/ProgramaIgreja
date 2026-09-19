@@ -12,6 +12,12 @@
 - Ajustes finos nos controles de exibição e layout dos slides
 - Reparos internos de estabilidade decorrentes da migração
 
+## Removed
+- Hino 141, removido ultima estrofe repetida
+
+## Adjusted
+- Aumentado um pouco o tamanho da letra do título dos Hinos
+
 ---
 
 ## [0.7.5] - 2026-09-01
