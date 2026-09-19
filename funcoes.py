@@ -70,7 +70,7 @@ def justificar_texto(texto_slide_view, tamanho_letra_slide):
         </style>
     </head>
     <body>
-        <div class="slide-conteudo">
+        <div id="conteudo-slide" class="slide-conteudo">
             {texto_formatado}
         </div>
     </body>
@@ -433,14 +433,26 @@ class Funcoes:
                 titulo_txt = f"{texto[0].replace('\n', ' - ')} - 1 / {total} "
                 view = self.abrir_slide_lirics(titulo_txt, texto[1])
 
-        # --- FORÇAR FOCO NA JANELA DO OPERADOR ---
+        # --- FORÇAR EXIBIÇÃO E FOCO NA JANELA DO OPERADOR ---
         janela_control = self.logica_slide_control.view.controles["janela_slide"]
 
-        # Exibe a janela, traz para a frente e toma o foco de entrada do teclado
+        # 1. Configura a janela para ser a ativa
         self.visual_slide_control.showFullScreen()
         self.visual_slide_control.raise_()
         self.visual_slide_control.activateWindow()
+
+        # 2. Garante o foco do teclado no widget do container
+        janela_control.setFocusPolicy(Qt.FocusPolicy.StrongFocus)
         janela_control.setFocus()
+
+        # 3. Solução para o S.O (Garante o foco após a transição de renderização do SO/X11/Wayland/Windows)
+        def aplicar_foco_definitivo():
+            if hasattr(self, 'visual_slide_control') and self.visual_slide_control:
+                self.visual_slide_control.raise_()
+                self.visual_slide_control.activateWindow()
+                janela_control.setFocus()
+
+        QTimer.singleShot(100, aplicar_foco_definitivo)
 
         index = verso
         index_contador = inicio
@@ -477,16 +489,19 @@ class Funcoes:
 
             match slide:
                 case "biblia":
-                    codigo_html = justificar_texto(
-                        texto[index], tamanho_letra_slide
-                    )
-                    # Correção: setHtml no lugar de load_html
                     if hasattr(self, "frame_html") and self.frame_html:
-                        self.frame_html.setHtml(codigo_html)
+                        # Prepara e limpa o texto para evitar quebras de sintaxe no JavaScript
+                        texto_formatado = texto[index].replace('\n', '<br>').upper()
+                        texto_js = texto_formatado.replace("\\", "\\\\").replace("'", "\\'").replace('"', '\\"')
+
+                        # Injeta a alteração diretamente no DOM sem recarregar o navegador
+                        script = f"document.getElementById('conteudo-slide').innerHTML = '{texto_js}';"
+                        self.frame_html.page().runJavaScript(script)
 
                     if encerrar < 1 or encerrar > len(texto):
-                        self.view.close()
-                        #self.fechar("janela_slide")
+                        self.visual_slide_projecao.close()
+                        self.visual_slide_control.close()
+                        # self.fechar("janela_slide")
                 case _:
                     titulo_fmt = (
                         f"{texto[0].replace('\n', ' - ')} - {index} / {total} "
