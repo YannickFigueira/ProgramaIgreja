@@ -25,6 +25,8 @@ args = parser.parse_args()
 if __name__ == "__main__":
     # 1. Inicia a aplicação Qt
     app = QApplication(sys.argv)
+    app.setApplicationName(config.NOME_PROGRAMA)
+    app.setApplicationDisplayName(config.NOME_PROGRAMA)
 
     # 2. Instancia a janela principal (herdada de QMainWindow ou QWidget)
     visual = JanelaPrincipal()
