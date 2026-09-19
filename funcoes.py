@@ -672,12 +672,14 @@ class Funcoes:
 
     def filtrar_lista_harpa(self, event=None):
         global lista_completa
-        texto_harpa = self.view.controles['filtro_harpa_txt'].get().lower()
+        texto_harpa = self.view.controles['filtro_harpa_txt'].text().lower()
         filtrados = [f for f in lista_completa if texto_harpa in f.lower()]
-        self.view.controles['arquivo_harpa_cb'].configure(values=filtrados)
+        #self.view.controles['arquivo_harpa_cb'].configure(values=filtrados)
+        self.view.controles['arquivo_harpa_cb'].clear()
+        self.view.controles['arquivo_harpa_cb'].addItems(filtrados)
 
         if filtrados:
-            self.view.controles['arquivo_harpa_cb'].set(filtrados[0])
+            self.view.controles['arquivo_harpa_cb'].setCurrentIndex(0)
 
     def filtrar_lista_musicas(self, event=None):
         lista_musicas = []
