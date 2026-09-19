@@ -5,6 +5,7 @@ import sys
 import tkinter as tk
 import unicodedata
 from datetime import datetime
+from pathlib import Path
 from tkinter import messagebox, filedialog
 
 # Desativa aceleração de hardware problemática do Chromium no Linux/X11/Wayland
@@ -431,7 +432,7 @@ class Funcoes:
                 self.abrir_janela_slide_view(second, tamanho_letra_slide)
             case _:
                 titulo_txt = f"{texto[0].replace('\n', ' - ')} - 1 / {total} "
-                view = self.abrir_slide_lirics(titulo_txt, texto[1])
+                self.visual_slide_projecao = self.abrir_slide_lirics(titulo_txt, texto[1])
 
         # --- FORÇAR EXIBIÇÃO E FOCO NA JANELA DO OPERADOR ---
         janela_control = self.logica_slide_control.view.controles["janela_slide"]
@@ -506,11 +507,12 @@ class Funcoes:
                     titulo_fmt = (
                         f"{texto[0].replace('\n', ' - ')} - {index} / {total} "
                     )
-                    view.controles["lbl_titulo"].setText(titulo_fmt)
-                    view.controles["lbl_texto"].setText(texto[index].upper())
+                    self.visual_slide_projecao.controles["lbl_titulo"].setText(titulo_fmt)
+                    self.visual_slide_projecao.controles["lbl_texto"].setText(texto[index].upper())
 
                     if encerrar < 1 or encerrar > (len(texto) - 1):
-                        self.fechar("janela_slide")
+                        self.visual_slide_projecao.close()
+                        self.visual_slide_control.close()
 
         # Exibe a janela de controle do operador
         self.visual_slide_control.show()
@@ -537,37 +539,40 @@ class Funcoes:
         # --- Inicialização ---
         first, second = identificar_monitor()
 
-        largura = second.width / 2
+        largura = 0
+        if second is not None:
+            geo = second.geometry()
+            largura = geo.width() / 2
 
         borda_texto = int(largura * 0.1)
 
         # 1. Cria a parte visual
-        visual = JanelaSlideViewLirics(self.view.controles['janela_slide'], second)
+        visual_slide_projecao = JanelaSlideViewLirics(self.view, second)
+        logica_slide_projecao = Funcoes(visual_slide_projecao)
 
-        # 2. Cria a lógica e passa a visão para ela controlar
-        logica = Funcoes(visual)
+        # --- Ajuste do Título ---
+        lbl_titulo = logica_slide_projecao.view.controles['lbl_titulo']
+        lbl_titulo.setText(str(titulo))
+        lbl_titulo.setFont(QFont("Arial", 22, QFont.Weight.Bold))
+        lbl_titulo.setStyleSheet("background-color: black; color: white;")
 
-        logica.view.controles['lbl_titulo'].config(
-            #text="Hino - 250 1/5",
-            text=f"{titulo}",
-            bg="black",
-            fg="white",
-            font=("Arial", 20, "bold")
-        )
-        logica.view.controles['lbl_titulo'].pack(pady=(50,0))
+        #logica_slide_projecao.view.controles['lbl_titulo'].pack(pady=(50,0))
 
-        logica.view.controles['janela_slide_view_lirics'].config(bg="black")
-        logica.view.controles['lbl_texto'].config(text=texto_slide.upper())
+        #logica_slide_projecao.view.controles['janela_slide_view_lirics'].config(bg="black")
+        # --- Ajuste da Letra ---
+        lbl_texto = logica_slide_projecao.view.controles['lbl_texto']
+        lbl_texto.setText(texto_slide.upper())
+        lbl_texto.setWordWrap(True)
+        lbl_texto.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        logica.view.controles['lbl_texto'].config(
-            anchor="n",
-            bg="black",
-            fg="white",
-            font=("Arial", int(second.height * 0.064), "bold"),
-            wraplength=second.width - borda_texto)
-        logica.view.controles['lbl_texto'].pack(pady=(0,0))
+        # Cálculo dinâmico do tamanho da fonte com base na altura do monitor
+        alt_monitor = second.geometry().height() if hasattr(second, "geometry") else second.height
+        tamanho_fonte = int(alt_monitor * 0.064)
 
-        return logica.view
+        lbl_texto.setFont(QFont("Arial", tamanho_fonte, QFont.Weight.Bold))
+        lbl_texto.setStyleSheet("background-color: black; color: white;")
+
+        return logica_slide_projecao.view
 
     # --- Abrir janela música
     def abrir_janela_musica(self):
@@ -646,15 +651,16 @@ class Funcoes:
 
     def atualizar_versiculos(self, event=None):
         caminho = os.path.join(dados.biblia_dir, self.view.controles['pastas_cb'].currentText(), self.view.controles['arquivo_cb'].currentText())
-        contar = dados.carregar_texto(caminho + ".txt", dados.biblia_dir)
+        if Path(caminho).is_file():
+            contar = dados.carregar_texto(caminho + ".txt", dados.biblia_dir)
 
-        # Gera "Versículo 1,Versículo 2,Versículo 3..." direto pela quantidade de itens
-        versiculo = ",".join([f"Versículo {i}" for i in range(1, len(contar) + 1)])
+            # Gera "Versículo 1,Versículo 2,Versículo 3..." direto pela quantidade de itens
+            versiculo = ",".join([f"Versículo {i}" for i in range(1, len(contar) + 1)])
 
-        combo_versiculo = self.view.controles['versiculo_cb']
-        combo_versiculo.clear()
-        combo_versiculo.addItems(versiculo.split(","))
-        self.view.controles['versiculo_cb'].setCurrentIndex(0)
+            combo_versiculo = self.view.controles['versiculo_cb']
+            combo_versiculo.clear()
+            combo_versiculo.addItems(versiculo.split(","))
+            self.view.controles['versiculo_cb'].setCurrentIndex(0)
 
     def atualizar_hora(self):
         agora = datetime.now()
