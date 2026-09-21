@@ -2,10 +2,8 @@ import math
 import os
 import shutil
 import sys
-import tkinter as tk
 import unicodedata
 from datetime import datetime
-from pathlib import Path
 from tkinter import messagebox, filedialog
 
 # Desativa aceleração de hardware problemática do Chromium no Linux/X11/Wayland
@@ -16,7 +14,6 @@ os.environ["QTWEBENGINE_CHROMIUM_FLAGS"] = "--disable-gpu --disable-software-ras
 from PyQt6.QtCore import QUrl, Qt, QTimer
 from PyQt6.QtGui import QDesktopServices, QFont, QGuiApplication
 from PyQt6.QtWidgets import QMessageBox, QSizePolicy
-from screeninfo import get_monitors
 
 import dados, config, verificarversao
 from arquivo_log import ler_pasta_log, abrir_logs, gerar_arquivo_log, registrar_log, abrir_pasta
@@ -173,7 +170,7 @@ class Funcoes:
                 pass
 
         self.atualizar_pastas_biblia()
-        self.atualizar_versiculos()
+        #self.atualizar_versiculos()
         self.carregar_arquivos_harpa()
 
         # --- Controles da Janela Principal ---
@@ -182,23 +179,23 @@ class Funcoes:
 
         self.view.controles['filtro_capitulo_txt'].textChanged.connect(self.atualizar_arquivos_biblia)
         self.view.controles['arquivo_cb'].currentTextChanged.connect(self.atualizar_versiculos)
-        self.view.controles['abrir_biblia_btn'].clicked.connect(lambda: self.abrir_janela_slide("biblia", self.view.controles['janela_principal']))
+        self.view.controles['abrir_biblia_btn'].clicked.connect(lambda: self.abrir_janela_slide("biblia"))
         # Captura especificamente o Enter
         self.view.controles['filtro_capitulo_txt'].returnPressed.connect(
-            lambda: self.acao_enter("biblia", self.view)
+            lambda: self.acao_enter("biblia")
         )
         #self.view.controles['abrir_biblia_btn'].clicked.connect(lambda e: self.acao_enter(e, "biblia", self.view.controles['janela_principal']))
         # Captura qualquer tecla liberada
         self.view.controles['filtro_harpa_txt'].textChanged.connect(self.filtrar_lista_harpa)
-        self.view.controles['abrir_harpa_btn'].clicked.connect(lambda: self.abrir_janela_slide("harpa", self.view.controles['janela_principal']))
+        self.view.controles['abrir_harpa_btn'].clicked.connect(lambda: self.abrir_janela_slide("harpa"))
         #self.view.controles['abrir_harpa_btn'].configure(
         #    command=lambda: self.abrir_slide_lirics())
         # Captura especificamente o Enter
-        self.view.controles['filtro_harpa_txt'].returnPressed.connect(lambda: self.acao_enter("harpa", self.view))
+        self.view.controles['filtro_harpa_txt'].returnPressed.connect(lambda: self.acao_enter("harpa"))
         #self.view.controles['abrir_harpa_btn'].bind("<Key>", lambda e: self.acao_enter(e, "harpa", self.view.controles['janela_principal']))
         #self.view.controles['abrir_harpa_btn'].bind("<Key>", lambda e: self.abrir_slide_lirics())
         self.view.controles['buscar_texto_btn'].clicked.connect(lambda: self.localizar_arquivo())
-        self.view.controles['buscar_texto_txt'].returnPressed.connect(lambda: self.acao_enter("localizar", self.view))
+        self.view.controles['buscar_texto_txt'].returnPressed.connect(lambda: self.acao_enter("localizar"))
 
         # --- Menu da Janela Principal ---
         self.view.controles['menu_arquivo'].addAction("Músicas", lambda: self.abrir_janela_musica())
@@ -229,7 +226,7 @@ class Funcoes:
                                                         lambda: abrir_pasta(self.view))
         # Captura qualquer tecla
         self.view.controles['filtro_musica_txt'].textChanged.connect(self.filtrar_lista_musicas)
-        self.view.controles['abrir_musica_btn'].clicked.connect(lambda: self.abrir_janela_slide("musica", self.view.controles['janela_musica']))
+        self.view.controles['abrir_musica_btn'].clicked.connect(lambda: self.abrir_janela_slide("musica"))
 
 
     def _vincular_logs(self):
@@ -252,7 +249,7 @@ class Funcoes:
 
     # --- Inicialização das janelas ---
     # --- Iniciar janela slide ---
-    def abrir_janela_slide(self, slide, janela):
+    def abrir_janela_slide(self, slide):
         global inicio, total, texto, verso
 
         match slide:
@@ -267,17 +264,18 @@ class Funcoes:
                 texto = dados.carregar_texto(
                     pasta_caminho_new + ".txt", dados.biblia_dir
                 )
+                inicio = self.view.controles["versiculo_cb"].currentIndex() + 1
+
                 # Limpa os campos de filtro
                 self.view.controles["filtro_livro_txt"].clear()
                 self.view.controles["filtro_capitulo_txt"].clear()
-                inicio = self.view.controles["versiculo_cb"].currentIndex() + 1
                 total = len(texto)
                 verso = inicio - 1
 
             case "harpa":
                 if self.view.controles["filtro_harpa_txt"].text() != "":
-                    self.view.controles["filtro_harpa_txt"].clear()
                     arquivo = self.view.controles["arquivo_harpa_cb"].currentText()
+                    self.view.controles["filtro_harpa_txt"].clear()
 
                     if arquivo:
                         caminho = os.path.join(dados.harpa_dir, arquivo)
@@ -654,16 +652,15 @@ class Funcoes:
 
     def atualizar_versiculos(self, event=None):
         caminho = os.path.join(dados.biblia_dir, self.view.controles['pastas_cb'].currentText(), self.view.controles['arquivo_cb'].currentText())
-        if Path(caminho).is_file():
-            contar = dados.carregar_texto(caminho + ".txt", dados.biblia_dir)
+        contar = dados.carregar_texto(caminho + ".txt", dados.biblia_dir)
 
-            # Gera "Versículo 1,Versículo 2,Versículo 3..." direto pela quantidade de itens
-            versiculo = ",".join([f"Versículo {i}" for i in range(1, len(contar) + 1)])
+        # Gera "Versículo 1,Versículo 2,Versículo 3..." direto pela quantidade de itens
+        versiculo = [f"Versículo {i}" for i in range(1, len(contar) + 1)]
 
-            combo_versiculo = self.view.controles['versiculo_cb']
-            combo_versiculo.clear()
-            combo_versiculo.addItems(versiculo.split(","))
-            self.view.controles['versiculo_cb'].setCurrentIndex(0)
+        #combo_versiculo = self.view.controles['versiculo_cb']
+        self.view.controles['versiculo_cb'].clear()
+        self.view.controles['versiculo_cb'].addItems(versiculo)
+        self.view.controles['versiculo_cb'].setCurrentIndex(0)
 
     def atualizar_hora(self):
         agora = datetime.now()
@@ -673,11 +670,11 @@ class Funcoes:
     def fechar(self, nome):
         self.view.controles[nome].destroy()
 
-    def acao_enter(self, slide, janela):
+    def acao_enter(self, slide):
         if slide == "localizar":
             self.localizar_arquivo()
         else:
-            self.abrir_janela_slide(slide, janela)
+            self.abrir_janela_slide(slide)
 
     def filtrar_lista_harpa(self, event=None):
         global lista_completa
