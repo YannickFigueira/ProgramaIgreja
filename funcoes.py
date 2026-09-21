@@ -29,6 +29,7 @@ from janela_slide_view_lirics import JanelaSlideViewLirics
 
 # Variáveis globais
 lista_completa = []
+lista_musicas = []
 janela_logs_aberta = False
 
 # --- Comandos gerais ---
@@ -224,11 +225,11 @@ class Funcoes:
         # --- Menu da janela musicas ---
         self.view.controles['menu_arquivo'].addAction("Adicionar Música",
                                                         lambda: self.selecionar_arquivo(self.view))
-        #self.view.controles['menu_arquivo'].addAction("Abrir pasta das músicas",
-        #                                                lambda: abrir_pasta(self.view))
+        self.view.controles['menu_arquivo'].addAction("Abrir pasta das músicas",
+                                                        lambda: abrir_pasta(self.view))
         # Captura qualquer tecla
-        #self.view.controles['filtro_musica_txt'].textChanged.connect(self.filtrar_lista_musicas)
-        #self.view.controles['abrir_musica_btn'].clicked.connect(lambda: self.abrir_janela_slide("musica", self.view.controles['janela_musica']))
+        self.view.controles['filtro_musica_txt'].textChanged.connect(self.filtrar_lista_musicas)
+        self.view.controles['abrir_musica_btn'].clicked.connect(lambda: self.abrir_janela_slide("musica", self.view.controles['janela_musica']))
 
 
     def _vincular_logs(self):
@@ -682,7 +683,6 @@ class Funcoes:
         global lista_completa
         texto_harpa = self.view.controles['filtro_harpa_txt'].text().lower()
         filtrados = [f for f in lista_completa if texto_harpa in f.lower()]
-        #self.view.controles['arquivo_harpa_cb'].configure(values=filtrados)
         self.view.controles['arquivo_harpa_cb'].clear()
         self.view.controles['arquivo_harpa_cb'].addItems(filtrados)
 
@@ -690,12 +690,13 @@ class Funcoes:
             self.view.controles['arquivo_harpa_cb'].setCurrentIndex(0)
 
     def filtrar_lista_musicas(self, event=None):
-        lista_musicas = []
-        texto_musicas = self.view.controles['filtro_musica_txt'].get().lower()
+        global lista_musicas
+        texto_musicas = self.view.controles['filtro_musica_txt'].text().lower()
         filtrados = [f for f in lista_musicas if texto_musicas in f.lower()]
-        self.view.controles['musica_cb'].configure(values=filtrados)
+        self.view.controles['musica_cb'].clear()
+        self.view.controles['musica_cb'].addItems(filtrados)
         if filtrados:
-            self.view.controles['musica_cb'].set(filtrados[0])
+            self.view.controles['musica_cb'].setCurrentIndex(0)
 
     def carregar_arquivos_harpa(self):
         global lista_completa
@@ -721,17 +722,18 @@ class Funcoes:
             self.carregar_arquivos_musicas()
 
     def carregar_arquivos_musicas(self):
+        global lista_musicas
         arquivos = os.listdir(config.MUSICAS_DIR)
         arquivos = [f for f in arquivos if os.path.isfile(os.path.join(config.MUSICAS_DIR, f))]
         arquivos = sorted(arquivos, key=lambda x: str(x).lower())  # ordena ignorando maiúsculas/minúsculas
         arquivos_sem_ext = [os.path.splitext(f)[0] for f in arquivos]
-        config.LISTA_MUSICAS = arquivos_sem_ext
+        lista_musicas = arquivos_sem_ext
         self.view.controles['musica_cb'].clear()
         self.view.controles['musica_cb'].addItems(arquivos_sem_ext)
         self.view.controles['musica_cb'].setCurrentIndex(0)
 
     def localizar_arquivo(self):
-        busca = self.view.controles['buscar_texto_cb'].get()
+        busca = self.view.controles['buscar_texto_cb'].currentText()
         if busca == "Bíblia":
             pasta_raiz = dados.biblia_dir
         elif busca == "Harpa":
@@ -740,7 +742,7 @@ class Funcoes:
             pasta_raiz = config.MUSICAS_DIR
 
         # Normaliza e converte para minúsculas o termo pesquisado
-        termo_busca = remover_acentos(self.view.controles['buscar_texto_txt'].get().lower())
+        termo_busca = remover_acentos(self.view.controles['buscar_texto_txt'].text().lower())
 
         resultado = ""
         for raiz, pastas, arquivos in os.walk(pasta_raiz):
@@ -762,8 +764,7 @@ class Funcoes:
                         caminho_erro = gerar_arquivo_log()
                         registrar_log(caminho_erro, f"Erro ao ler o arquivo {caminho_completo}: {e}")
 
-        self.view.controles['text_area'].delete("1.0", tk.END)
-        self.view.controles['text_area'].insert("1.0", resultado.replace(".txt", ""))
+        self.view.controles['text_area'].setText(resultado.replace(".txt", ""))
 
     def fechar_janelas(self, janela):
         global janela_logs_aberta

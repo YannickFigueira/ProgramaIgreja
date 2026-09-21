@@ -2,7 +2,7 @@ import sys
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import (
     QMainWindow, QWidget, QLabel, QLineEdit, QComboBox,
-    QPushButton, QTextEdit, QFrame, QGridLayout, QVBoxLayout, QHBoxLayout
+    QPushButton, QTextEdit, QFrame, QGridLayout, QVBoxLayout, QHBoxLayout, QSizePolicy
 )
 
 import config
@@ -48,7 +48,7 @@ class JanelaPrincipal(QMainWindow):
         tema.atualizar_tema(self)
 
         # Configurações de redimensionamento e exibição
-        self.setFixedSize(self.sizeHint())
+        #self.setFixedSize(self.sizeHint())
 
     def _criar_layout(self):
         grid = QGridLayout(self.conteudo_widget)
@@ -161,10 +161,21 @@ class JanelaPrincipal(QMainWindow):
         # --- PAINEL LATERAL DIREITO (BUSCA) ---
         linha_lat = 0
 
+        # --- PAINEL LATERAL DIREITO (BUSCA) ---
+        linha_lat = 0
+
+        # Rótulo Busca
         lbl_busca = QLabel("Busca")
         lbl_busca.setStyleSheet("font-weight: bold; font-size: 14px;")
         grid.addWidget(lbl_busca, linha_lat, 3, 1, 2)
-        linha_lat += 2
+        linha_lat += 1
+
+        # --- SEPARADOR HORIZONTAL DO PAINEL DE BUSCA ---
+        sep_busca = QFrame()
+        sep_busca.setFrameShape(QFrame.Shape.HLine)
+        sep_busca.setFrameShadow(QFrame.Shadow.Sunken)
+        grid.addWidget(sep_busca, linha_lat, 3, 1, 2)
+        linha_lat += 1
 
         # Pasta de busca
         grid.addWidget(QLabel("Pasta de busca:"), linha_lat, 3)
@@ -192,7 +203,14 @@ class JanelaPrincipal(QMainWindow):
         self.text_area = QTextEdit()
         self.text_area.setLineWrapMode(QTextEdit.LineWrapMode.NoWrap)
         self.text_area.setMinimumWidth(350)
-        grid.addWidget(self.text_area, linha_lat, 3, 8, 2)
+        self.text_area.setSizePolicy(
+            QSizePolicy.Policy.Preferred,
+            QSizePolicy.Policy.Expanding
+        )
+
+        # O número de linhas restantes (linha - linha_lat) faz o campo ir até a base dos botões da esquerda
+        grid.addWidget(self.text_area, linha_lat, 3, linha - linha_lat, 2)
+        grid.setRowStretch(linha_lat, 1)  # Faz o QTextEdit esticar e preencher o fundo
         self.controles['text_area'] = self.text_area
 
     def _criar_barra_menu(self):
