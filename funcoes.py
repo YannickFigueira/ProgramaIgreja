@@ -602,8 +602,8 @@ class Funcoes:
         if not isinstance(texto_filtro, str):
             texto_filtro = self.view.controles['filtro_livro_txt'].text()
 
-        filtrar_texto = texto_filtro.lower()
-        filtrado = [f for f in config.TODAS_PASTAS if filtrar_texto in f.lower()]
+        filtrar_texto = remover_acentos(texto_filtro.lower())
+        filtrado = [f for f in config.TODAS_PASTAS if filtrar_texto in remover_acentos(f.lower())]
 
         combo_pastas = self.view.controles['pastas_cb']
 
