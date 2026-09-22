@@ -146,10 +146,8 @@ def abrir_pasta_musica():
 
 def abrir_notas(view):
     if platform.system() == "Windows":
-        # arquivo = "C:\\Programa Igreja\\doc\\CHANGELOG.md"
-        subprocess.run(["explorer", config.MUSICAS_DIR])
+        subprocess.run(["explorer", f"{config.NOTAS_DIR}\\CHANGELOG.md"])
     elif platform.system() == "Linux":
-        # arquivo = "/usr/share/doc/programaigreja/CHANGELOG.md"
         subprocess.run(["xdg-open", config.DOCS_DIR_LINUX])  # ou "gedit"
     else:
         print("Sistema não suportado")
@@ -712,7 +710,7 @@ class Funcoes:
     def filtrar_lista_musicas(self, event=None):
         global lista_musicas
         texto_musicas = self.view.controles['filtro_musica_txt'].text().lower()
-        filtrados = [f for f in lista_musicas if texto_musicas in f.lower()]
+        filtrados = [f for f in lista_musicas if remover_acentos(texto_musicas) in remover_acentos(f.lower())]
         self.view.controles['musica_cb'].clear()
         self.view.controles['musica_cb'].addItems(filtrados)
         if filtrados:
