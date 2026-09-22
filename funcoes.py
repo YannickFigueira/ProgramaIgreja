@@ -710,10 +710,24 @@ class Funcoes:
             self.view.controles['arquivo_harpa_cb'].setCurrentIndex(0)
 
     def selecionar_arquivo(self, janela):
-        messagebox.showinfo("Aviso", "Selecione o arquivo de texto .txt", parent=janela)
-        arquivo = filedialog.askopenfilename(parent=janela, title="Selecione um arquivo de texto",
-                                             filetypes=[("Arquivos de texto", "*.txt"),
-                                                        ("Todos os arquivos", "*.*")])
+        # Obtém o caminho dinâmico da pasta Documentos do usuário atual
+        pasta_documentos = QStandardPaths.writableLocation(
+            QStandardPaths.StandardLocation.DocumentsLocation
+        )
+
+        # Exibe a mensagem de aviso
+        QMessageBox.information(
+            janela, "Aviso", "Selecione o arquivo de texto .txt"
+        )
+
+        # Abre a caixa de diálogo iniciando na pasta Documentos
+        arquivo, _ = QFileDialog.getOpenFileName(
+            janela,
+            "Selecione um arquivo de texto",
+            pasta_documentos,  # Define o diretório inicial
+            "Arquivos de texto (*.txt);;Todos os arquivos (*.*)",
+        )
+
         if arquivo:
             shutil.copy(arquivo, config.MUSICAS_DIR)
             self.carregar_arquivos_musicas()
