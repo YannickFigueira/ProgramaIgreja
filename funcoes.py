@@ -144,6 +144,17 @@ def abrir_pasta_musica():
         print("Sistema não suportado")
 
 
+def abrir_notas(view):
+    if platform.system() == "Windows":
+        # arquivo = "C:\\Programa Igreja\\doc\\CHANGELOG.md"
+        subprocess.run(["explorer", config.MUSICAS_DIR])
+    elif platform.system() == "Linux":
+        # arquivo = "/usr/share/doc/programaigreja/CHANGELOG.md"
+        subprocess.run(["xdg-open", config.DOCS_DIR_LINUX])  # ou "gedit"
+    else:
+        print("Sistema não suportado")
+
+
 class Funcoes:
     def __init__(self, view):
         self.view = view
@@ -214,7 +225,7 @@ class Funcoes:
         self.view.controles['menu_arquivo'].addAction("Músicas", lambda: self.abrir_janela_musica())
         self.view.controles['menu_arquivo'].addAction("Logs", lambda: self.abrir_janela_logs())
         self.view.controles['menu_ajuda'].addAction("Verificar atualização", lambda: verificarversao.consultar_lancamento(config.REPO, config.VERSION, self.view))
-        self.view.controles['menu_ajuda'].addAction("Notas da versão", lambda: abrir_logs(self.view))
+        self.view.controles['menu_ajuda'].addAction("Notas da versão", lambda: abrir_notas(self.view))
         self.view.controles['menu_ajuda'].addAction("Sobre", lambda: self.visitar_site())
         self.view.controles['menu_ajuda'].addAction("Sair", self.view.close)
 

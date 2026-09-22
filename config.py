@@ -12,6 +12,7 @@ NOTAS_DIR = PROGRAMA_DIR / "notas"
 LOG_FILES_DIR = PROGRAMA_DIR / "logs"
 LOG_ERRORS_DIR = PROGRAMA_DIR / "erros"
 MUSICAS_DIR = PROGRAMA_DIR / "musicas"
+DOCS_DIR_LINUX = f"/usr/share/doc/{REPO.replace(".","").lower()}/CHANGELOG.md"
 
 def garantir_diretorios():
     """Garante que a estrutura de pastas do sistema exista."""
