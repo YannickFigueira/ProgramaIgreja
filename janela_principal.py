@@ -1,190 +1,222 @@
 import sys
-import tkinter as tk
-from tkinter import ttk
-import customtkinter as ctk
+from PyQt6.QtCore import Qt
+from PyQt6.QtWidgets import (
+    QMainWindow, QWidget, QLabel, QLineEdit, QComboBox,
+    QPushButton, QTextEdit, QFrame, QGridLayout, QVBoxLayout, QHBoxLayout, QSizePolicy
+)
 
-import estilo
+import config
+import tema
+from barra_titulo import BarraTituloCustomizada
 
-class JanelaPrincipal:
-    def __init__(self, janela_principal):
-        self.janela_principal = janela_principal
-        if sys.platform == "linux" or sys.platform == "linux2":
-            self.janela_principal.withdraw()
-        self.janela_principal.title(f"{estilo.NOME_PROGRAMA} {estilo.VERSION}")
-        self.janela_principal.columnconfigure(1, weight=1)
-        self.janela_principal.resizable(False, False)
 
-        self.nome_janela = "janela-principal"  # Identificador para o seu controlador
+class JanelaPrincipal(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        # Removendo bordas da janela padrão do SO para usar a customizada
+        self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
+        self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
+
+        self.nome_janela = "janela-principal"  # Identificador para o controlador
         self.controles = {}
+        self.controles['janela_principal'] = self
+
+        # Widget Container Principal com cantos arredondados do tema
+        self.container_principal = QWidget()
+        self.container_principal.setObjectName("ContainerPrincipal")
+        self.setCentralWidget(self.container_principal)
+
+        layout_geral = QVBoxLayout(self.container_principal)
+        layout_geral.setContentsMargins(1, 1, 1, 1)
+        layout_geral.setSpacing(0)
+
+        # 1. Barra de Título Customizada
+        titulo_texto = f"{config.NOME_PROGRAMA} {config.VERSION}"
+        self.barra_titulo = BarraTituloCustomizada(self, titulo=titulo_texto)
+        layout_geral.addWidget(self.barra_titulo)
+
+        # 2. Conteúdo da Janela
+        self.conteudo_widget = QWidget()
+        layout_geral.addWidget(self.conteudo_widget, stretch=1)
 
         self._criar_layout()
         self._criar_barra_menu()
 
-        # --- CORREÇÃO PARA FORÇAR A EXIBIÇÃO NO WINDOWS ---
-        self.janela_principal.update_idletasks()
-        self.janela_principal.deiconify()  # Restaura a janela na tela
-        self.janela_principal.lift()  # Traz para a frente de outras janelas
-        self.janela_principal.focus_force()  # Força o foco no Windows
+        # 3. Integração com o Tema
+        tema.conectar_mudanca_tema(self)
+        tema.atualizar_tema(self)
+
+        # Configurações de redimensionamento e exibição
+        #self.setFixedSize(self.sizeHint())
 
     def _criar_layout(self):
-        # --- Variáveis ---
-        # Config
+        grid = QGridLayout(self.conteudo_widget)
+        grid.setContentsMargins(12, 12, 12, 12)
+        grid.setSpacing(8)
+
         linha = 0
-        link = 6
-        espacox = link
-        espacoy = link
-        # Declaração
-        self.lista_completa = []
 
-        # --- Controles ---
-        self.controles['janela_principal'] = self.janela_principal
-
-        # Bíblia Sagrada Layout #
-        ctk.CTkLabel(self.janela_principal, text="Bíblia Sagrada").grid(row=linha, column=0, padx=espacox, pady=espacoy, sticky="w")
-        linha += 1
-        # ctk.CTkLabel(root, text="\u2012" * 300).grid(row=linha, column=0, columnspan=2, padx=5, pady=5, sticky="w")
-        ttk.Separator(self.janela_principal, orient="horizontal").grid(row=linha, columnspan=6, sticky="ew", padx=espacox, pady=espacoy)
+        # --- BÍBLIA SAGRADA LAYOUT ---
+        lbl_biblia = QLabel("Bíblia Sagrada")
+        lbl_biblia.setStyleSheet("font-weight: bold; font-size: 14px;")
+        grid.addWidget(lbl_biblia, linha, 0, 1, 2)
         linha += 1
 
-        # Filtro de pastas
-        ctk.CTkLabel(self.janela_principal, text="Filtro do Livro:").grid(row=linha, column=0, padx=espacox, pady=espacoy, sticky="w")
-        self.filtro_livro_txt = ctk.CTkEntry(self.janela_principal, width=300)
-        self.filtro_livro_txt.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
-        self.filtro_livro_txt.focus_set()  # Define o foco inicial
+        sep1 = QFrame()
+        sep1.setFrameShape(QFrame.Shape.HLine)
+        sep1.setFrameShadow(QFrame.Shadow.Sunken)
+        grid.addWidget(sep1, linha, 0, 1, 2)
+        linha += 1
+
+        # Filtro de livros
+        grid.addWidget(QLabel("Filtro do Livro:"), linha, 0)
+        self.filtro_livro_txt = QLineEdit()
+        grid.addWidget(self.filtro_livro_txt, linha, 1)
         self.controles['filtro_livro_txt'] = self.filtro_livro_txt
         linha += 1
 
-        # Combobox de pastas
-        ctk.CTkLabel(self.janela_principal, text="Livro:").grid(row=linha, column=0, padx=espacox, pady=espacoy, sticky="w")
-        self.pastas_cb = ctk.CTkOptionMenu(self.janela_principal)
-        self.pastas_cb.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
-        #self.pastas_cb._canvas.configure(takefocus=False)
+        # Combobox de livros
+        grid.addWidget(QLabel("Livro:"), linha, 0)
+        self.pastas_cb = QComboBox()
+        grid.addWidget(self.pastas_cb, linha, 1)
         self.controles['pastas_cb'] = self.pastas_cb
         linha += 1
 
-        # Campo de filtro de arquivos
-        ctk.CTkLabel(self.janela_principal, text="Filtro do Capítulo:").grid(row=linha, column=0, padx=espacox, pady=espacoy, sticky="w")
-        self.filtro_capitulo_txt = ctk.CTkEntry(self.janela_principal)
-        self.filtro_capitulo_txt.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
+        # Filtro de capítulos
+        grid.addWidget(QLabel("Filtro do Capítulo:"), linha, 0)
+        self.filtro_capitulo_txt = QLineEdit()
+        grid.addWidget(self.filtro_capitulo_txt, linha, 1)
         self.controles['filtro_capitulo_txt'] = self.filtro_capitulo_txt
         linha += 1
 
-        # Combobox de arquivos
-        ctk.CTkLabel(self.janela_principal, text="Capítulo:").grid(row=linha, column=0, padx=espacox, pady=espacoy, sticky="w")
-        self.arquivo_cb = ctk.CTkOptionMenu(self.janela_principal)
-        self.arquivo_cb.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
-        self.arquivo_cb._canvas.configure(takefocus=False)
+        # Combobox de capítulos
+        grid.addWidget(QLabel("Capítulo:"), linha, 0)
+        self.arquivo_cb = QComboBox()
+        grid.addWidget(self.arquivo_cb, linha, 1)
         self.controles['arquivo_cb'] = self.arquivo_cb
         linha += 1
 
-        # Combobox de versículos
-        ctk.CTkLabel(self.janela_principal, text="Versículo:").grid(row=linha, column=0, padx=espacox, pady=espacoy, sticky="w")
-        self.versiculo_cb = ctk.CTkComboBox(self.janela_principal)
-        self.versiculo_cb.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
-        self.versiculo_cb._canvas.configure(takefocus=False)
-        # 2. BLOQUEIO DE DIGITAÇÃO:
-        # Intercepta qualquer tecla pressionada no campo de texto e cancela a ação
-        self.versiculo_cb._entry.bind("<Key>", lambda e: "break")
+        # Combobox de versículos (Bloqueado para digitação manual)
+        grid.addWidget(QLabel("Versículo:"), linha, 0)
+        self.versiculo_cb = QComboBox()
+        self.versiculo_cb.setEditable(False)
+        grid.addWidget(self.versiculo_cb, linha, 1)
         self.controles['versiculo_cb'] = self.versiculo_cb
         linha += 1
 
-        # Botão de abrir
-        self.abrir_biblia_btn = ctk.CTkButton(self.janela_principal, text="Iniciar slide")
-        self.abrir_biblia_btn.grid(row=linha, column=0, columnspan=2, padx=espacox, pady=espacoy, sticky="ew")
+        # Botão de abrir Bíblia
+        self.abrir_biblia_btn = QPushButton("Iniciar slide")
+        self.abrir_biblia_btn.setObjectName("BtnAcao")
+        grid.addWidget(self.abrir_biblia_btn, linha, 0, 1, 2)
         self.controles['abrir_biblia_btn'] = self.abrir_biblia_btn
         linha += 1
 
-        # Separador
-        ttk.Separator(self.janela_principal, orient="horizontal").grid(row=linha, columnspan=3, sticky="ew", padx=espacox, pady=espacoy)
+        # Separador Bíblia/Harpa
+        sep2 = QFrame()
+        sep2.setFrameShape(QFrame.Shape.HLine)
+        sep2.setFrameShadow(QFrame.Shadow.Sunken)
+        grid.addWidget(sep2, linha, 0, 1, 2)
         linha += 1
 
-        # Fim da Bíblia Sagrada layout #
-        # Harpa Cristã Layout #
-        ctk.CTkLabel(self.janela_principal, text="Harpa Cristã").grid(row=linha, column=0, padx=espacox, pady=espacoy, sticky="w")
+        # --- HARPA CRISTÃ LAYOUT ---
+        lbl_harpa = QLabel("Harpa Cristã")
+        lbl_harpa.setStyleSheet("font-weight: bold; font-size: 14px;")
+        grid.addWidget(lbl_harpa, linha, 0, 1, 2)
         linha += 1
 
-        ttk.Separator(self.janela_principal, orient="horizontal").grid(row=linha, columnspan=3, sticky="ew", padx=espacox, pady=espacoy)
+        sep3 = QFrame()
+        sep3.setFrameShape(QFrame.Shape.HLine)
+        sep3.setFrameShadow(QFrame.Shadow.Sunken)
+        grid.addWidget(sep3, linha, 0, 1, 2)
         linha += 1
 
-        # Campo de filtro
-        ctk.CTkLabel(self.janela_principal, text="Filtro do Hino:").grid(row=linha, column=0, padx=espacox, pady=espacoy, sticky="w")
-        self.filtro_harpa_txt = ctk.CTkEntry(self.janela_principal)
-        self.filtro_harpa_txt.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
+        # Filtro de hinos
+        grid.addWidget(QLabel("Filtro do Hino:"), linha, 0)
+        self.filtro_harpa_txt = QLineEdit()
+        grid.addWidget(self.filtro_harpa_txt, linha, 1)
         self.controles['filtro_harpa_txt'] = self.filtro_harpa_txt
         linha += 1
 
-        # Combobox de arquivos
-        ctk.CTkLabel(self.janela_principal, text="Hino:").grid(row=linha, column=0, padx=espacox, pady=espacoy, sticky="w")
-        self.arquivo_harpa_cb = ctk.CTkOptionMenu(self.janela_principal)
-        self.arquivo_harpa_cb.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
-        self.arquivo_harpa_cb._canvas.configure(takefocus=False)
+        # Combobox de hinos
+        grid.addWidget(QLabel("Hino:"), linha, 0)
+        self.arquivo_harpa_cb = QComboBox()
+        grid.addWidget(self.arquivo_harpa_cb, linha, 1)
         self.controles['arquivo_harpa_cb'] = self.arquivo_harpa_cb
         linha += 1
 
-        # Botão de abrir
-        self.abrir_harpa_btn = ctk.CTkButton(self.janela_principal, text="Iniciar slide")
-        self.abrir_harpa_btn.grid(row=linha, column=0, columnspan=2, padx=espacox, pady=espacoy, sticky="ew")
+        # Botão de abrir Harpa
+        self.abrir_harpa_btn = QPushButton("Iniciar slide")
+        self.abrir_harpa_btn.setObjectName("BtnAcao")
+        grid.addWidget(self.abrir_harpa_btn, linha, 0, 1, 2)
         self.controles['abrir_harpa_btn'] = self.abrir_harpa_btn
         linha += 1
 
-        # Linha vertical
-        ttk.Separator(self.janela_principal, orient="vertical").grid(row=0, column=2, rowspan=linha, sticky="ns", padx=espacox, pady=espacoy)
+        # --- SEPARADOR VERTICAL ---
+        sep_v = QFrame()
+        sep_v.setFrameShape(QFrame.Shape.VLine)
+        sep_v.setFrameShadow(QFrame.Shadow.Sunken)
+        grid.addWidget(sep_v, 0, 2, linha, 1)
 
-        # --- Painel lateral direito --- Área de busca ---
-        linha_lateral = 0
-        ctk.CTkLabel(self.janela_principal, text="Busca").grid(row=linha_lateral, column=3, padx=espacox, pady=espacoy, sticky="w")
-        linha_lateral += 2
+        # --- PAINEL LATERAL DIREITO (BUSCA) ---
+        linha_lat = 0
 
-        # Combobox de pasta
-        ctk.CTkLabel(self.janela_principal, text="Pasta de busca:").grid(row=linha_lateral, column=3, padx=espacox, pady=espacoy, sticky="w")
-        self.buscar_texto_cb = ctk.CTkOptionMenu(self.janela_principal)
-        self.buscar_texto_cb.grid(row=linha_lateral, column=4, padx=espacox, pady=espacoy, sticky="ew")
-        self.buscar_texto_cb._canvas.configure(takefocus=False)
-        busca = ["Bíblia", "Harpa", "Músicas"]
-        self.buscar_texto_cb.configure(values=busca)
-        self.buscar_texto_cb.set(busca[0])
+        # --- PAINEL LATERAL DIREITO (BUSCA) ---
+        linha_lat = 0
+
+        # Rótulo Busca
+        lbl_busca = QLabel("Busca")
+        lbl_busca.setStyleSheet("font-weight: bold; font-size: 14px;")
+        grid.addWidget(lbl_busca, linha_lat, 3, 1, 2)
+        linha_lat += 1
+
+        # --- SEPARADOR HORIZONTAL DO PAINEL DE BUSCA ---
+        sep_busca = QFrame()
+        sep_busca.setFrameShape(QFrame.Shape.HLine)
+        sep_busca.setFrameShadow(QFrame.Shadow.Sunken)
+        grid.addWidget(sep_busca, linha_lat, 3, 1, 2)
+        linha_lat += 1
+
+        # Pasta de busca
+        grid.addWidget(QLabel("Pasta de busca:"), linha_lat, 3)
+        self.buscar_texto_cb = QComboBox()
+        self.buscar_texto_cb.addItems(["Bíblia", "Harpa", "Músicas"])
+        grid.addWidget(self.buscar_texto_cb, linha_lat, 4)
         self.controles['buscar_texto_cb'] = self.buscar_texto_cb
-        linha_lateral += 1
+        linha_lat += 1
 
-        ctk.CTkLabel(self.janela_principal, text="Buscar:").grid(row=linha_lateral, column=3, padx=espacox, pady=espacoy, sticky="w")
-        self.buscar_texto_txt = ctk.CTkEntry(self.janela_principal, width=400)
-        self.buscar_texto_txt.grid(row=linha_lateral, column=4, padx=espacox, pady=espacoy, sticky="we")
+        # Campo de busca
+        grid.addWidget(QLabel("Buscar:"), linha_lat, 3)
+        self.buscar_texto_txt = QLineEdit()
+        grid.addWidget(self.buscar_texto_txt, linha_lat, 4)
         self.controles['buscar_texto_txt'] = self.buscar_texto_txt
-        linha_lateral += 1
+        linha_lat += 1
 
         # Botão de buscar
-        self.buscar_texto_btn = ctk.CTkButton(self.janela_principal, text="Buscar")
-        self.buscar_texto_btn.grid(row=linha_lateral, column=3, columnspan=2, padx=espacox, pady=espacoy, sticky="ew")
+        self.buscar_texto_btn = QPushButton("Buscar")
+        self.buscar_texto_btn.setObjectName("BtnAcao")
+        grid.addWidget(self.buscar_texto_btn, linha_lat, 3, 1, 2)
         self.controles['buscar_texto_btn'] = self.buscar_texto_btn
-        linha_lateral += 1
+        linha_lat += 1
 
-        # Área de texto, resultado da busca
-        # 1. Cria a barra de rolagem
-        #self.scrollbar_lateral = ttk.Scrollbar(self.janela_principal)
-        #self.scrollbar_fundo = ttk.Scrollbar(self.janela_principal, orient="horizontal")
+        # Área de texto / Resultado da busca
+        self.text_area = QTextEdit()
+        self.text_area.setLineWrapMode(QTextEdit.LineWrapMode.NoWrap)
+        self.text_area.setMinimumWidth(350)
+        self.text_area.setSizePolicy(
+            QSizePolicy.Policy.Preferred,
+            QSizePolicy.Policy.Expanding
+        )
 
-        #self.scrollbar_lateral.grid(row=linha_lateral, rowspan=10, column=4, sticky="ens", pady=(espacoy, 20), padx=(0, espacox))
-        #self.scrollbar_fundo.grid(row=13, column=3, columnspan=2, sticky="ews", padx=(espacox, 20), pady=(0, espacoy))
-
-        self.text_area = ctk.CTkTextbox(self.janela_principal, width=10, height=10, wrap="none")
-        self.text_area.grid(row=linha_lateral, rowspan=10, column=3, columnspan=3, padx=espacox, pady=espacoy, sticky="ewns")
-
-        # 3. Vincula os dois componentes
-        #self.text_area.config(yscrollcommand=self.scrollbar_lateral.set)
-        #self.text_area.config(xscrollcommand=self.scrollbar_fundo.set)
-        #self.scrollbar_lateral.config(command=self.text_area.yview)
-        #self.scrollbar_fundo.config(command=self.text_area.xview)
+        # O número de linhas restantes (linha - linha_lat) faz o campo ir até a base dos botões da esquerda
+        grid.addWidget(self.text_area, linha_lat, 3, linha - linha_lat, 2)
+        grid.setRowStretch(linha_lat, 1)  # Faz o QTextEdit esticar e preencher o fundo
         self.controles['text_area'] = self.text_area
 
     def _criar_barra_menu(self):
-        # Criar barra de menu
-        self.barra_menu = tk.Menu(self.janela_principal)
-        self.janela_principal.config(menu=self.barra_menu)
-        # Menu Arquivos
-        self.menu_arquivo =tk.Menu(self.barra_menu, tearoff=0)
-        self.barra_menu.add_cascade(label="Arquivo", menu=self.menu_arquivo)
+        # Integração com o menu hambúrguer da BarraTituloCustomizada
+        self.menu_arquivo = self.barra_titulo.adicionar_submenu("Arquivo")
         self.controles['menu_arquivo'] = self.menu_arquivo
-        # Menu Ajuda
-        self.menu_ajuda = tk.Menu(self.barra_menu, tearoff=0)
-        self.barra_menu.add_cascade(label="Ajuda", menu=self.menu_ajuda)
+
+        self.menu_ajuda = self.barra_titulo.adicionar_submenu("Ajuda")
         self.controles['menu_ajuda'] = self.menu_ajuda

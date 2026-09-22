@@ -1,16 +1,24 @@
 import math
 import os
+import platform
 import shutil
+import subprocess
 import sys
-import tkinter as tk
 import unicodedata
 from datetime import datetime
 from tkinter import messagebox, filedialog
 
-from screeninfo import get_monitors
+# Desativa aceleração de hardware problemática do Chromium no Linux/X11/Wayland
+os.environ["QTWEBENGINE_DISABLE_GPU"] = "1"
+# Força o uso do backend OpenGL/Software padronizado
+os.environ["QTWEBENGINE_CHROMIUM_FLAGS"] = "--disable-gpu --disable-software-rasterizer"
 
-import dados, estilo, verificarversao
-from arquivo_log import ler_pasta_log, abrir_logs, gerar_arquivo_log, registrar_log, abrir_pasta
+from PyQt6.QtCore import QUrl, Qt, QTimer, QStandardPaths
+from PyQt6.QtGui import QDesktopServices, QFont, QGuiApplication
+from PyQt6.QtWidgets import QMessageBox, QSizePolicy, QFileDialog
+
+import dados, config, verificarversao
+from arquivo_log import ler_pasta_log, abrir_logs, gerar_arquivo_log, registrar_log
 from janela_logs import JanelaLogs
 
 from janela_slide import JanelaSlide
@@ -19,52 +27,58 @@ from janela_musica import JanelaMusica
 from janela_slide_view_lirics import JanelaSlideViewLirics
 
 # Variáveis globais
+lista_completa = []
+lista_musicas = []
 janela_logs_aberta = False
-
-# --- Comandos do Menu da Janela Principal ---
-def visitar_site():
-    pagina = f"https://github.com/YannickFigueira"
-    resposta = messagebox.askyesno("Sobre", f"{estilo.NOME_PROGRAMA} {estilo.VERSION}\n"
-                                            f"Deseja visitar a página\n"
-                                            f"Desenvolvedor YannickFigueira\n"
-                                            f"chronostimeinchain@gmail.com")
-    if resposta:
-        verificarversao.webbrowser.open(pagina)
 
 # --- Comandos gerais ---
 def justificar_texto(texto_slide_view, tamanho_letra_slide):
-        # 1. Criamos o Frame HTML
-        # frame_html = HtmlFrame(janela_nova)
+    largura_slide = "91%"
+    tamanho_fonte = f"{tamanho_letra_slide}px"
 
-        # 2. Seu texto com HTML e CSS para justificar em ambos os lados e centralizar
-        largura_slide = "91%"
-        tamanho_fonte = f"{tamanho_letra_slide}px"
+    # Formata quebras de linha para HTML
+    texto_formatado = texto_slide_view.replace('\n', '<br>').upper()
 
-        codigo_html = f"""
-        <!DOCTYPE html>
-        <html lang="pt-br">
-        <body style="background-color: black; margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh;">
-            <div style="
+    codigo_html = f"""
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <style>
+            html, body {{
+                background-color: black;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden; /* Evita barras de rolagem na exibição */
+            }}
+            .slide-conteudo {{
                 color: white; 
                 font-family: Arial, sans-serif; 
                 font-size: {tamanho_fonte}; 
                 font-weight: bold; 
-                /*text-align: justify; /* JUSTIFICA AMBOS OS LADOS */
                 text-align: center;
                 margin: auto;
-                padding-top: 60px;
                 max-width: {largura_slide};
                 width: 100%;
                 line-height: 1.1;
-            ">
-                {texto_slide_view.replace('\n', '<br>').upper()}
+                word-wrap: break-word;
+            }}
+        </style>
+    </head>
+    <body>
+        <div id="conteudo-slide" class="slide-conteudo">
+            {texto_formatado}
+        </div>
+    </body>
+    </html>
+    """
 
-            </div>
-        </body>
-        </html>
-        """
-
-        return codigo_html
+    return codigo_html
 
 def identificar_proporcao(width, height):
     relacao = width / height
@@ -81,30 +95,31 @@ def identificar_proporcao(width, height):
     else:
         return tela16_9
 
+
 def identificar_monitor():
-    # Identifica a quantidade de monitores
-    monitors = get_monitors()
+    telas = QGuiApplication.screens()
+
+    if not telas:
+        return None, None
 
     first = None
 
-    for m in monitors:
-        # 1. Tenta obter o atributo is_primary com segurança
-        is_primary = getattr(m, 'is_primary', False)
-
-        # 2. Se não existir, verifica se a posição é a origem (0, 0)
-        if is_primary or (m.x == 0 and m.y == 0):
-            first = m
+    # 1. Busca o monitor primário oficial do SO
+    for t in telas:
+        geo = t.geometry()
+        # No Qt, testamos t.isPrimary() ou a origem X=0, Y=0
+        if t == QGuiApplication.primaryScreen() or (geo.x() == 0 and geo.y() == 0):
+            first = t
             break
 
-    # Fallback caso nada seja identificado
-    if not first and monitors:
-        first = monitors[0]
+    # Fallback se não encontrar a origem
+    if not first:
+        first = telas[0]
 
-    # Identifica o monitor secundário
-    #second = None
-    if len(monitors) > 1:
-        outros = [m for m in monitors if m != first]
-        second = outros[0] if outros else monitors[1]
+    # 2. Identifica o monitor secundário
+    if len(telas) > 1:
+        outros = [t for t in telas if t != first]
+        second = outros[0] if outros else telas[1]
     else:
         second = first
 
@@ -116,6 +131,26 @@ def remover_acentos(filtro_texto):
         c for c in unicodedata.normalize('NFD', filtro_texto)
         if unicodedata.category(c) != 'Mn'
     )
+
+
+def abrir_pasta_musica():
+    if platform.system() == "Windows":
+        # arquivo = "C:\\Programa Igreja\\doc\\CHANGELOG.md"
+        subprocess.run(["explorer", config.MUSICAS_DIR])
+    elif platform.system() == "Linux":
+        # arquivo = "/usr/share/doc/programaigreja/CHANGELOG.md"
+        subprocess.run(["xdg-open", config.MUSICAS_DIR])  # ou "gedit"
+    else:
+        print("Sistema não suportado")
+
+
+def abrir_notas(view):
+    if platform.system() == "Windows":
+        subprocess.run(["explorer", f"{config.NOTAS_DIR}\\CHANGELOG.md"])
+    elif platform.system() == "Linux":
+        subprocess.run(["xdg-open", config.DOCS_DIR_LINUX])  # ou "gedit"
+    else:
+        print("Sistema não suportado")
 
 
 class Funcoes:
@@ -157,47 +192,44 @@ class Funcoes:
                 pass
 
         self.atualizar_pastas_biblia()
-        self.atualizar_versiculos()
+        #self.atualizar_versiculos()
         self.carregar_arquivos_harpa()
 
         # --- Controles da Janela Principal ---
-        self.view.controles['filtro_livro_txt'].bind("<KeyRelease>", self.atualizar_pastas_biblia)
-        self.view.controles['pastas_cb'].bind("<<ComboboxSelected>>", self.atualizar_arquivos_biblia)
-        self.view.controles['filtro_capitulo_txt'].bind("<KeyRelease>", self.atualizar_arquivos_biblia)
-        self.view.controles['arquivo_cb'].bind("<<ComboboxSelected>>", self.atualizar_versiculos)
-        self.view.controles['abrir_biblia_btn'].configure(command=lambda: self.abrir_janela_slide("biblia", self.view.controles['janela_principal']))
+        self.view.controles['filtro_livro_txt'].textChanged.connect(self.atualizar_pastas_biblia)
+        self.view.controles['pastas_cb'].currentTextChanged.connect(self.atualizar_arquivos_biblia)
+
+        self.view.controles['filtro_capitulo_txt'].textChanged.connect(self.atualizar_arquivos_biblia)
+        self.view.controles['arquivo_cb'].currentTextChanged.connect(self.atualizar_versiculos)
+        self.view.controles['abrir_biblia_btn'].clicked.connect(lambda: self.abrir_janela_slide("biblia"))
         # Captura especificamente o Enter
-        self.view.controles['filtro_capitulo_txt'].bind("<Key>", lambda e: self.acao_enter(e, "biblia", self.view.controles['janela_principal']))
-        self.view.controles['abrir_biblia_btn'].bind("<Key>", lambda e: self.acao_enter(e, "biblia", self.view.controles['janela_principal']))
+        self.view.controles['filtro_capitulo_txt'].returnPressed.connect(
+            lambda: self.acao_enter("biblia")
+        )
+        #self.view.controles['abrir_biblia_btn'].clicked.connect(lambda e: self.acao_enter(e, "biblia", self.view.controles['janela_principal']))
         # Captura qualquer tecla liberada
-        self.view.controles['filtro_harpa_txt'].bind("<KeyRelease>", self.filtrar_lista_harpa)
-        self.view.controles['abrir_harpa_btn'].configure(command=lambda: self.abrir_janela_slide("harpa", self.view.controles['janela_principal']))
+        self.view.controles['filtro_harpa_txt'].textChanged.connect(self.filtrar_lista_harpa)
+        self.view.controles['abrir_harpa_btn'].clicked.connect(lambda: self.abrir_janela_slide("harpa"))
         #self.view.controles['abrir_harpa_btn'].configure(
         #    command=lambda: self.abrir_slide_lirics())
         # Captura especificamente o Enter
-        self.view.controles['filtro_harpa_txt'].bind("<Key>", lambda e: self.acao_enter(e, "harpa", self.view.controles['janela_principal']))
-        self.view.controles['abrir_harpa_btn'].bind("<Key>", lambda e: self.acao_enter(e, "harpa", self.view.controles['janela_principal']))
+        self.view.controles['filtro_harpa_txt'].returnPressed.connect(lambda: self.acao_enter("harpa"))
+        #self.view.controles['abrir_harpa_btn'].bind("<Key>", lambda e: self.acao_enter(e, "harpa", self.view.controles['janela_principal']))
         #self.view.controles['abrir_harpa_btn'].bind("<Key>", lambda e: self.abrir_slide_lirics())
-        self.view.controles['buscar_texto_btn'].configure(command=lambda: self.localizar_arquivo())
-        self.view.controles['buscar_texto_txt'].bind("<Key>", lambda e: self.acao_enter(e, "localizar", self.view.controles['janela_principal']))
+        self.view.controles['buscar_texto_btn'].clicked.connect(lambda: self.localizar_arquivo())
+        self.view.controles['buscar_texto_txt'].returnPressed.connect(lambda: self.acao_enter("localizar"))
 
         # --- Menu da Janela Principal ---
-        self.view.controles['menu_arquivo'].add_command(label="Músicas",
-                                                        command=lambda: self.abrir_janela_musica())
-        self.view.controles['menu_arquivo'].add_command(label="Logs",
-                                                        command=lambda: self.abrir_janela_logs())
-        self.view.controles['menu_ajuda'].add_command(label="Verificar atualização",
-                                    command=lambda: verificarversao.consultar_lancamento(estilo.REPO, estilo.VERSION))
-        self.view.controles['menu_ajuda'].add_command(label="Notas da versão",
-                                    command=lambda: abrir_logs(self.view))
-        self.view.controles['menu_ajuda'].add_command(label="Sobre",
-                                    command=lambda: visitar_site())
-        self.view.controles['menu_ajuda'].add_command(label="Sair", command=self.view.controles['janela_principal'].quit)
+        self.view.controles['menu_arquivo'].addAction("Músicas", lambda: self.abrir_janela_musica())
+        self.view.controles['menu_arquivo'].addAction("Logs", lambda: self.abrir_janela_logs())
+        self.view.controles['menu_ajuda'].addAction("Verificar atualização", lambda: verificarversao.consultar_lancamento(config.REPO, config.VERSION, self.view))
+        self.view.controles['menu_ajuda'].addAction("Notas da versão", lambda: abrir_notas(self.view))
+        self.view.controles['menu_ajuda'].addAction("Sobre", lambda: self.visitar_site())
+        self.view.controles['menu_ajuda'].addAction("Sair", self.view.close)
+
 
     def _vincular_janela_slide(self):
-        # Bind somente nesta janela (evitar bind_all)
-        self.view.controles['janela_slide'].bind("<Escape>",lambda _: self.fechar('janela_slide'))
-        self.view.controles['janela_slide'].protocol("WM_DELETE_WINDOW", lambda: self.fechar('janela_slide'))
+        pass
 
     def _vincular_janela_slide_view(self):
         pass
@@ -207,16 +239,16 @@ class Funcoes:
 
     def _vincular_janela_musica(self):
         # --- Inicialização ---
-        if os.listdir(estilo.musicas_dir):
+        if os.listdir(config.MUSICAS_DIR):
             self.carregar_arquivos_musicas()
         # --- Menu da janela musicas ---
-        self.view.controles['menu_arquivo'].add_command(label="Adicionar Música",
-                                                        command=lambda: self.selecionar_arquivo(self.view.controles['janela_musica']))
-        self.view.controles['menu_arquivo'].add_command(label="Abrir pasta das músicas",
-                                                        command=lambda: abrir_pasta(self.view))
+        self.view.controles['menu_arquivo'].addAction("Adicionar Música",
+                                                        lambda: self.selecionar_arquivo(self.view))
+        self.view.controles['menu_arquivo'].addAction("Abrir pasta das músicas",
+                                                        lambda: abrir_pasta_musica())
         # Captura qualquer tecla
-        self.view.controles['filtro_musica_txt'].bind("<KeyRelease>", self.filtrar_lista_musicas)
-        self.view.controles['abrir_musica_btn'].configure(command=lambda: self.abrir_janela_slide("musica", self.view.controles['janela_musica']))
+        self.view.controles['filtro_musica_txt'].textChanged.connect(self.filtrar_lista_musicas)
+        self.view.controles['abrir_musica_btn'].clicked.connect(lambda: self.abrir_janela_slide("musica"))
 
 
     def _vincular_logs(self):
@@ -225,129 +257,223 @@ class Funcoes:
         texto_log = "\n".join([f"{item}" for item in arquivos_log])
 
         # --- Controles da Janlea Logs ---
-        self.view.controles['janela_logs'].protocol("WM_DELETE_WINDOW",
-                                                         lambda: self.fechar_janelas('janela_logs'))
 
-        self.view.controles['lbl_logs'].configure(text=texto_log)
+        self.view.controles['lbl_logs'].setText(texto_log)
         # 1. Atualiza as opções do ComboBox
-        self.view.controles['cmb_selecao'].configure(values=arquivos_log)
+        self.view.controles['cmb_selecao'].clear()
+        self.view.controles['cmb_selecao'].addItems(arquivos_log)
 
         # 2. Define o valor selecionado usando o funcao .set()
         if arquivos_log:
-            self.view.controles['cmb_selecao'].set(arquivos_log[0])
-        self.view.controles['btn_abrir_logs'].configure(command=lambda: abrir_logs(self.view))
+            self.view.controles['cmb_selecao'].setCurrentIndex(0)
+        self.view.controles['btn_abrir_logs'].clicked.connect(lambda: abrir_logs(self.view))
 
     # --- Inicialização das janelas ---
     # --- Iniciar janela slide ---
-    def abrir_janela_slide(self, slide, janela):
+    def abrir_janela_slide(self, slide):
         global inicio, total, texto, verso
 
         match slide:
             case "biblia":
-                pasta_selecionada = self.view.controles['pastas_cb'].get()
-                arquivo_selecionado = self.view.controles['arquivo_cb'].get()
-                pasta_caminho_new = os.path.join(dados.biblia_dir, pasta_selecionada, arquivo_selecionado)
-                texto = dados.carregar_texto(pasta_caminho_new + ".txt", dados.biblia_dir)
+                pasta_selecionada = self.view.controles["pastas_cb"].currentText()
+                arquivo_selecionado = self.view.controles[
+                    "arquivo_cb"
+                ].currentText()
+                pasta_caminho_new = os.path.join(
+                    dados.biblia_dir, pasta_selecionada, arquivo_selecionado
+                )
+                texto = dados.carregar_texto(
+                    pasta_caminho_new + ".txt", dados.biblia_dir
+                )
+                inicio = self.view.controles["versiculo_cb"].currentIndex() + 1
+
                 # Limpa os campos de filtro
-                self.view.controles['filtro_livro_txt'].delete(0, tk.END)
-                self.view.controles['filtro_capitulo_txt'].delete(0, tk.END)
-                # Transfere o foco para o campo de filtro de pastas
-                self.view.controles['filtro_livro_txt'].focus_set()
-                inicio = self.view.controles['versiculo_cb'].cget("values").index(
-                    self.view.controles['versiculo_cb'].get()) + 1
-                print(inicio)
+                self.view.controles["filtro_livro_txt"].clear()
+                self.view.controles["filtro_capitulo_txt"].clear()
                 total = len(texto)
-                verso = self.view.controles['versiculo_cb'].cget("values").index(
-                    self.view.controles['versiculo_cb'].get())
+                verso = inicio - 1
+
             case "harpa":
-                if self.view.controles['filtro_harpa_txt'].get() != "":
-                    self.view.controles['filtro_harpa_txt'].delete(0, tk.END)  # Limpa o campo do texto
-                    arquivo = self.view.controles['arquivo_harpa_cb'].get()
+                if self.view.controles["filtro_harpa_txt"].text() != "":
+                    arquivo = self.view.controles["arquivo_harpa_cb"].currentText()
+                    self.view.controles["filtro_harpa_txt"].clear()
 
                     if arquivo:
                         caminho = os.path.join(dados.harpa_dir, arquivo)
-                        texto = dados.carregar_texto(caminho + ".txt", dados.harpa_dir)
+                        texto = dados.carregar_texto(
+                            caminho + ".txt", dados.harpa_dir
+                        )
                         self.carregar_arquivos_harpa()
                         inicio = 1
                         total = len(texto) - 1
                         verso = 1
                     else:
-                        messagebox.showwarning("Aviso", "Selecione ou digite um nome de arquivo válido.")
+                        QMessageBox.warning(
+                            self.view,
+                            "Aviso",
+                            "Selecione ou digite um nome de arquivo válido.",
+                        )
                         return
                 else:
-                    messagebox.showwarning("Aviso", "Digite o número ou nome do hino!")
+                    QMessageBox.warning(
+                        self.view, "Aviso", "Digite o número ou nome do hino!"
+                    )
                     return
+
             case "musica":
-                self.view.controles['filtro_musica_txt'].delete(0, tk.END)
-                arquivo = self.view.controles['musica_cb'].get()
+                self.view.controles["filtro_musica_txt"].clear()
+                arquivo = self.view.controles["musica_cb"].currentText()
 
                 if arquivo:
-                    caminho = os.path.join(estilo.musicas_dir, arquivo)
-                    texto = dados.carregar_texto(caminho + ".txt", estilo.musicas_dir)
+                    caminho = os.path.join(config.MUSICAS_DIR, arquivo)
+                    texto = dados.carregar_texto(
+                        caminho + ".txt", config.MUSICAS_DIR
+                    )
                     self.carregar_arquivos_musicas()
                     inicio = 1
                     total = len(texto) - 1
                     verso = 1
                 else:
-                    messagebox.showwarning("Aviso", "Selecione ou digite um nome de arquivo válido.")
+                    QMessageBox.warning(
+                        self.view,
+                        "Aviso",
+                        "Selecione ou digite um nome de arquivo válido.",
+                    )
+                    return
 
-        # 1. Cria a parte visual
-        visual = JanelaSlide(janela)
+        # 1. Cria a parte visual e guarda a referência na classe (Evita destruição pelo GC)
+        self.visual_slide_control = JanelaSlide()
+        self.logica_slide_control = Funcoes(self.visual_slide_control)
 
-        # 2. Cria a lógica e passa a visão para ela controlar
-        logica = Funcoes(visual)
-
-        # --- Inicialização ---
         # Identifica a quantidade de monitores
         first, second = identificar_monitor()
 
-        logica.view.controles['janela_slide'].bind("<Right>", lambda _: atualizar_texto(0))
-        logica.view.controles['janela_slide'].bind("<Left>", lambda _: atualizar_texto(1))
-        logica.atualizar_hora()
+        # --- Mapeamento das Teclas ---
+        janela_control = self.logica_slide_control.view.controles["janela_slide"]
+        key_press_original = janela_control.keyPressEvent
+        janela_control = self.logica_slide_control.view.controles["janela_slide"]
 
-        # Cria o label
+        def tratar_teclas(event):
+            # Fecha se pressionar ESC ou Q
+            if event.key() in (Qt.Key.Key_Escape, Qt.Key.Key_Q):
+                if hasattr(self, "visual_slide_projecao") and self.visual_slide_projecao:
+                    self.visual_slide_projecao.close()
+                if hasattr(self, "visual_slide_control") and self.visual_slide_control:
+                    self.visual_slide_control.close()
+                event.accept()
+                return
+
+            if event.key() == Qt.Key.Key_Right:
+                atualizar_texto(0)
+                event.accept()
+            elif event.key() == Qt.Key.Key_Left:
+                atualizar_texto(1)
+                event.accept()
+            else:
+                # Repassa para o evento original caso precise
+                key_press_original = getattr(janela_control, "_key_original", None)
+                if key_press_original:
+                    key_press_original(event)
+
+        # Armazena e sobrescreve o evento na instância
+        janela_control._key_original = janela_control.keyPressEvent
+        janela_control.keyPressEvent = tratar_teclas
+
+        # --- Inicialização do Relógio (QTimer) ---
+        self.logica_slide_control.timer_relogio = QTimer(janela_control)
+        self.logica_slide_control.timer_relogio.timeout.connect(
+            self.logica_slide_control.atualizar_hora
+        )
+        self.logica_slide_control.timer_relogio.start(1000)
+        self.logica_slide_control.atualizar_hora()
+
+        # Dimensões para proporção da tela primária
+        largura = first.geometry().width() // 2
+        altura = first.geometry().height() // 2
+
         medida_letra = 16
-
-        largura = first.width / 2
-        altura = first.height / 2
-
-        borda_texto = int(largura * 0.1)
-        largura_texto = largura
-
-        # label
-        espace_largura = int(largura / 2 / 5)
-        espace_altura = 10
         tamanho_letra = int(altura / medida_letra)
 
         texto_verificado = ""
         if not len(texto) == verso + 1:
             texto_verificado = texto[verso + 1]
 
-        # Funções da janela slide
-        logica.view.controles['lbl_slide_atual'].config(
-            text=f"{inicio} / {total}", bg=estilo.FUNDO_COR, font=("Arial", 20, "bold"))
-        # --- Configuração dos Frames ---
-        logica.view.controles['frame_principal'].config(width=largura, height=altura)
-        logica.view.controles['frame_principal'].grid(padx=espace_largura, pady=espace_altura)
-        logica.view.controles['frame_preview'].config(width=largura / 2, height=altura / 2)
-        logica.view.controles['frame_preview'].grid(padx=espace_largura, pady=espace_altura, sticky="n")
-        logica.view.controles['frame_rodape'].config(width=largura, height=altura)
+        # --- Configuração de Tamanhos dos Frames (Respeitando a Proporção) ---
+        frame_principal = self.logica_slide_control.view.controles["frame_principal"]
+        frame_preview = self.logica_slide_control.view.controles["frame_preview"]
+        frame_rodape = self.logica_slide_control.view.controles["frame_rodape"]
 
-        # --- Controles ---
-        logica.view.controles['lbl_slide_visual'].config(
-            text=texto[verso], bg="black", fg="white", font=("Arial", tamanho_letra, "bold"),
-            wraplength=largura_texto - borda_texto)
-        logica.view.controles['lbl_slide_preview'].config(
-            text=texto_verificado, bg="black", fg="white", font=("Arial", int(tamanho_letra / 2), "bold"),
-            wraplength=largura_texto / 2 - borda_texto)
+        frame_principal.setFixedSize(int(largura), int(altura))
+        frame_preview.setFixedSize(int(largura // 2), int(altura // 2))
+        frame_rodape.setFixedSize(int(largura), int(altura // 4))
 
-        tamanho_letra_slide = identificar_proporcao(second.width, second.height)
+        # --- Label Slide Atual ---
+        lbl_atual = self.logica_slide_control.view.controles["lbl_slide_atual"]
+        lbl_atual.setText(f"{inicio} / {total}")
+        lbl_atual.setFont(QFont("Arial", 20, QFont.Weight.Bold))
+        lbl_atual.setStyleSheet(f"background-color: {config.FUNDO_COR}; color: white;")
+
+        # --- Label Slide Visual (Principal) ---
+        lbl_visual = self.logica_slide_control.view.controles["lbl_slide_visual"]
+        lbl_visual.setText(texto[verso])
+        lbl_visual.setFont(QFont("Arial", int(tamanho_letra), QFont.Weight.Bold))
+        lbl_visual.setStyleSheet("background-color: black; color: white;")
+        lbl_visual.setWordWrap(True)
+        lbl_visual.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        # --- Label Slide Preview (Próximo) ---
+        lbl_preview = self.logica_slide_control.view.controles["lbl_slide_preview"]
+        lbl_preview.setText(texto_verificado)
+        lbl_preview.setFont(
+            QFont("Arial", int(tamanho_letra / 2), QFont.Weight.Bold)
+        )
+        lbl_preview.setStyleSheet("background-color: black; color: white;")
+        lbl_preview.setWordWrap(True)
+        lbl_preview.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        # --- Margens da Grid ---
+        layout_grid = self.logica_slide_control.view.controles["janela_slide"].layout()
+        if layout_grid:
+            espace_largura = 20
+            espace_altura = 10
+            layout_grid.setContentsMargins(espace_largura, espace_altura, espace_largura, espace_altura)
+            layout_grid.setSpacing(espace_largura)
+
+        self.visual_slide_control.showFullScreen()
+
+        # Cálculo de proporção da segunda tela
+        second_geo = second.geometry()
+        tamanho_letra_slide = identificar_proporcao(
+            int(second_geo.width()), int(second_geo.height())
+        )
 
         match slide:
             case "biblia":
-                logica.abrir_janela_slide_view(second, tamanho_letra_slide)
+                self.abrir_janela_slide_view(second, tamanho_letra_slide)
             case _:
-                view = logica.abrir_slide_lirics(f"{texto[0].replace("\n", " - ")} - 1 / {total} ", texto[1])
+                titulo_txt = f"{texto[0].replace('\n', ' - ')} - 1 / {total} "
+                self.visual_slide_projecao = self.abrir_slide_lirics(titulo_txt, texto[1])
+
+        # --- FORÇAR EXIBIÇÃO E FOCO NA JANELA DO OPERADOR ---
+        janela_control = self.logica_slide_control.view.controles["janela_slide"]
+
+        # 1. Configura a janela para ser a ativa
+        self.visual_slide_control.showFullScreen()
+        self.visual_slide_control.raise_()
+        self.visual_slide_control.activateWindow()
+
+        # 2. Garante o foco do teclado no widget do container
+        janela_control.setFocusPolicy(Qt.FocusPolicy.StrongFocus)
+        janela_control.setFocus()
+
+        # 3. Solução para o S.O (Garante o foco após a transição de renderização do SO/X11/Wayland/Windows)
+        def aplicar_foco_definitivo():
+            if hasattr(self, 'visual_slide_control') and self.visual_slide_control:
+                self.visual_slide_control.raise_()
+                self.visual_slide_control.activateWindow()
+                janela_control.setFocus()
+
+        QTimer.singleShot(100, aplicar_foco_definitivo)
 
         index = verso
         index_contador = inicio
@@ -357,7 +483,7 @@ class Funcoes:
             nonlocal index, encerrar, index_contador
 
             if valor_atualizar == 0:
-                index = (index + 1) % len(texto)  # avança e volta ao início
+                index = (index + 1) % len(texto)
                 encerrar += 1
                 index_contador += 1
             else:
@@ -365,218 +491,290 @@ class Funcoes:
                 encerrar -= 1
                 index_contador -= 1
 
-            logica.view.controles['lbl_slide_atual'].config(text=f"{index_contador} / {total}")
-            # label.config(text=texto[index])
-
-            logica.view.controles['lbl_slide_visual'].config(text=texto[index])
+            # Substituído .config() por .setText()
+            self.logica_slide_control.view.controles["lbl_slide_atual"].setText(
+                f"{index_contador} / {total}"
+            )
+            self.logica_slide_control.view.controles["lbl_slide_visual"].setText(
+                texto[index]
+            )
 
             if (index + 1) < len(texto):
-                logica.view.controles['lbl_slide_preview'].config(text=texto[index + 1])
+                self.logica_slide_control.view.controles[
+                    "lbl_slide_preview"
+                ].setText(texto[index + 1])
             else:
-                logica.view.controles['lbl_slide_preview'].config(text="")
+                self.logica_slide_control.view.controles[
+                    "lbl_slide_preview"
+                ].setText("")
 
             match slide:
                 case "biblia":
-                    codigo_html = justificar_texto(texto[index], tamanho_letra_slide)
-                    frame_html.load_html(codigo_html)
+                    if hasattr(self, "frame_html") and self.frame_html:
+                        # Prepara e limpa o texto para evitar quebras de sintaxe no JavaScript
+                        texto_formatado = texto[index].replace('\n', '<br>').upper()
+                        texto_js = texto_formatado.replace("\\", "\\\\").replace("'", "\\'").replace('"', '\\"')
+
+                        # Injeta a alteração diretamente no DOM sem recarregar o navegador
+                        script = f"document.getElementById('conteudo-slide').innerHTML = '{texto_js}';"
+                        self.frame_html.page().runJavaScript(script)
 
                     if encerrar < 1 or encerrar > len(texto):
-                        logica.fechar('janela_slide')
+                        self.visual_slide_projecao.close()
+                        self.visual_slide_control.close()
+                        # self.fechar("janela_slide")
                 case _:
-                    view.controles['lbl_titulo'].config(
-                        text=f"{texto[0].replace("\n", " - ")} - {index} / {total} ")
-                    view.controles['lbl_texto'].config(text=texto[index].upper())
+                    titulo_fmt = (
+                        f"{texto[0].replace('\n', ' - ')} - {index} / {total} "
+                    )
+                    self.visual_slide_projecao.controles["lbl_titulo"].setText(titulo_fmt)
+                    self.visual_slide_projecao.controles["lbl_texto"].setText(texto[index].upper())
 
                     if encerrar < 1 or encerrar > (len(texto) - 1):
-                        logica.fechar('janela_slide')
+                        self.visual_slide_projecao.close()
+                        self.visual_slide_control.close()
 
-    # --- Abrir janela slide view ---
+        # Exibe a janela de controle do operador
+        self.visual_slide_control.show()
+
+    # --- Abrir janela slide view (Projeção) ---
     def abrir_janela_slide_view(self, second, tamanho_letra_slide):
-        # --- Variável ---
-        global frame_html
-
-        # 1. Cria a parte visual
-        visual_slide = JanelaSlideView(self.view.controles['janela_slide'], second)
-
-        # 2. Cria a lógica e passa a visão para ela controlar
-        logica_slide = Funcoes(visual_slide)
+        self.visual_slide_projecao = JanelaSlideView(second=second)
+        self.logica_slide_projecao = Funcoes(self.visual_slide_projecao)
 
         codigo_html = justificar_texto(texto[verso], tamanho_letra_slide)
-        logica_slide.view.controles['frame_html'].load_html(codigo_html)
-        frame_html = logica_slide.view.controles['frame_html']
+
+        self.frame_html = self.logica_slide_projecao.view.controles["frame_html"]
+        self.frame_html.setHtml(codigo_html)
+
+        if second is not None:
+            geo = second.geometry()
+            self.visual_slide_projecao.setGeometry(geo.x(), geo.y(), geo.width(), geo.height())
+
+        # Exibe a projeção sem chamar o activateWindow() para não roubar o foco da janela do operador
+        self.visual_slide_projecao.showFullScreen()
 
     # --- Abrir janela slide lirics ---
     def abrir_slide_lirics(self, titulo, texto_slide):
         # --- Inicialização ---
         first, second = identificar_monitor()
 
-        largura = second.width / 2
+        largura = 0
+        if second is not None:
+            geo = second.geometry()
+            largura = geo.width() / 2
 
         borda_texto = int(largura * 0.1)
 
         # 1. Cria a parte visual
-        visual = JanelaSlideViewLirics(self.view.controles['janela_slide'], second)
+        visual_slide_projecao = JanelaSlideViewLirics(self.view, second)
+        logica_slide_projecao = Funcoes(visual_slide_projecao)
 
-        # 2. Cria a lógica e passa a visão para ela controlar
-        logica = Funcoes(visual)
+        # --- Ajuste do Título ---
+        lbl_titulo = logica_slide_projecao.view.controles['lbl_titulo']
+        lbl_titulo.setText(str(titulo))
+        lbl_titulo.setFont(QFont("Arial", 22, QFont.Weight.Bold))
+        lbl_titulo.setStyleSheet("background-color: black; color: white;")
 
-        logica.view.controles['lbl_titulo'].config(
-            #text="Hino - 250 1/5",
-            text=f"{titulo}",
-            bg="black",
-            fg="white",
-            font=("Arial", 20, "bold")
-        )
-        logica.view.controles['lbl_titulo'].pack(pady=(50,0))
+        #logica_slide_projecao.view.controles['lbl_titulo'].pack(pady=(50,0))
 
-        logica.view.controles['janela_slide_view_lirics'].config(bg="black")
-        logica.view.controles['lbl_texto'].config(text=texto_slide.upper())
+        #logica_slide_projecao.view.controles['janela_slide_view_lirics'].config(bg="black")
+        # --- Ajuste da Letra ---
+        lbl_texto = logica_slide_projecao.view.controles['lbl_texto']
+        lbl_texto.setText(texto_slide.upper())
+        lbl_texto.setWordWrap(True)
+        lbl_texto.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        logica.view.controles['lbl_texto'].config(
-            anchor="n",
-            bg="black",
-            fg="white",
-            font=("Arial", int(second.height * 0.064), "bold"),
-            wraplength=second.width - borda_texto)
-        logica.view.controles['lbl_texto'].pack(pady=(0,0))
+        # Cálculo dinâmico do tamanho da fonte com base na altura do monitor
+        alt_monitor = second.geometry().height() if hasattr(second, "geometry") else second.height
+        tamanho_fonte = int(alt_monitor * 0.064)
 
-        return logica.view
+        lbl_texto.setFont(QFont("Arial", tamanho_fonte, QFont.Weight.Bold))
+        lbl_texto.setStyleSheet("background-color: black; color: white;")
+
+        return logica_slide_projecao.view
 
     # --- Abrir janela música
     def abrir_janela_musica(self):
         # 1. Cria a parte visual
-        visual_musica = JanelaMusica(self.view.controles['janela_principal'])
+        visual_musica = JanelaMusica(self.view)
 
         # 2. Cria a lógica e passa a visão para ela controlar
         logica_slide = Funcoes(visual_musica)
+
+        visual_musica.show()
 
     # --- Abrir janela de logs ---
     def abrir_janela_logs(self):
         global janela_logs_aberta
         # 1. Cria a parte visual
-        visual = JanelaLogs(self.view.controles['janela_principal'])
+        visual = JanelaLogs(self.view)
 
         # 2. Cria a lógica e passa a visão para ela controlar
         logica = Funcoes(visual)
 
         janela_logs_aberta = True
-        logica.view.controles['janela_logs'].wait_window()
+        visual.exec()
         janela_logs_aberta = False
 
     # --- Comandos da Janela Principal ---
-    def atualizar_pastas_biblia(self, event=None):
-        filtrar_texto = self.view.controles['filtro_livro_txt'].get().lower()
-        filtrado = [f for f in estilo.TODAS_PASTAS if filtrar_texto in f.lower()]
-        self.view.controles['pastas_cb'].configure(values=filtrado)
+    def atualizar_pastas_biblia(self, texto_filtro=""):
+        # Obtém o texto do filtro (caso a função seja chamada manualmente sem argumento)
+        if not isinstance(texto_filtro, str):
+            texto_filtro = self.view.controles['filtro_livro_txt'].text()
+
+        filtrar_texto = remover_acentos(texto_filtro.lower())
+        filtrado = [f for f in config.TODAS_PASTAS if filtrar_texto in remover_acentos(f.lower())]
+
+        combo_pastas = self.view.controles['pastas_cb']
+
+        # Bloqueia temporariamente os sinais para evitar chamadas de eventos em cadeia ao limpar/adicionar
+        combo_pastas.blockSignals(True)
+        combo_pastas.clear()
+        combo_pastas.addItems(filtrado)
+        combo_pastas.blockSignals(False)
 
         if filtrado:
-            self.view.controles['pastas_cb'].set(filtrado[0])
+            combo_pastas.setCurrentIndex(0)
             self.atualizar_arquivos_biblia()
 
-    def atualizar_arquivos_biblia(self, event=None):
-        selecionar_pasta = self.view.controles['pastas_cb'].get()
-        texto_filtrado = self.view.controles['filtro_capitulo_txt'].get().lower()
-        pasta_caminho = str(os.path.join(dados.biblia_dir, selecionar_pasta))
+    def atualizar_arquivos_biblia(self, texto_selecionado=None):
+        selecionar_pasta = self.view.controles['pastas_cb'].currentText()
+
+        # Se nenhuma pasta estiver selecionada (ex: combobox vazia), interrompe a execução
+        if not selecionar_pasta:
+            return
+
+        texto_filtrado = self.view.controles['filtro_capitulo_txt'].text().lower()
+        pasta_caminho = os.path.join(dados.biblia_dir, selecionar_pasta)
 
         if os.path.isdir(pasta_caminho):
             arquivos = [f for f in os.listdir(pasta_caminho) if os.path.isfile(os.path.join(pasta_caminho, f))]
-            arquivos = sorted(arquivos, key=lambda x: str(x).lower())  # ordena ignorando maiúsculas/minúsculas
-            arquivos_sem_ext = [os.path.splitext(f)[0] for f in arquivos]
+            arquivos = sorted(arquivos, key=lambda x: x.lower())  # ordena ignorando maiúsculas/minúsculas
 
             if texto_filtrado:
                 arquivos = [f for f in arquivos if texto_filtrado in f.lower()]
-                arquivos_sem_ext = [os.path.splitext(f)[0] for f in arquivos]
 
-            if arquivos_sem_ext != "":
-                self.view.controles['arquivo_cb'].configure(values=arquivos_sem_ext)
+            arquivos_sem_ext = [os.path.splitext(f)[0] for f in arquivos]
 
-            if arquivos:
-                self.view.controles['arquivo_cb'].set(arquivos_sem_ext[0])
+            combo_arquivo = self.view.controles['arquivo_cb']
+
+            # Bloqueia temporariamente os sinais para evitar chamadas de eventos em cadeia ao limpar e recarregar
+            combo_arquivo.blockSignals(True)
+            combo_arquivo.clear()
+
+            if arquivos_sem_ext:
+                combo_arquivo.addItems(arquivos_sem_ext)
+                combo_arquivo.setCurrentIndex(0)
+
+            combo_arquivo.blockSignals(False)
 
         self.atualizar_versiculos()
 
     def atualizar_versiculos(self, event=None):
-        caminho = os.path.join(dados.biblia_dir, self.view.controles['pastas_cb'].get(), self.view.controles['arquivo_cb'].get())
+        caminho = os.path.join(dados.biblia_dir, self.view.controles['pastas_cb'].currentText(), self.view.controles['arquivo_cb'].currentText())
         contar = dados.carregar_texto(caminho + ".txt", dados.biblia_dir)
 
         # Gera "Versículo 1,Versículo 2,Versículo 3..." direto pela quantidade de itens
-        versiculo = ",".join([f"Versículo {i}" for i in range(1, len(contar) + 1)])
+        versiculo = [f"Versículo {i}" for i in range(1, len(contar) + 1)]
 
-        self.view.controles['versiculo_cb'].configure(values=versiculo.split(","))
-        versiculo_valores = self.view.controles['versiculo_cb'].cget('values')
-        self.view.controles['versiculo_cb'].set(versiculo_valores[0])
+        #combo_versiculo = self.view.controles['versiculo_cb']
+        self.view.controles['versiculo_cb'].clear()
+        self.view.controles['versiculo_cb'].addItems(versiculo)
+        self.view.controles['versiculo_cb'].setCurrentIndex(0)
 
     def atualizar_hora(self):
         agora = datetime.now()
         hora_formatada = agora.strftime("%H:%M:%S")
-        self.view.controles['label_relogio'].config(text=hora_formatada)
-        self.view.controles['janela_slide'].after(1000, self.atualizar_hora)  # chama a função novamente após 1000 ms (1 segundo)
+        self.view.controles['label_relogio'].setText(hora_formatada)
 
     def fechar(self, nome):
         self.view.controles[nome].destroy()
 
-    def acao_enter(self, event, slide, janela):
-        if event.keysym in ("Return", "KP_Enter"):
-            if slide == "localizar":
-                self.localizar_arquivo()
-            else:
-                self.abrir_janela_slide(slide, janela)
+    def acao_enter(self, slide):
+        if slide == "localizar":
+            self.localizar_arquivo()
+        else:
+            self.abrir_janela_slide(slide)
 
     def filtrar_lista_harpa(self, event=None):
-        texto_harpa = self.view.controles['filtro_harpa_txt'].get().lower()
-        filtrados = [f for f in estilo.LISTA_COMPLETA if texto_harpa in f.lower()]
-        self.view.controles['arquivo_harpa_cb'].configure(values=filtrados)
+        global lista_completa
+        texto_harpa = self.view.controles['filtro_harpa_txt'].text().lower()
+        filtrados = [f for f in lista_completa if texto_harpa in f.lower()]
+        self.view.controles['arquivo_harpa_cb'].clear()
+        self.view.controles['arquivo_harpa_cb'].addItems(filtrados)
 
         if filtrados:
-            self.view.controles['arquivo_harpa_cb'].set(filtrados[0])
+            self.view.controles['arquivo_harpa_cb'].setCurrentIndex(0)
 
     def filtrar_lista_musicas(self, event=None):
-        texto_musicas = self.view.controles['filtro_musica_txt'].get().lower()
-        filtrados = [f for f in estilo.LISTA_MUSICAS if texto_musicas in f.lower()]
-        self.view.controles['musica_cb'].configure(values=filtrados)
+        global lista_musicas
+        texto_musicas = self.view.controles['filtro_musica_txt'].text().lower()
+        filtrados = [f for f in lista_musicas if remover_acentos(texto_musicas) in remover_acentos(f.lower())]
+        self.view.controles['musica_cb'].clear()
+        self.view.controles['musica_cb'].addItems(filtrados)
         if filtrados:
-            self.view.controles['musica_cb'].set(filtrados[0])
+            self.view.controles['musica_cb'].setCurrentIndex(0)
 
     def carregar_arquivos_harpa(self):
+        global lista_completa
         arquivos = os.listdir(dados.harpa_dir)
         arquivos = [f for f in arquivos if os.path.isfile(os.path.join(dados.harpa_dir, f))]
         arquivos = sorted(arquivos, key=lambda x: str(x).lower()) # ordena ignorando maiúsculas/minúsculas
         arquivos_sem_ext = [os.path.splitext(f)[0] for f in arquivos]
-        estilo.LISTA_COMPLETA = arquivos_sem_ext
-        self.view.controles['arquivo_harpa_cb'].configure(values=arquivos_sem_ext)
+        lista_completa = arquivos_sem_ext
+        combo_arquivo = self.view.controles['arquivo_harpa_cb']
+        combo_arquivo.clear()
+        combo_arquivo.addItems(arquivos_sem_ext)
 
         if arquivos:
-            self.view.controles['arquivo_harpa_cb'].set(arquivos_sem_ext[0])
+            self.view.controles['arquivo_harpa_cb'].setCurrentIndex(0)
 
     def selecionar_arquivo(self, janela):
-        messagebox.showinfo("Aviso", "Selecione o arquivo de texto .txt", parent=janela)
-        arquivo = filedialog.askopenfilename(parent=janela, title="Selecione um arquivo de texto",
-                                             filetypes=[("Arquivos de texto", "*.txt"),
-                                                        ("Todos os arquivos", "*.*")])
+        # Obtém o caminho dinâmico da pasta Documentos do usuário atual
+        pasta_documentos = QStandardPaths.writableLocation(
+            QStandardPaths.StandardLocation.DocumentsLocation
+        )
+
+        # Exibe a mensagem de aviso
+        QMessageBox.information(
+            janela, "Aviso", "Selecione o arquivo de texto .txt"
+        )
+
+        # Abre a caixa de diálogo iniciando na pasta Documentos
+        arquivo, _ = QFileDialog.getOpenFileName(
+            janela,
+            "Selecione um arquivo de texto",
+            pasta_documentos,  # Define o diretório inicial
+            "Arquivos de texto (*.txt);;Todos os arquivos (*.*)",
+        )
+
         if arquivo:
-            shutil.copy(arquivo, estilo.musicas_dir)
+            shutil.copy(arquivo, config.MUSICAS_DIR)
             self.carregar_arquivos_musicas()
 
     def carregar_arquivos_musicas(self):
-        arquivos = os.listdir(estilo.musicas_dir)
-        arquivos = [f for f in arquivos if os.path.isfile(os.path.join(estilo.musicas_dir, f))]
+        global lista_musicas
+        arquivos = os.listdir(config.MUSICAS_DIR)
+        arquivos = [f for f in arquivos if os.path.isfile(os.path.join(config.MUSICAS_DIR, f))]
         arquivos = sorted(arquivos, key=lambda x: str(x).lower())  # ordena ignorando maiúsculas/minúsculas
         arquivos_sem_ext = [os.path.splitext(f)[0] for f in arquivos]
-        estilo.LISTA_MUSICAS = arquivos_sem_ext
-        self.view.controles['musica_cb'].configure(values=arquivos_sem_ext)
-        self.view.controles['musica_cb'].set(arquivos_sem_ext[0])
+        lista_musicas = arquivos_sem_ext
+        self.view.controles['musica_cb'].clear()
+        self.view.controles['musica_cb'].addItems(arquivos_sem_ext)
+        self.view.controles['musica_cb'].setCurrentIndex(0)
 
     def localizar_arquivo(self):
-        busca = self.view.controles['buscar_texto_cb'].get()
+        busca = self.view.controles['buscar_texto_cb'].currentText()
         if busca == "Bíblia":
             pasta_raiz = dados.biblia_dir
         elif busca == "Harpa":
             pasta_raiz = dados.harpa_dir
         else:
-            pasta_raiz = estilo.musicas_dir
+            pasta_raiz = config.MUSICAS_DIR
 
         # Normaliza e converte para minúsculas o termo pesquisado
-        termo_busca = remover_acentos(self.view.controles['buscar_texto_txt'].get().lower())
+        termo_busca = remover_acentos(self.view.controles['buscar_texto_txt'].text().lower())
 
         resultado = ""
         for raiz, pastas, arquivos in os.walk(pasta_raiz):
@@ -598,8 +796,7 @@ class Funcoes:
                         caminho_erro = gerar_arquivo_log()
                         registrar_log(caminho_erro, f"Erro ao ler o arquivo {caminho_completo}: {e}")
 
-        self.view.controles['text_area'].delete("1.0", tk.END)
-        self.view.controles['text_area'].insert("1.0", resultado.replace(".txt", ""))
+        self.view.controles['text_area'].setText(resultado.replace(".txt", ""))
 
     def fechar_janelas(self, janela):
         global janela_logs_aberta
@@ -613,5 +810,28 @@ class Funcoes:
         except Exception:
             pass
 
-    def abrir_pasta_musica(self):
-        pass
+    def visitar_site(self=None):
+        pagina = "https://github.com/YannickFigueira"
+
+        # Instancia a caixa de mensagem do PyQt6
+        msg_box = QMessageBox(self.view)
+        msg_box.setWindowTitle("Sobre")
+        msg_box.setText(
+            f"<b>{config.NOME_PROGRAMA} {config.VERSION}</b><br>"
+            f"Desenvolvedor: YannickFigueira<br>"
+            f"chronostimeinchain@gmail.com<br><br>"
+            f"Deseja visitar a página?"
+        )
+        msg_box.setIcon(QMessageBox.Icon.Information)
+
+        # Configura os botões em português
+        btn_sim = msg_box.addButton("Sim", QMessageBox.ButtonRole.YesRole)
+        btn_nao = msg_box.addButton("Não", QMessageBox.ButtonRole.NoRole)
+
+        msg_box.setDefaultButton(btn_sim)
+        msg_box.exec()
+
+        # Verifica qual botão foi clicado
+        if msg_box.clickedButton() == btn_sim:
+            # Abre a URL (usando QDesktopServices ou webbrowser.open)
+            QDesktopServices.openUrl(QUrl(pagina))

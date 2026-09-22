@@ -1,31 +1,39 @@
-import platform
-import tkinter as tk
+import sys
+from PyQt6.QtCore import Qt
+from PyQt6.QtWebEngineWidgets import QWebEngineView
+from PyQt6.QtWidgets import QDialog, QVBoxLayout
 
-from tkinterweb import HtmlFrame
+class JanelaSlideView(QDialog):
+    def __init__(self, parent=None, second=None):
+        super().__init__(parent)
 
-
-class JanelaSlideView:
-    def __init__(self, janela_slide, second):
-        self.janela_slide_view = tk.Toplevel(janela_slide)
-        self.janela_slide_view.geometry(f"{second.width}x{second.height}+{second.x}+{second.y}")
-        self.janela_slide_view.attributes("-fullscreen", True)
-
-        self.nome_janela = "janela-slide-view"  # Identificador para o seu controlador
-        # Maximiza a janela após abrir e remove barra de título
-        if not platform.system() == "Windows":
-            self.janela_slide_view.overrideredirect(True)
-        else:
-            janela_slide.focus_force()
-            self.janela_slide_view.attributes("-topmost", True)  # força ficar na frente
-
+        self.nome_janela = "janela-slide-view"
         self.controles = {}
+
+        # Remove bordas e fixa como janela de topo
+        self.setWindowFlags(
+            Qt.WindowType.FramelessWindowHint | Qt.WindowType.WindowStaysOnTopHint
+        )
 
         self._criar_layout()
 
+        if second is not None:
+            geo = second.geometry()
+            self.setGeometry(geo.x(), geo.y(), geo.width(), geo.height())
+
     def _criar_layout(self):
-        # --- Controles ---
-        self.frame_html = HtmlFrame(self.janela_slide_view)
-        self.frame_html.pack(expand=True, fill="both")
-        self.frame_html.propagate(False)  # impede que o frame se ajuste ao conteúdo
+        # Layout principal da janela
+        layout_principal = QVBoxLayout(self)
+        layout_principal.setContentsMargins(0, 0, 0, 0)
+        layout_principal.setSpacing(0)
+
+        # QWebEngineView é o equivalente ao HtmlFrame do tkinterweb
+        self.frame_html = QWebEngineView(self)
+
+        # Define a cor de fundo inicial do WebView para preto para evitar um "flash" branco na inicialização
+        self.frame_html.setStyleSheet("background-color: black;")
+
+        layout_principal.addWidget(self.frame_html)
+
+        # Mapeia nos controles como antes
         self.controles['frame_html'] = self.frame_html
-        

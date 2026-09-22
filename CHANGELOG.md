@@ -1,15 +1,32 @@
 # Changelog
-### [v0.7.6] - 2026-09-18
-## Removido
+
+## [0.8.6] - 2026-09-07
+### Added
+- Reescrita completa da interface e lógica do projeto utilizando **PyQt6**
+
+### Changed
+- Atualização e modernização dos controles e widgets da interface gráfica
+- Refatoração estrutural do código para compatibilidade com o novo framework
+
+### Fixed
+- Ajustes finos nos controles de exibição e layout dos slides
+- Reparos internos de estabilidade decorrentes da migração
+
+## Removed
 - Hino 141, removido ultima estrofe repetida
 
-### [v0.7.5] - 2026-09-01
-## Changes
+## Adjusted
+- Aumentado um pouco o tamanho da letra do título dos Hinos
+
+---
+
+## [0.7.5] - 2026-09-01
+### Changed
 - Modificado visual para um mais moderno
 - Criado novo slide para os Hinos e músicas com o título e quantidade de estrófes
 - Aumentado o padding do topo
 - Ajustado o tamanho da letra para a nova configuração
-- Adicionado janela_logs.py
+- Adicionado `janela_logs.py`
 - Adicionado menu para abrir a pasta das músicas para editar e excluir
 
 ### Fixed
@@ -18,25 +35,25 @@
 
 ---
 
-### [v0.6.4] - 2026-08-05
-## Changes
+## [0.6.4] - 2026-08-05
+### Changed
 - Criado pasta para organizar as músicas
 - Adicionado janela para músicas
-- Adicionado Músicas a busca
+- Adicionado Músicas à busca
 
-## Fixed
+### Fixed
 - Melhorado verificação dos monitores para visualizar no segundo monitor correto
 
 ---
 
-### [v0.5.3] - 2026-07-05
-## Changes
+## [0.5.3] - 2026-07-05
+### Changed
 - Alterado para verificar a quantidade de monitores ao iniciar o slide
 
 ---
 
-### [v0.5.2] - 2026-06-28
-## Changes
+## [0.5.2] - 2026-06-28
+### Changed
 - Reescrito código para melhor manutenção
 - Ajustado padding-top
 
@@ -86,7 +103,7 @@
 ### Fixed
 - Verificado todo o livro do Apocalipse
 
-### Changes
+### Changed
 - Adicionado no menu notas da versão para visualizar
 
 ---
@@ -95,7 +112,7 @@
 ### Fixed
 - Ajustado tamanho da janela principal
 
-### Changes
+### Changed
 - Configurado para funcionar no Windows
 - Adicionado barra de menus
 - Movido verificação de atualização do botão para a barra de menu
@@ -114,15 +131,15 @@
 - Corrigido ajuste da quebra de linha que deixou o texto no meio da tela com resolução maior
 - Pequenas melhorias no código
 
-### Changes
+### Changed
 - Adicionado relógio na primeira tela do slide
 
 ---
 
 ## [0.3.3] - 2026-04-06
-### Changes
+### Changed
 - Pré-configurado lista dos livros, colocado em ordem
-- Removido .txt de aparecer na lista
+- Removido `.txt` de aparecer na lista
 - Colocado nova pasta da Bíblia para funcionar
 - Adicionado controle para selecionar versículo
 
@@ -135,7 +152,7 @@
 - Padronizado título dos hinos
 - Corrigido filtro dos capítulos, que filtrava os Livros juntos
 
-### Changes
+### Changed
 - Ajustado tamanho da janela ao iniciar
 
 ---
@@ -144,7 +161,7 @@
 ### Fixed
 - Ajustado preview do slide para não ir para a segunda tela
 
-### Changes
+### Changed
 - Adicionado cor ao fundo
 - Adicionado contador para os slides
 - Modificado ajuste de resolução para ficar direto em fullscreen
@@ -159,13 +176,13 @@
 - Hino 485 Colocado Coro em ordem
 - Hino 491 Coloca frase que faltava
 
-### Changes
+### Changed
 - Preparado para mudar a apresentação da bíblia em andamento
 
 ---
 
 ## [0.2.4] - 2025-12-19
-### Chages
+### Changed
 - Adicionado botão para verificar a versão do programa
 
 ### Fixed
@@ -203,5 +220,6 @@
 ---
 
 ## [0.1.0] - 2025-11-20
-### Criado programa para Data show
+### Added
+- Criado programa para Data show
 - Arquivo principal `programaigreja.py`

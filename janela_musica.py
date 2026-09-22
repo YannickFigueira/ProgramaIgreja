@@ -1,61 +1,112 @@
-import tkinter as tk
-from tkinter import ttk
-import customtkinter as ctk
+import sys
+
+from PyQt6.QtCore import Qt
+from PyQt6.QtWidgets import (
+    QApplication, QDialog, QLabel, QLineEdit,
+    QComboBox, QPushButton, QGridLayout, QMenuBar, QWidget, QVBoxLayout, QFrame, QSizePolicy
+)
+
+# Caso não tenha o arquivo no teste local, desente a linha abaixo
+from barra_titulo import BarraTituloCustomizada
 
 
-class JanelaMusica:
-    def __init__(self, janela_principal):
-        self.janela_musica = ctk.CTkToplevel(janela_principal)
-        self.janela_musica.withdraw()
-        self.janela_musica.title("Músicas Gospel")
-        self.janela_musica.resizable(False, False)
+class JanelaMusica(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+
+        # Remove a borda/barra de título padrão do SO e define como Diálogo
+        self.setWindowFlags(
+            Qt.WindowType.FramelessWindowHint | Qt.WindowType.Dialog
+        )
+        # 2. TORNA O FUNDO DO DIÁLOGO TRANSPARENTE (Remove as pontas brancas/escuras)
+        self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
+
+        self.setWindowTitle("Músicas Gospel")
+        # Aumentado para 180px para acomodar a Barra de Título + MenuBar + Formulário sem espremer os botões
+        #self.setFixedSize(400, 180)
 
         self.nome_janela = "janela-musica"
         self.controles = {}
 
-        self._criar_layout()
+        # Dicionário de controles inclui a própria janela
+        self.controles['janela_musica'] = self
+
+        # 1. Layout Raiz da Janela
+        layout_raiz = QVBoxLayout(self)
+        layout_raiz.setContentsMargins(0, 0, 0, 0)
+        layout_raiz.setSpacing(0)
+
+        # 2. Container Principal (QFrame)
+        self.container = QFrame()
+        self.container.setObjectName("ContainerPrincipal")
+        layout_raiz.addWidget(self.container)
+
+        # 3. Layout INTERNO do Container Principal
+        layout_container = QVBoxLayout(self.container)
+        layout_container.setContentsMargins(0, 0, 0, 0)
+        layout_container.setSpacing(0)
+
+        # --- A) Barra de título personalizada no topo ---
+        self.barra_titulo = BarraTituloCustomizada(self, titulo="Músicas Gospel")
+        layout_container.addWidget(self.barra_titulo)
+
+        # --- B) Barra de Menu (Inserida abaixo da barra de título) ---
         self._criar_barra_menu()
 
-        self.janela_musica.update_idletasks()
-        self.janela_musica.deiconify()
+        # --- C) Conteúdo dos Filtros e Botões ---
+        self.conteudo_widget = QWidget()
+        layout_container.addWidget(self.conteudo_widget, stretch=1)
+
+        self._criar_layout()
 
     def _criar_layout(self):
+        layout = QGridLayout(self.conteudo_widget)
+
+        layout.setContentsMargins(12, 8, 12, 12)
+        layout.setHorizontalSpacing(8)
+        layout.setVerticalSpacing(8)
+
+        # Controle de estiramento das colunas para impedir que o QLineEdit extrapole a janela
+        layout.setColumnStretch(0, 0)  # Coluna dos labels fica do tamanho exato do texto
+        layout.setColumnStretch(1, 1)  # Coluna dos campos ocupa o espaço restante
+
         linha = 0
-        link = 6
-        espacox = link
-        espacoy = link
-        # --- Controles ---
-        self.controles['janela_musica'] = self.janela_musica
 
         # Filtro das músicas
-        ctk.CTkLabel(self.janela_musica, text="Filtro da Música:").grid(row=linha, column=0, padx=espacox, pady=espacoy,
-                                                                       sticky="w")
-        self.filtro_musica_txt = ctk.CTkEntry(self.janela_musica, width=300)
-        self.filtro_musica_txt.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
-        self.filtro_musica_txt.focus_set()  # Define o foco inicial
+        lbl_filtro = QLabel("Filtro da Música:")
+        layout.addWidget(lbl_filtro, linha, 0)
+
+        self.filtro_musica_txt = QLineEdit()
+        self.filtro_musica_txt.setFocus()  # Define o foco inicial
+        # Define a política de expansão para se adaptar dentro da janela sem forçar estouro
+        self.filtro_musica_txt.setSizePolicy(
+            QSizePolicy.Policy.Expanding,
+            QSizePolicy.Policy.Fixed
+        )
+        layout.addWidget(self.filtro_musica_txt, linha, 1)
         self.controles['filtro_musica_txt'] = self.filtro_musica_txt
         linha += 1
 
-        # Combobox de pastas
-        ctk.CTkLabel(self.janela_musica, text="Música:").grid(row=linha, column=0, padx=espacox, pady=espacoy,
-                                                             sticky="w")
-        self.musica_cb = ctk.CTkOptionMenu(self.janela_musica)
-        self.musica_cb.grid(row=linha, column=1, padx=espacox, pady=espacoy, sticky="ew")
-        self.musica_cb._canvas.configure(takefocus=False)
+        # Combobox de músicas
+        lbl_musica = QLabel("Música:")
+        layout.addWidget(lbl_musica, linha, 0)
+
+        self.musica_cb = QComboBox()
+        self.musica_cb.setSizePolicy(
+            QSizePolicy.Policy.Expanding,
+            QSizePolicy.Policy.Fixed
+        )
+        layout.addWidget(self.musica_cb, linha, 1)
         self.controles['musica_cb'] = self.musica_cb
         linha += 1
 
         # Botão de abrir
-        self.abrir_musica_btn = ctk.CTkButton(self.janela_musica, text="Iniciar slide")
-        self.abrir_musica_btn.grid(row=linha, column=0, columnspan=2, padx=espacox, pady=espacoy, sticky="ew")
+        self.abrir_musica_btn = QPushButton("Iniciar slide")
+        self.abrir_musica_btn.setObjectName("BtnAcao")
+        layout.addWidget(self.abrir_musica_btn, linha, 0, 1, 2)
         self.controles['abrir_musica_btn'] = self.abrir_musica_btn
-        linha += 1
 
     def _criar_barra_menu(self):
-        # Criar barra de menu
-        self.barra_menu = tk.Menu(self.janela_musica)
-        self.janela_musica.config(menu=self.barra_menu)
-        # Menu Arquivos
-        self.menu_arquivo =tk.Menu(self.barra_menu, tearoff=0)
-        self.barra_menu.add_cascade(label="Arquivo", menu=self.menu_arquivo)
+        # Menu Arquivo
+        self.menu_arquivo = self.barra_titulo.adicionar_submenu("Arquivo")
         self.controles['menu_arquivo'] = self.menu_arquivo
