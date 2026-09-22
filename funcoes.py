@@ -216,7 +216,7 @@ class Funcoes:
         self.view.controles['menu_ajuda'].addAction("Verificar atualização", lambda: verificarversao.consultar_lancamento(config.REPO, config.VERSION, self.view))
         self.view.controles['menu_ajuda'].addAction("Notas da versão", lambda: abrir_logs(self.view))
         self.view.controles['menu_ajuda'].addAction("Sobre", lambda: self.visitar_site())
-        self.view.controles['menu_ajuda'].addAction("Sair", self.view.close())
+        self.view.controles['menu_ajuda'].addAction("Sair", self.view.close)
 
 
     def _vincular_janela_slide(self):
