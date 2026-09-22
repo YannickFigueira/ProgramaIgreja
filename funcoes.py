@@ -1,6 +1,8 @@
 import math
 import os
+import platform
 import shutil
+import subprocess
 import sys
 import unicodedata
 from datetime import datetime
@@ -11,12 +13,12 @@ os.environ["QTWEBENGINE_DISABLE_GPU"] = "1"
 # Força o uso do backend OpenGL/Software padronizado
 os.environ["QTWEBENGINE_CHROMIUM_FLAGS"] = "--disable-gpu --disable-software-rasterizer"
 
-from PyQt6.QtCore import QUrl, Qt, QTimer
+from PyQt6.QtCore import QUrl, Qt, QTimer, QStandardPaths
 from PyQt6.QtGui import QDesktopServices, QFont, QGuiApplication
-from PyQt6.QtWidgets import QMessageBox, QSizePolicy
+from PyQt6.QtWidgets import QMessageBox, QSizePolicy, QFileDialog
 
 import dados, config, verificarversao
-from arquivo_log import ler_pasta_log, abrir_logs, gerar_arquivo_log, registrar_log, abrir_pasta
+from arquivo_log import ler_pasta_log, abrir_logs, gerar_arquivo_log, registrar_log
 from janela_logs import JanelaLogs
 
 from janela_slide import JanelaSlide
@@ -131,6 +133,17 @@ def remover_acentos(filtro_texto):
     )
 
 
+def abrir_pasta_musica():
+    if platform.system() == "Windows":
+        # arquivo = "C:\\Programa Igreja\\doc\\CHANGELOG.md"
+        subprocess.run(["explorer", config.MUSICAS_DIR])
+    elif platform.system() == "Linux":
+        # arquivo = "/usr/share/doc/programaigreja/CHANGELOG.md"
+        subprocess.run(["xdg-open", config.MUSICAS_DIR])  # ou "gedit"
+    else:
+        print("Sistema não suportado")
+
+
 class Funcoes:
     def __init__(self, view):
         self.view = view
@@ -223,7 +236,7 @@ class Funcoes:
         self.view.controles['menu_arquivo'].addAction("Adicionar Música",
                                                         lambda: self.selecionar_arquivo(self.view))
         self.view.controles['menu_arquivo'].addAction("Abrir pasta das músicas",
-                                                        lambda: abrir_pasta(self.view))
+                                                        lambda: abrir_pasta_musica())
         # Captura qualquer tecla
         self.view.controles['filtro_musica_txt'].textChanged.connect(self.filtrar_lista_musicas)
         self.view.controles['abrir_musica_btn'].clicked.connect(lambda: self.abrir_janela_slide("musica"))
@@ -235,17 +248,16 @@ class Funcoes:
         texto_log = "\n".join([f"{item}" for item in arquivos_log])
 
         # --- Controles da Janlea Logs ---
-        self.view.controles['janela_logs'].protocol("WM_DELETE_WINDOW",
-                                                         lambda: self.fechar_janelas('janela_logs'))
 
-        self.view.controles['lbl_logs'].configure(text=texto_log)
+        self.view.controles['lbl_logs'].setText(texto_log)
         # 1. Atualiza as opções do ComboBox
-        self.view.controles['cmb_selecao'].configure(values=arquivos_log)
+        self.view.controles['cmb_selecao'].clear()
+        self.view.controles['cmb_selecao'].addItems(arquivos_log)
 
         # 2. Define o valor selecionado usando o funcao .set()
         if arquivos_log:
-            self.view.controles['cmb_selecao'].set(arquivos_log[0])
-        self.view.controles['btn_abrir_logs'].configure(command=lambda: abrir_logs(self.view))
+            self.view.controles['cmb_selecao'].setCurrentIndex(0)
+        self.view.controles['btn_abrir_logs'].clicked.connect(lambda: abrir_logs(self.view))
 
     # --- Inicialização das janelas ---
     # --- Iniciar janela slide ---
@@ -587,13 +599,13 @@ class Funcoes:
     def abrir_janela_logs(self):
         global janela_logs_aberta
         # 1. Cria a parte visual
-        visual = JanelaLogs(self.view.controles['janela_principal'])
+        visual = JanelaLogs(self.view)
 
         # 2. Cria a lógica e passa a visão para ela controlar
         logica = Funcoes(visual)
 
         janela_logs_aberta = True
-        logica.view.controles['janela_logs'].wait_window()
+        visual.exec()
         janela_logs_aberta = False
 
     # --- Comandos da Janela Principal ---
@@ -788,9 +800,6 @@ class Funcoes:
             self.view.controles[f'{janela}'].destroy()
         except Exception:
             pass
-
-    def abrir_pasta_musica(self):
-        pass
 
     def visitar_site(self=None):
         pagina = "https://github.com/YannickFigueira"

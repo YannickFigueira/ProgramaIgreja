@@ -3,44 +3,28 @@ import subprocess
 import threading
 from datetime import datetime
 
-import config
-
+from config import LOG_FILES_DIR
 
 def abrir_logs(view):
     t = threading.Thread(target=abrir_arquivo, args=(view,), daemon=True)
     t.start()
 
 def abrir_arquivo(view):
-    arquivo = view.controles['cmb_selecao'].get()
+    arquivo = view.controles['cmb_selecao'].currentText()
     if platform.system() == "Windows":
         # arquivo = "C:\\Programa Igreja\\doc\\CHANGELOG.md"
-        subprocess.run(["notepad", config.LOG_FILES_DIR / arquivo])
+        subprocess.run(["notepad", LOG_FILES_DIR / arquivo])
     elif platform.system() == "Linux":
         # arquivo = "/usr/share/doc/programaigreja/CHANGELOG.md"
-        subprocess.run(["xdg-open", config.LOG_FILES_DIR / arquivo])  # ou "gedit"
-    else:
-        print("Sistema não suportado")
-
-
-def abrir_pasta(view):
-    t = threading.Thread(target=abrir_pasta_musica, args=(view,), daemon=True)
-    t.start()
-
-def abrir_pasta_musica(view):
-    if platform.system() == "Windows":
-        # arquivo = "C:\\Programa Igreja\\doc\\CHANGELOG.md"
-        subprocess.run(["explorer", config.MUSICAS_DIR])
-    elif platform.system() == "Linux":
-        # arquivo = "/usr/share/doc/programaigreja/CHANGELOG.md"
-        subprocess.run(["xdg-open", config.MUSICAS_DIR])  # ou "gedit"
+        subprocess.run(["xdg-open", LOG_FILES_DIR / arquivo])  # ou "gedit"
     else:
         print("Sistema não suportado")
 
 def gerar_arquivo_log():
     # Gera o nome dinâmico do arquivo
-    config.LOG_FILES_DIR.mkdir(exist_ok=True)
+    LOG_FILES_DIR.mkdir(exist_ok=True)
     nome_arquivo = f"{datetime.now():%Y%m%d_%H%M}.log"
-    caminho_log = config.LOG_FILES_DIR / nome_arquivo
+    caminho_log = LOG_FILES_DIR / nome_arquivo
 
     return caminho_log
 
@@ -55,10 +39,10 @@ def registrar_log(caminho_log, mensagem):
         arquivo.write(f"[{timestamp}] {mensagem}\n")
 
 def ler_pasta_log():
-    #global log_files
+    #global LOG_FILES_DIR
     # reverse=True garante do mais recente para o mais antigo
     logs_ordenados = sorted(
-        [item for item in config.LOG_FILES_DIR.rglob("*.log") if item.is_file()],
+        [item for item in LOG_FILES_DIR.rglob("*.log") if item.is_file()],
         key=lambda item: item.stat().st_mtime,
         reverse=True
     )
@@ -66,13 +50,13 @@ def ler_pasta_log():
     return [item.name for item in logs_ordenados]
 
 def limpar_logs(limite=10):
-    if not config.LOG_FILES_DIR.exists():
+    if not LOG_FILES_DIR.exists():
         return
 
     # 1. Coleta todos os arquivos .log e ordena pelo mais antigo primeiro
     # Como o padrão do seu nome é AAAAMMDD_HHMM.log, a ordenação por nome/mtime funciona perfeitamente
     arquivos_log = sorted(
-        [f for f in config.LOG_FILES_DIR.glob("*.log") if f.is_file()],
+        [f for f in LOG_FILES_DIR.glob("*.log") if f.is_file()],
         key=lambda item: item.stat().st_mtime
     )
 
