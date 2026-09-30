@@ -6,7 +6,6 @@ import subprocess
 import sys
 import unicodedata
 from datetime import datetime
-from tkinter import messagebox, filedialog
 
 # Desativa aceleração de hardware problemática do Chromium no Linux/X11/Wayland
 os.environ["QTWEBENGINE_DISABLE_GPU"] = "1"
