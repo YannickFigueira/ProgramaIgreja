@@ -192,7 +192,6 @@ class Funcoes:
                 pass
 
         self.atualizar_pastas_biblia()
-        #self.atualizar_versiculos()
         self.carregar_arquivos_harpa()
 
         # --- Controles da Janela Principal ---
@@ -206,16 +205,11 @@ class Funcoes:
         self.view.controles['filtro_capitulo_txt'].returnPressed.connect(
             lambda: self.acao_enter("biblia")
         )
-        #self.view.controles['abrir_biblia_btn'].clicked.connect(lambda e: self.acao_enter(e, "biblia", self.view.controles['janela_principal']))
         # Captura qualquer tecla liberada
         self.view.controles['filtro_harpa_txt'].textChanged.connect(self.filtrar_lista_harpa)
         self.view.controles['abrir_harpa_btn'].clicked.connect(lambda: self.abrir_janela_slide("harpa"))
-        #self.view.controles['abrir_harpa_btn'].configure(
-        #    command=lambda: self.abrir_slide_lirics())
         # Captura especificamente o Enter
         self.view.controles['filtro_harpa_txt'].returnPressed.connect(lambda: self.acao_enter("harpa"))
-        #self.view.controles['abrir_harpa_btn'].bind("<Key>", lambda e: self.acao_enter(e, "harpa", self.view.controles['janela_principal']))
-        #self.view.controles['abrir_harpa_btn'].bind("<Key>", lambda e: self.abrir_slide_lirics())
         self.view.controles['buscar_texto_btn'].clicked.connect(lambda: self.localizar_arquivo())
         self.view.controles['buscar_texto_txt'].returnPressed.connect(lambda: self.acao_enter("localizar"))
 
@@ -321,8 +315,8 @@ class Funcoes:
                     return
 
             case "musica":
-                self.view.controles["filtro_musica_txt"].clear()
                 arquivo = self.view.controles["musica_cb"].currentText()
+                self.view.controles["filtro_musica_txt"].clear()
 
                 if arquivo:
                     caminho = os.path.join(config.MUSICAS_DIR, arquivo)
@@ -573,12 +567,9 @@ class Funcoes:
         # --- Ajuste do Título ---
         lbl_titulo = logica_slide_projecao.view.controles['lbl_titulo']
         lbl_titulo.setText(str(titulo))
-        lbl_titulo.setFont(QFont("Arial", 22, QFont.Weight.Bold))
+        lbl_titulo.setFont(QFont("Arial", 24, QFont.Weight.Bold))
         lbl_titulo.setStyleSheet("background-color: black; color: white;")
 
-        #logica_slide_projecao.view.controles['lbl_titulo'].pack(pady=(50,0))
-
-        #logica_slide_projecao.view.controles['janela_slide_view_lirics'].config(bg="black")
         # --- Ajuste da Letra ---
         lbl_texto = logica_slide_projecao.view.controles['lbl_texto']
         lbl_texto.setText(texto_slide.upper())
@@ -678,7 +669,6 @@ class Funcoes:
         # Gera "Versículo 1,Versículo 2,Versículo 3..." direto pela quantidade de itens
         versiculo = [f"Versículo {i}" for i in range(1, len(contar) + 1)]
 
-        #combo_versiculo = self.view.controles['versiculo_cb']
         self.view.controles['versiculo_cb'].clear()
         self.view.controles['versiculo_cb'].addItems(versiculo)
         self.view.controles['versiculo_cb'].setCurrentIndex(0)
