@@ -46,7 +46,7 @@ class JanelaSlideViewLirics(QDialog):
 
         # --- Layout Principal (Vertical) ---
         layout = QVBoxLayout(self)
-        layout.setContentsMargins(0, 50, 0, 0)
+        layout.setContentsMargins(20, 50, 20, 0)
         layout.setSpacing(0)
 
         # --- Label de Título ---
@@ -61,7 +61,7 @@ class JanelaSlideViewLirics(QDialog):
         self.lbl_texto = QLabel(self)
         self.lbl_texto.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.lbl_texto.setWordWrap(True)  # Quebra linha automaticamente
-        self.lbl_texto.setStyleSheet("color: white; font-weight: bold;")
+        self.lbl_texto.setStyleSheet("color: white; font-weight: bold; padding: 0px 20px;")
 
         layout.addWidget(self.lbl_texto, stretch=1)
         self.controles["lbl_texto"] = self.lbl_texto

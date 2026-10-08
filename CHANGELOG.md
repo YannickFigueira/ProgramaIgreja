@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.8.7] - 2026-10-08
+### Fixed
+- Filtro das músicas funcionando
+
+### Adjusted
+- Tamanho do título
+- Margem lateral dos Hinos e Músicas
+
 ## [0.8.6] - 2026-09-07
 ### Added
 - Reescrita completa da interface e lógica do projeto utilizando **PyQt6**
