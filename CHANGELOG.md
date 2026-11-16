@@ -1,6 +1,9 @@
 # Changelog
 
 ## [0.8.7] - 2026-10-08
+### Changed
+- Adicionado o fim em vermelho ao título dos hinos e músicas
+
 ### Fixed
 - Filtro das músicas corrigido
 - Filtro da Bíblia corrigido
@@ -8,6 +11,7 @@
 ### Adjusted
 - Tamanho do título
 - Margem lateral dos Hinos e Músicas
+- Hino 198 e 419
 
 ---
 

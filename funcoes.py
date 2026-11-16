@@ -548,8 +548,11 @@ class Funcoes:
                         self.visual_slide_control.close()
                         # self.fechar("janela_slide")
                 case _:
+                    final = ""
+                    if index == total:
+                        final = '- <span style="color: red;">FIM</span>'
                     titulo_fmt = (
-                        f"{texto[0].replace('\n', ' - ')} - {index} / {total} "
+                        f"{texto[0].replace('\n', ' - ')} - {index} / {total} {final}"
                     )
                     self.visual_slide_projecao.controles["lbl_titulo"].setText(titulo_fmt)
                     self.visual_slide_projecao.controles["lbl_texto"].setText(texto[index].upper())
