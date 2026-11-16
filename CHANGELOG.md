@@ -2,11 +2,14 @@
 
 ## [0.8.7] - 2026-10-08
 ### Fixed
-- Filtro das músicas funcionando
+- Filtro das músicas corrigido
+- Filtro da Bíblia corrigido
 
 ### Adjusted
 - Tamanho do título
 - Margem lateral dos Hinos e Músicas
+
+---
 
 ## [0.8.6] - 2026-09-07
 ### Added

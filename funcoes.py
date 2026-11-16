@@ -14,7 +14,7 @@ os.environ["QTWEBENGINE_CHROMIUM_FLAGS"] = "--disable-gpu --disable-software-ras
 
 from PyQt6.QtCore import QUrl, Qt, QTimer, QStandardPaths
 from PyQt6.QtGui import QDesktopServices, QFont, QGuiApplication
-from PyQt6.QtWidgets import QMessageBox, QSizePolicy, QFileDialog
+from PyQt6.QtWidgets import QMessageBox, QSizePolicy, QFileDialog, QApplication
 
 import dados, config, verificarversao
 from arquivo_log import ler_pasta_log, abrir_logs, gerar_arquivo_log, registrar_log
@@ -83,6 +83,7 @@ def identificar_proporcao(width, height):
     relacao = width / height
     tela16_9 = int(height *.086)
     tela4_3 = int(height *.074)
+    print(tela16_9)
     if abs(relacao - (16 / 9)) < 0.05:
         return tela16_9
     elif abs(relacao - (4 / 3)) < 0.05:
@@ -94,7 +95,6 @@ def identificar_proporcao(width, height):
     else:
         return tela16_9
 
-
 def identificar_monitor():
     telas = QGuiApplication.screens()
 
@@ -102,27 +102,48 @@ def identificar_monitor():
         return None, None
 
     first = None
+    second = None
 
-    # 1. Busca o monitor primário oficial do SO
+    # Força a busca geométrica: A tela principal é SEMPRE a que está em (0, 0)
     for t in telas:
         geo = t.geometry()
-        # No Qt, testamos t.isPrimary() ou a origem X=0, Y=0
-        if t == QGuiApplication.primaryScreen() or (geo.x() == 0 and geo.y() == 0):
+        if geo.x() == 0 and geo.y() == 0:
             first = t
             break
 
-    # Fallback se não encontrar a origem
+    # Fallback caso nenhuma esteja em (0, 0)
     if not first:
         first = telas[0]
 
-    # 2. Identifica o monitor secundário
-    if len(telas) > 1:
-        outros = [t for t in telas if t != first]
-        second = outros[0] if outros else telas[1]
-    else:
-        second = first
+    # A segunda tela será a outra da lista
+    outros = [t for t in telas if t != first]
+    second = outros[0] if outros else first
 
     return first, second
+
+
+def diagnosticar_telas():
+    # O QGuiApplication exige uma instância de QApplication ativa
+    if not QGuiApplication.instance():
+        app = QApplication(sys.argv)
+
+    telas = QGuiApplication.screens()
+    primary = QGuiApplication.primaryScreen()
+    print(f"--- Total de telas detectadas: {len(telas)} ---")
+
+    for i, t in enumerate(telas):
+        # Verifica se é a tela primária comparando com a API do Qt
+        is_primary = (t == primary)
+
+        print(f"Tela [{i}]:")
+        print(f"  - Nome: {t.name()}")
+        print(f"  - Geometria: {t.geometry()}")
+        print(f"  - Área útil (Available): {t.availableGeometry()}")
+        print(f"  - É a primária?: {is_primary}")
+        print(f"  - Densidade de pixels (DPI): {t.devicePixelRatio()}")
+        print("-" * 30)
+
+#diagnosticar_telas()
 
 def remover_acentos(filtro_texto):
     """Remove acentos e caracteres especiais do texto."""
@@ -264,25 +285,40 @@ class Funcoes:
     # --- Inicialização das janelas ---
     # --- Iniciar janela slide ---
     def abrir_janela_slide(self, slide):
+        print("Execução")
         global inicio, total, texto, verso
 
         match slide:
             case "biblia":
-                pasta_selecionada = self.view.controles["pastas_cb"].currentText()
-                arquivo_selecionado = self.view.controles[
-                    "arquivo_cb"
-                ].currentText()
+                combo_pasta = self.view.controles["pastas_cb"]
+                combo_arquivo = self.view.controles["arquivo_cb"]
+                combo_pasta.blockSignals(True)
+                combo_arquivo.blockSignals(True)
+                pasta_selecionada = combo_pasta.currentText()
+                arquivo_selecionado = combo_arquivo.currentText()
+                #print(pasta_selecionada)
+                #print(arquivo_selecionado)
                 pasta_caminho_new = os.path.join(
                     dados.biblia_dir, pasta_selecionada, arquivo_selecionado
                 )
+                #print(pasta_caminho_new)
                 texto = dados.carregar_texto(
                     pasta_caminho_new + ".txt", dados.biblia_dir
                 )
+                combo_pasta.blockSignals(False)
+                combo_arquivo.blockSignals(False)
                 inicio = self.view.controles["versiculo_cb"].currentIndex() + 1
 
                 # Limpa os campos de filtro
-                self.view.controles["filtro_livro_txt"].clear()
-                self.view.controles["filtro_capitulo_txt"].clear()
+                filtro_livro = self.view.controles["filtro_livro_txt"]
+                filtro_capitulo = self.view.controles["filtro_capitulo_txt"]
+                filtro_livro.blockSignals(True)
+                filtro_capitulo.blockSignals(True)
+                filtro_livro.clear()
+                filtro_capitulo.clear()
+                filtro_capitulo.clear()
+                filtro_livro.blockSignals(False)
+                filtro_capitulo.blockSignals(False)
                 total = len(texto)
                 verso = inicio - 1
 
@@ -629,7 +665,8 @@ class Funcoes:
             self.atualizar_arquivos_biblia()
 
     def atualizar_arquivos_biblia(self, texto_selecionado=None):
-        selecionar_pasta = self.view.controles['pastas_cb'].currentText()
+        combo_pastas = self.view.controles['pastas_cb']
+        selecionar_pasta = combo_pastas.currentText()
 
         # Se nenhuma pasta estiver selecionada (ex: combobox vazia), interrompe a execução
         if not selecionar_pasta:
@@ -651,6 +688,7 @@ class Funcoes:
 
             # Bloqueia temporariamente os sinais para evitar chamadas de eventos em cadeia ao limpar e recarregar
             combo_arquivo.blockSignals(True)
+            combo_pastas.blockSignals(True)
             combo_arquivo.clear()
 
             if arquivos_sem_ext:
@@ -658,11 +696,13 @@ class Funcoes:
                 combo_arquivo.setCurrentIndex(0)
 
             combo_arquivo.blockSignals(False)
+            combo_pastas.blockSignals(False)
 
         self.atualizar_versiculos()
 
     def atualizar_versiculos(self, event=None):
         caminho = os.path.join(dados.biblia_dir, self.view.controles['pastas_cb'].currentText(), self.view.controles['arquivo_cb'].currentText())
+        print(caminho)
         contar = dados.carregar_texto(caminho + ".txt", dados.biblia_dir)
 
         # Gera "Versículo 1,Versículo 2,Versículo 3..." direto pela quantidade de itens
