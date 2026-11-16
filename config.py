@@ -1,7 +1,7 @@
 from pathlib import Path
 
 # --- Metadados e Versão ---
-VERSION = "v0.8.6"
+VERSION = "v0.8.7"
 REPO = "ProgramaIgreja"
 NOME_PROGRAMA = "Programa Igreja Slides"
 
