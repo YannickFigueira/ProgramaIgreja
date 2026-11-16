@@ -83,7 +83,6 @@ def identificar_proporcao(width, height):
     relacao = width / height
     tela16_9 = int(height *.086)
     tela4_3 = int(height *.074)
-    print(tela16_9)
     if abs(relacao - (16 / 9)) < 0.05:
         return tela16_9
     elif abs(relacao - (4 / 3)) < 0.05:
@@ -285,7 +284,6 @@ class Funcoes:
     # --- Inicialização das janelas ---
     # --- Iniciar janela slide ---
     def abrir_janela_slide(self, slide):
-        print("Execução")
         global inicio, total, texto, verso
 
         match slide:
@@ -296,12 +294,9 @@ class Funcoes:
                 combo_arquivo.blockSignals(True)
                 pasta_selecionada = combo_pasta.currentText()
                 arquivo_selecionado = combo_arquivo.currentText()
-                #print(pasta_selecionada)
-                #print(arquivo_selecionado)
                 pasta_caminho_new = os.path.join(
                     dados.biblia_dir, pasta_selecionada, arquivo_selecionado
                 )
-                #print(pasta_caminho_new)
                 texto = dados.carregar_texto(
                     pasta_caminho_new + ".txt", dados.biblia_dir
                 )
@@ -613,7 +608,8 @@ class Funcoes:
 
         # Cálculo dinâmico do tamanho da fonte com base na altura do monitor
         alt_monitor = second.geometry().height() if hasattr(second, "geometry") else second.height
-        tamanho_fonte = int(alt_monitor * 0.064)
+        tamanho_fonte = int(alt_monitor * 0.061)
+        print(tamanho_fonte)
 
         lbl_texto.setFont(QFont("Arial", tamanho_fonte, QFont.Weight.Bold))
         lbl_texto.setStyleSheet("background-color: black; color: white;")
@@ -702,7 +698,6 @@ class Funcoes:
 
     def atualizar_versiculos(self, event=None):
         caminho = os.path.join(dados.biblia_dir, self.view.controles['pastas_cb'].currentText(), self.view.controles['arquivo_cb'].currentText())
-        print(caminho)
         contar = dados.carregar_texto(caminho + ".txt", dados.biblia_dir)
 
         # Gera "Versículo 1,Versículo 2,Versículo 3..." direto pela quantidade de itens
